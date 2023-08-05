@@ -344,7 +344,7 @@ INSERT INTO Includes
 
 
 
-DELETE FROM PerformsAt --IGNORE: this is just so we can quickly replace any tuples
+DELETE FROM PerformsAt -- IGNORE: this is just so we can quickly replace any tuples
 WHERE artistID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 INSERT INTO PerformsAt
