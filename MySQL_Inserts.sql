@@ -1,63 +1,43 @@
+DELETE FROM IsIn;-- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Releases; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Playlist_Created; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Purchases; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Merchandise_Sold; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Includes; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM PerformsAt; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Attends; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM MusicListener; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Artist_ContractedWith; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM RecordLabel; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Album; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Song; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Discography_Main; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Discography_Ranking; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Venue_LocationOne; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Venue_LocationTwo; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM LiveEvent_IsHeldAt; -- IGNORE: this is just so we can quickly replace any tuples
+
+DELETE FROM Venue_Main; -- IGNORE: this is just so we can quickly replace any tuples
+
+
 /** INSERT STATEMENTS **/
-DELETE FROM IsIn -- IGNORE: this is just so we can quickly replace any tuples
-WHERE albumID >= 1;
-
-DELETE FROM Releases -- IGNORE: this is just so we can quickly replace any tuples
-WHERE artistID >=1;
-
-DELETE FROM Playlist_Created -- IGNORE: this is just so we can quickly replace any tuples
-WHERE listenerID >= 1;
-
-DELETE FROM Purchases -- IGNORE: this is just so we can quickly replace any tuples
-WHERE listenerID >= 1;
-
-DELETE FROM Merchandise_Sold -- IGNORE: this is just so we can quickly replace any tuples
-WHERE artistID >= 1;
-
-DELETE FROM Includes -- IGNORE: this is just so we can quickly replace any tuples
-WHERE songID >= 1;
-
-DELETE FROM PerformsAt -- IGNORE: this is just so we can quickly replace any tuples
-WHERE artistID >= 1;
-
-DELETE FROM Attends -- IGNORE: this is just so we can quickly replace any tuples
-WHERE listenerID >= 1;
-
-DELETE FROM MusicListener -- IGNORE: this is just so we can quickly replace any tuples
-WHERE listenerID >= 1;
-
-DELETE FROM Artist_ContractedWith -- IGNORE: this is just so we can quickly replace any tuples
-WHERE artistID >= 1;
-
-DELETE FROM RecordLabel -- IGNORE: this is just so we can quickly replace any tuples
-WHERE labelID >= 1;
-
-DELETE FROM Album -- IGNORE: this is just so we can quickly replace any tuples
-WHERE albumID >= 1;
-
-DELETE FROM Song -- IGNORE: this is just so we can quickly replace any tuples
-WHERE songID >= 1;
-
-DELETE FROM Discography_Main -- IGNORE: this is just so we can quickly replace any tuples
-WHERE dID >= 1;
-
-DELETE FROM Discography_Ranking -- IGNORE: this is just so we can quickly replace any tuples
-WHERE ranking >= 1;
-
-DELETE FROM Venue_LocationOne -- IGNORE: this is just so we can quickly replace any tuples
-WHERE country='Canada';
-
-DELETE FROM Venue_LocationTwo -- IGNORE: this is just so we can quickly replace any tuples
-WHERE country='Canada';
-
-DELETE FROM LiveEvent_IsHeldAt -- IGNORE: this is just so we can quickly replace any tuples
-WHERE eventID >= 1;
-
-DELETE FROM Venue_Main -- IGNORE: this is just so we can quickly replace any tuples
-WHERE venueID >= 1;
-
-
-
 INSERT INTO RecordLabel
 VALUES (1, 'https://www.pnation.com/', 'PNation');
 
