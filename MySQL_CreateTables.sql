@@ -1,3 +1,8 @@
+-- DROP DATABASE MusicManagement; -- RUN THIS IF YOU ALREADY HAVE THE DATABASE. IF NOT, IGNORE
+CREATE DATABASE MusicManagement;
+USE MusicManagement;
+
+
 /*CREATE TABLE Account( -- this is the User Entity. We cannot name it User. DELETE OR NO?
 	userID INTEGER PRIMARY KEY,
 	username VARCHAR(30) NOT NULL,
@@ -21,7 +26,9 @@ CREATE TABLE Artist_ContractedWith(
 	numOfMembers INTEGER NOT NULL,
 	ranking INTEGER,
 	labelID INTEGER,
-	FOREIGN KEY (labelID) REFERENCES RecordLabel(labelID));
+	FOREIGN KEY (labelID) REFERENCES RecordLabel(labelID)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE);
 
 CREATE TABLE MusicListener( -- this is the Listener Entity. We cannot name it Listener
 	listenerID INTEGER PRIMARY KEY,
@@ -57,12 +64,16 @@ CREATE TABLE Album(
 	albumID INTEGER PRIMARY KEY,
 	numOfSongs INTEGER NOT NULL,
 	totalDuration TIME NOT NULL,
-	FOREIGN KEY (albumID) REFERENCES Discography_Main(dID));
+	FOREIGN KEY (albumID) REFERENCES Discography_Main(dID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 CREATE TABLE Song( 
 	songID INTEGER PRIMARY KEY,
 	duration TIME NOT NULL,
-	FOREIGN KEY (songID) REFERENCES Discography_Main(dID));
+	FOREIGN KEY (songID) REFERENCES Discography_Main(dID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 CREATE TABLE Playlist_Created(
 	playlistID INTEGER PRIMARY KEY,
@@ -71,14 +82,18 @@ CREATE TABLE Playlist_Created(
 	numOfSongs INTEGER NOT NULL,
 	introduction VARCHAR(100),
 	duration TIME,
-	FOREIGN KEY (listenerID) REFERENCES MusicListener(listenerID));
+	FOREIGN KEY (listenerID) REFERENCES MusicListener(listenerID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 CREATE TABLE Merchandise_Sold(
 	itemID INTEGER PRIMARY KEY,
 	artistID INTEGER NOT NULL,
 	itemName VARCHAR(50) NOT NULL,
 	price DECIMAL NOT NULL,
-	FOREIGN KEY (artistID) REFERENCES Artist_ContractedWith(artistID));
+	FOREIGN KEY (artistID) REFERENCES Artist_ContractedWith(artistID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 /*CREATE TABLE Venue( -- NEEDS NORMALIZATION
 	venueID INTEGER PRIMARY KEY,
@@ -115,34 +130,50 @@ CREATE TABLE LiveEvent_IsHeldAt(
 	eventDate DATE,
 	startTime TIME,
 	duration TIME,
-	FOREIGN KEY (venueID) REFERENCES Venue_Main(venueID));
+	FOREIGN KEY (venueID) REFERENCES Venue_Main(venueID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
 CREATE TABLE IsIn(
 	albumID INTEGER,
 	songID INTEGER,
-	FOREIGN KEY (albumID) REFERENCES Album(albumID),
-	FOREIGN KEY (songID) REFERENCES Song(songID),
+	FOREIGN KEY (albumID) REFERENCES Album(albumID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+	FOREIGN KEY (songID) REFERENCES Song(songID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
 	PRIMARY KEY (albumID, songID));
 
 CREATE TABLE Includes(
 	songID INTEGER,
 	playlistID INTEGER,
-	FOREIGN KEY (songID) REFERENCES Song(songID),
-	FOREIGN KEY (playlistID) REFERENCES Playlist_Created(playlistID),
+	FOREIGN KEY (songID) REFERENCES Song(songID)
+    ON DELETE CASCADE,
+	FOREIGN KEY (playlistID) REFERENCES Playlist_Created(playlistID)
+    ON DELETE CASCADE,
 	PRIMARY KEY (songID, playlistID));
 
 CREATE TABLE PerformsAt(
 	artistID INTEGER,
 	eventID INTEGER,
-	FOREIGN KEY (artistID) REFERENCES Artist_ContractedWith(artistID),
-	FOREIGN KEY (eventID) REFERENCES LiveEvent_IsHeldAt(eventID),
+	FOREIGN KEY (artistID) REFERENCES Artist_ContractedWith(artistID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+	FOREIGN KEY (eventID) REFERENCES LiveEvent_IsHeldAt(eventID)
+	ON DELETE CASCADE
+    ON UPDATE CASCADE,
 	PRIMARY KEY (artistID, eventID));
 
 CREATE TABLE Purchases(
 	listenerID INTEGER,
 	itemID INTEGER,
-	FOREIGN KEY (listenerID) REFERENCES MusicListener(listenerID),
-	FOREIGN KEY (itemID) REFERENCES Merchandise_Sold(itemID),
+	FOREIGN KEY (listenerID) REFERENCES MusicListener(listenerID)
+	ON DELETE CASCADE
+    ON UPDATE CASCADE,
+	FOREIGN KEY (itemID) REFERENCES Merchandise_Sold(itemID)
+	ON DELETE CASCADE
+    ON UPDATE CASCADE,
 	PRIMARY KEY (listenerID, itemID));
 
 /*CREATE TABLE ListensTo(
@@ -157,13 +188,21 @@ CREATE TABLE Purchases(
 CREATE TABLE Attends(
 	listenerID INTEGER,
 	eventID INTEGER,
-	FOREIGN KEY (listenerID) REFERENCES MusicListener(listenerID),
-	FOREIGN KEY (eventID) REFERENCES LiveEvent_IsHeldAt(eventID),
+	FOREIGN KEY (listenerID) REFERENCES MusicListener(listenerID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+	FOREIGN KEY (eventID) REFERENCES LiveEvent_IsHeldAt(eventID)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
 	PRIMARY KEY (listenerID, eventID));
 
 CREATE TABLE Releases(
      artistID INTEGER,
      dID INTEGER,
-     FOREIGN KEY (artistID) REFERENCES Artist_ContractedWith(artistID),
-     FOREIGN KEY (dID) REFERENCES Discography_Main(dID),
+     FOREIGN KEY (artistID) REFERENCES Artist_ContractedWith(artistID)
+     ON DELETE CASCADE
+     ON UPDATE CASCADE,
+     FOREIGN KEY (dID) REFERENCES Discography_Main(dID)
+     ON DELETE CASCADE
+     ON UPDATE CASCADE,
      PRIMARY KEY (artistID, dID));
