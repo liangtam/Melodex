@@ -1,2 +1,3 @@
 # node_modules are not completely upload, use code:
-# $ npm create react-app client
+# $ npm create react-app frontend
+# (on my end i have another folder under frontend like frontend-client-node_modules&... so my code is: npm create react-app client)
