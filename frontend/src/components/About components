@@ -1,0 +1,3 @@
+Components are reusable things we want to use throughout the website, or basically anything that's not a page. For example, if I created a really nice navigation bar, and I want to be able to use this navigation bar in more than one page, we make it in the components folder so everything is organized! eg. Navbar.js
+
+You will notice each file also has a FILENAME.module.css. That's just for styling that specific file if we want to. Again, CSS is NOT required for the project.
