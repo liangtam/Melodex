@@ -261,7 +261,7 @@ INSERT INTO IsIn
 
 
 DELETE FROM MusicListener -- IGNORE: this is just so we can quickly replace any tuples
-WHERE listenerID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+WHERE listenerID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 
 INSERT INTO MusicListener
 VALUES (7, 'sunshine1', 'sunshine1@gmail.com', 20, 'sunshinePassword', 'Adele', 'Rolling in the Deep', 'jazz');
@@ -286,7 +286,7 @@ VALUES (12, 'rainyyy', 'rainy@yahoo.com', 34, 'rainyPassword', 'Billie Eilish', 
 
 
 DELETE FROM Playlist_Created -- IGNORE: this is just so we can quickly replace any tuples
-WHERE listenerID in(1, 2, 3, 4, 5);
+WHERE playlistID in(1, 2, 3, 4, 5);
 
 INSERT INTO Playlist_Created
 	VALUES (1, 7, 'ryuichiPlaylist', 10, NULL, '00:30:45');
