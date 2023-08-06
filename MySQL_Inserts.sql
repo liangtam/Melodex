@@ -1,6 +1,62 @@
 /** INSERT STATEMENTS **/
+DELETE FROM IsIn -- IGNORE: this is just so we can quickly replace any tuples
+WHERE albumID >= 1;
+
+DELETE FROM Releases -- IGNORE: this is just so we can quickly replace any tuples
+WHERE artistID >=1;
+
+DELETE FROM Playlist_Created -- IGNORE: this is just so we can quickly replace any tuples
+WHERE listenerID >= 1;
+
+DELETE FROM Purchases -- IGNORE: this is just so we can quickly replace any tuples
+WHERE listenerID >= 1;
+
+DELETE FROM Merchandise_Sold -- IGNORE: this is just so we can quickly replace any tuples
+WHERE artistID >= 1;
+
+DELETE FROM Includes -- IGNORE: this is just so we can quickly replace any tuples
+WHERE songID >= 1;
+
+DELETE FROM PerformsAt -- IGNORE: this is just so we can quickly replace any tuples
+WHERE artistID >= 1;
+
+DELETE FROM Attends -- IGNORE: this is just so we can quickly replace any tuples
+WHERE listenerID >= 1;
+
+DELETE FROM MusicListener -- IGNORE: this is just so we can quickly replace any tuples
+WHERE listenerID >= 1;
+
+DELETE FROM Artist_ContractedWith -- IGNORE: this is just so we can quickly replace any tuples
+WHERE artistID >= 1;
+
 DELETE FROM RecordLabel -- IGNORE: this is just so we can quickly replace any tuples
-WHERE labelID in(1, 2, 3, 4, 5, 6);
+WHERE labelID >= 1;
+
+DELETE FROM Album -- IGNORE: this is just so we can quickly replace any tuples
+WHERE albumID >= 1;
+
+DELETE FROM Song -- IGNORE: this is just so we can quickly replace any tuples
+WHERE songID >= 1;
+
+DELETE FROM Discography_Main -- IGNORE: this is just so we can quickly replace any tuples
+WHERE dID >= 1;
+
+DELETE FROM Discography_Ranking -- IGNORE: this is just so we can quickly replace any tuples
+WHERE ranking >= 1;
+
+DELETE FROM Venue_LocationOne -- IGNORE: this is just so we can quickly replace any tuples
+WHERE country='Canada';
+
+DELETE FROM Venue_LocationTwo -- IGNORE: this is just so we can quickly replace any tuples
+WHERE country='Canada';
+
+DELETE FROM LiveEvent_IsHeldAt -- IGNORE: this is just so we can quickly replace any tuples
+WHERE eventID >= 1;
+
+DELETE FROM Venue_Main -- IGNORE: this is just so we can quickly replace any tuples
+WHERE venueID >= 1;
+
+
 
 INSERT INTO RecordLabel
 VALUES (1, 'https://www.pnation.com/', 'PNation');
@@ -24,8 +80,7 @@ VALUES (6, 'http://www.columbiarecords.com/', 'Columbia Records');
 
 
 
-DELETE FROM Artist_ContractedWith -- IGNORE: this is just so we can quickly replace any tuples
-WHERE artistID in(1, 2, 3, 4, 5, 6);
+
 
 INSERT INTO Artist_ContractedWith      
 	VALUES(1, 'HEIZE', 'heize11@gmail.com', 31, 'heizepassword', 'South Korea', NULL, 1, NULL,1);
@@ -45,11 +100,6 @@ INSERT INTO Artist_ContractedWith
 INSERT INTO Artist_ContractedWith 
 	VALUES(6, 'Harry Styles', 'info@caa.com', 29, 'hspassword', 'United Kingdom', 'English singer and actor', 1, NULL, 6);
 
-
-
-
-DELETE FROM Discography_Main -- IGNORE: this is just so we can quickly replace any tuples
-WHERE dID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 INSERT INTO Discography_Main
 	VALUES (1, 'Goblin OST', 'Kpop', '2017-01-21 12:00', 2000000);
@@ -84,8 +134,7 @@ INSERT INTO Discography_Main
 
 SET SQL_SAFE_UPDATES = 0;
 
-DELETE FROM Discography_Ranking -- IGNORE: this is just so we can quickly replace any tuples
-WHERE ranking in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
 INSERT INTO Discography_Ranking
 	VALUES (2000009, 1);
 
@@ -116,8 +165,7 @@ INSERT INTO Discography_Ranking
 INSERT INTO Discography_Ranking
 	VALUES (2000000, 10);
 
-DELETE FROM Album -- IGNORE: this is just so we can quickly replace any tuples
-WHERE albumID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
 
 INSERT INTO Album -- Goblin OST
 	VALUES (1, 15, '00:53:00');
@@ -137,8 +185,6 @@ INSERT INTO Album -- The Gittu Album
 
 
 
-DELETE FROM Song -- IGNORE: this is just so we can quickly replace any tuples
-WHERE songID in(4, 6, 7, 9, 10);
 
 INSERT INTO Song 
 	VALUES (4, '00:03:16');
@@ -159,8 +205,6 @@ INSERT INTO Song
 
 
 
-DELETE FROM Venue_Main -- IGNORE: this is just so we can quickly replace any tuples
-WHERE venueID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 INSERT INTO Venue_Main
 	VALUES (1, 'Canada',  'V6J 1Z2',  'The Modern Vancouver', 100);
@@ -180,8 +224,6 @@ INSERT INTO Venue_Main
 
 
 
-DELETE FROM Venue_LocationOne -- IGNORE: this is just so we can quickly replace any tuples
-WHERE country='Canada';
 
 INSERT INTO Venue_LocationOne
 	VALUES ('Canada',  'V6J 1Z2', 'Vancouver');
@@ -199,10 +241,6 @@ INSERT INTO Venue_LocationOne
 	VALUES ('Canada',  'V22 222', 'Whitehorse');
 
 
-
-
-DELETE FROM Venue_LocationTwo -- IGNORE: this is just so we can quickly replace any tuples
-WHERE country='Canada';
 
 INSERT INTO Venue_LocationTwo
 	VALUES ('Canada',  'V6J 1Z2', 'British Columbia');
@@ -222,29 +260,26 @@ INSERT INTO Venue_LocationTwo
 
 
 
-DELETE FROM LiveEvent_IsHeldAt -- IGNORE: this is just so we can quickly replace any tuples
-WHERE eventID in(1, 2, 3, 4, 5);
+
 
 INSERT INTO LiveEvent_IsHeldAt
-	VALUES (1, 1, '2022-12-11', '2022-12-11 20:00', '02:00:00');
+	VALUES (1, 1, '2022-12-11', '20:00', '02:00:00');
 
 INSERT INTO LiveEvent_IsHeldAt
-	VALUES (2, 2, '2021-11-10', '2021-11-10 21:00', '01:00:00');
+	VALUES (2, 2, '2021-11-10', '21:00', '01:00:00');
 
 INSERT INTO LiveEvent_IsHeldAt
-	VALUES (3, 3, '2020-09-09', '2020-09-09 12:00', '03:00:00');
+	VALUES (3, 3, '2020-09-09', '12:00', '03:00:00');
 
 INSERT INTO LiveEvent_IsHeldAt
-	VALUES (4, 4, '2019-10-10', '2019-10-10 16:00', '02:00:00');
+	VALUES (4, 4, '2019-10-10', '16:00', '02:00:00');
 
 INSERT INTO LiveEvent_IsHeldAt
-	VALUES (5, 5, '2002-01-30', '2002-01-03 20:00', '03:00:00');
+	VALUES (5, 5, '2002-01-30', '20:00', '03:00:00');
 
 
 
 
-DELETE FROM IsIn -- IGNORE: this is just so we can quickly replace any tuples
-WHERE albumID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 INSERT INTO IsIn
 	VALUES (1, 6);
@@ -260,8 +295,7 @@ INSERT INTO IsIn
 
 
 
-DELETE FROM MusicListener -- IGNORE: this is just so we can quickly replace any tuples
-WHERE listenerID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+
 
 INSERT INTO MusicListener
 VALUES (7, 'sunshine1', 'sunshine1@gmail.com', 20, 'sunshinePassword', 'Adele', 'Rolling in the Deep', 'jazz');
@@ -285,8 +319,6 @@ VALUES (12, 'rainyyy', 'rainy@yahoo.com', 34, 'rainyPassword', 'Billie Eilish', 
 
 
 
-DELETE FROM Playlist_Created -- IGNORE: this is just so we can quickly replace any tuples
-WHERE playlistID in(1, 2, 3, 4, 5);
 
 INSERT INTO Playlist_Created
 	VALUES (1, 7, 'ryuichiPlaylist', 10, NULL, '00:30:45');
@@ -306,8 +338,7 @@ INSERT INTO Playlist_Created
 
 
 
-DELETE FROM Merchandise_Sold -- IGNORE: this is just so we can quickly replace any tuples
-WHERE artistID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
 
 INSERT INTO Merchandise_Sold
 	VALUES (1, 1, 'Gold Prize Shirt', 70.0);
@@ -327,8 +358,6 @@ INSERT INTO Merchandise_Sold
 
 
 
-DELETE FROM Includes -- IGNORE: this is just so we can quickly replace any tuples
-WHERE songID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 INSERT INTO Includes
 	VALUES (4, 1);
@@ -344,8 +373,6 @@ INSERT INTO Includes
 
 
 
-DELETE FROM PerformsAt -- IGNORE: this is just so we can quickly replace any tuples
-WHERE artistID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 INSERT INTO PerformsAt
 	VALUES (3, 1);
@@ -361,8 +388,6 @@ INSERT INTO PerformsAt
 
 
 
-DELETE FROM Purchases -- IGNORE: this is just so we can quickly replace any tuples
-WHERE listenerID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 INSERT INTO Purchases
 	VALUES (7, 1);
@@ -378,8 +403,6 @@ INSERT INTO Purchases
 
 
 
-DELETE FROM Attends -- IGNORE: this is just so we can quickly replace any tuples
-WHERE listenerID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 
 INSERT INTO Attends
 	VALUES (7, 1);
@@ -395,8 +418,6 @@ INSERT INTO Attends
 
 
 
-DELETE FROM Releases -- IGNORE: this is just so we can quickly replace any tuples
-WHERE artistID in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 
 INSERT INTO Releases
 	VALUES (1, 1);
