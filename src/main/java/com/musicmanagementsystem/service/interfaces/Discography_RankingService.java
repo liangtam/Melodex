@@ -1,5 +1,5 @@
 package com.musicmanagementsystem.service.interfaces;
 
-public interface SongService {
+public interface Discography_RankingService {
 
 }

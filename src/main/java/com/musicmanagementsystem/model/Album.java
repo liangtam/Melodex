@@ -4,20 +4,21 @@ import jakarta.persistence.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.sql.Time;
+import java.util.List;
 
 @Entity
 @CrossOrigin
-@PrimaryKeyJoinColumn(name = "albumID")
+@DiscriminatorValue("ALBUM")
+@PrimaryKeyJoinColumn(name = "albumID")// this makes Album's primary key be "albumID" and it ref's Disco_Main's primary key, since Album extends Disco_Main
 public class Album extends Discography_Main{
 
 
     //private int albumID;
     private int numOfSongs;
     private Time totalDuration;
-//
-//    @OneToOne
-//    @JoinColumn(name = "dID")
-//    private Discography_Main discographyMain;
+
+    @OneToMany(mappedBy = "album")
+    private List<IsIn> isInRelationships;
 
     public Album() {
     }

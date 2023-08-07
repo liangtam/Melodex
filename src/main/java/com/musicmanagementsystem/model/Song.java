@@ -4,9 +4,11 @@ import jakarta.persistence.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.sql.Time;
+import java.util.List;
 
 @Entity
 @Table(name = "Song")
+@DiscriminatorValue("SONG")
 @PrimaryKeyJoinColumn(name = "songID")
 @CrossOrigin
 
@@ -18,6 +20,9 @@ public class Song extends Discography_Main{
 //    @OneToOne
 //    @JoinColumn(name = "songID")
 //    private Discography_Main discographyMain;
+
+    @OneToMany(mappedBy = "song")
+    private List<IsIn> isInRelationships;
 
     public Song() {
 

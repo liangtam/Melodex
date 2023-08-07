@@ -1,7 +1,7 @@
 package com.musicmanagementsystem.controller;
 
-import com.musicmanagementsystem.service.DTO.AlbumDTO;
-import com.musicmanagementsystem.service.interfaces.AlbumService;
+import com.musicmanagementsystem.model.IsIn;
+import com.musicmanagementsystem.service.interfaces.IsInService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,18 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/albums")
 @CrossOrigin
-public class AlbumController {
+@RequestMapping("/api/isin")
+public class IsInController {
     @Autowired
-    public AlbumService albumService;
-
-//    @Autowired
-//    public Discography_MainService discography_mainService;
-
+    public IsInService isInService;
 
     @GetMapping("/all")
-    public List<AlbumDTO> getAllAlbums() {
-        return albumService.getAllAlbums();
+    public List<IsIn> getAllIsInRelationships() {
+        return isInService.getAllIsInRelationships();
     }
 }
