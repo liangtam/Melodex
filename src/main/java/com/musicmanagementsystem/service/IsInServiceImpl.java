@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+//@Service
 public class IsInServiceImpl implements IsInService {
 
-    @Autowired
-    private IsInRepository isInRepository;
-
-    @Override
-    public List<IsIn> getAllIsInRelationships() {
-        return isInRepository.getAllIsInRelationships();
-    }
+//    @Autowired
+//    private IsInRepository isInRepository;
+//
+//    @Override
+//    public List<IsIn> getAllIsInRelationships() {
+//        return isInRepository.getAllIsInRelationships();
+//    }
 }

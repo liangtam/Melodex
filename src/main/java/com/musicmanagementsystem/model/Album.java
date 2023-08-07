@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.sql.Time;
-import java.util.List;
+import java.util.Set;
 
 @NamedNativeQuery(name="Album.getAllAlbums",
         query="SELECT D.discoName, A.numOfSongs, A.totalDuration, D.releaseDate " +
@@ -25,23 +25,20 @@ import java.util.List;
 public class Album extends Discography_Main{
 
 
-    //private int albumID;
     private int numOfSongs;
     private Time totalDuration;
 
-    @OneToMany(mappedBy = "album")
-    private List<IsIn> isInRelationships;
+    @ManyToMany
+            @JoinTable(
+                    name="IsIn",
+                    joinColumns = @JoinColumn(name="albumID"), // connects to owner side of relationship. We just chose album to be owner in this case
+                    inverseJoinColumns = @JoinColumn(name="songID") // connects to the other side of the relationship
+            )
+    Set<Song> songsInAlbum;
 
     public Album() {
     }
 
-//    public int getAlbumID() {
-//        return albumID;
-//    }
-//
-//    public void setAlbumID(int albumID) {
-//        this.albumID = albumID;
-//    }
 
     public int getNumOfSongs() {
         return numOfSongs;

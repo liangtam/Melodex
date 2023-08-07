@@ -10,4 +10,10 @@ public class SongServiceImpl implements SongService {
     @Autowired
     private SongRepository songRepository;
 
+    @Override
+    public void addSongToAlbum(int albumID, int songID) {
+        songRepository.addSongToAlbum(albumID, songID);
+        System.out.println("Song " + songID + " added into album with id " + albumID + "!");;
+    }
+
 }
