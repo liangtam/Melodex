@@ -13,7 +13,7 @@ public interface AlbumRepository extends JpaRepository<Album, Integer> {
     String sqlAllAlbumNames = "SELECT NEW com.musicmanagementsystem.service.DTO.AlbumDTO(A.discoName, A.numOfSongs, A.totalDuration, A.releaseDate) " +
             "FROM Album A";
 
-    @Query(value= sqlAllAlbumNames, nativeQuery = false)
+    @Query(nativeQuery = true)
     List<AlbumDTO> getAllAlbums();
 }
 
