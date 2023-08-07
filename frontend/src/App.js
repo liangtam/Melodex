@@ -17,7 +17,8 @@ function App() {
             <Route exact path="/" element={
               <Registration/>
             }/>
-
+            <Route exact path="/artists"/>
+            <Route exact path="/discography" />
 
           </Routes>
         </div>

@@ -24,6 +24,10 @@
     padding-top: 20px;
 }
 
+.rightBody .centered .regButtons button:hover{
+    cursor: pointer;
+}
+
 .centered {
     position: absolute;
     top: 50%;

@@ -8,6 +8,7 @@ const ArtistRegistrationForm = () => {
             <label>Name: <input type="text" placeholder="Name"></input></label>
             <label>Password: <input type="text" placeholder="Username"></input></label>
             <label>Number of members: <input type="text" placeholder="1"></input></label>
+            <button>Register</button>
         </div>
     )
 }

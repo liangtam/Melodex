@@ -7,10 +7,18 @@ const Registration = () => {
     const [userRegClicked, setUserRegClicked] = useState(true);
     const [artistRegClicked, setArtistRegClicked] = useState(false);
 
-    const handleRegClick = (e) => {
+    const handleUserClick = (e) => {
         e.preventDefault();
-        setUserRegClicked(!userRegClicked);
-        setArtistRegClicked(!artistRegClicked);
+        console.log("Clicked user");
+        setUserRegClicked(true);
+        setArtistRegClicked(false);
+    }
+
+    const handleArtistClick = (e) => {
+        e.preventDefault();
+        console.log("Clicked artist");
+        setUserRegClicked(false);
+        setArtistRegClicked(true);
     }
 
     return (
@@ -26,15 +34,12 @@ const Registration = () => {
             <div className={styles.rightBody}>
                 <div className={styles.centered}>
                     <div className={styles.regButtons}>
-                        <button onClick={handleRegClick}>User</button>
-                        <button onClick={handleRegClick}>Artist</button>
+                        <button onClick={handleUserClick}>User</button>
+                        <button onClick={handleArtistClick}>Artist</button>
                     </div>
                     <div className={styles.regForm}>
                         {userRegClicked && <div><ListenerRegistrationForm/></div>}
                         {artistRegClicked && <div><ArtistRegistrationForm/></div>}
-                    </div>
-                    <div className={styles.registerButton}>
-                        <button>Register</button>
                     </div>
                 </div>
             </div>
