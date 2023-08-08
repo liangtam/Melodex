@@ -5,7 +5,8 @@ import Navbar from './components/Navbar';
 
 import HomePage from './pages/HomePage';
 import ArtistsPage from './pages/ArtistsPage';
-
+import SongsPage from './pages/SongsPage';
+import AlbumsPage from './pages/AlbumsPage';
 
 // This is where we will be storing our links to the webpages :)
 function App() {
@@ -29,7 +30,9 @@ function App() {
             <Route exact path="/songs" element={
               <SongsPage/>
             }/>
-            <Route exact path="/albums" />
+            <Route exact path="/albums" element={
+              <AlbumsPage/>
+            }/>
 
           </Routes>
         </div>
