@@ -1,5 +1,6 @@
 package com.musicmanagementsystem.controller;
 
+import com.musicmanagementsystem.controller.reqBodies.AddSongToAlbumReqBody;
 import com.musicmanagementsystem.service.interfaces.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +14,8 @@ public class SongController {
     public SongService songService;
 
     @PostMapping("/{id}")
-    public void addSongToAlbum(@PathVariable Integer id, @RequestParam int albumID) {
-        songService.addSongToAlbum(id, albumID);
+    public void addSongToAlbum(@RequestBody AddSongToAlbumReqBody request) {
+        songService.addSongToAlbum(request.getAlbumID(), request.getSongID());
         System.out.println("Added song to album!");
     }
 

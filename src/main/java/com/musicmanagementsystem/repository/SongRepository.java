@@ -14,6 +14,6 @@ public interface SongRepository extends JpaRepository<Song, Integer> {
     @Modifying // for INSERT, UPDATE, DELETE queries
     @Transactional
     @Query(value = "INSERT INTO IsIn (albumID, songID) VALUES (:albumID, :songID)", nativeQuery = true)
-    public void addSongToAlbum(@Param("songID") Integer songID, @Param("albumID") Integer albumID);
+    public void addSongToAlbum(@Param("albumID") Integer albumID, @Param("songID") Integer songID);
 }
 
