@@ -14,6 +14,7 @@ const AlbumForm = () => {
             <label>Number of Likes: <input type="text" placeholder="1 or more"></input></label>
             <label>Number of Songs: <input type="text" placeholder="1 or more"></input></label>
             <label>Duration: <input type="text" placeholder="The length of album"></input></label>
+            <button>Add</button>
             </div>
         </div>
     )
