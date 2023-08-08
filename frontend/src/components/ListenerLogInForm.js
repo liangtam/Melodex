@@ -5,7 +5,7 @@ const ListenerLogInForm = () => {
   return (
     <div className={styles.form}>
       <label>
-        Username: <input type="text" placeholder="Username"></input>
+        Email: <input type="text" placeholder="Email"></input>
       </label>
       <label>
         Password: <input type="text" placeholder="Password"></input>
