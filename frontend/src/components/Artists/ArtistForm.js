@@ -2,6 +2,12 @@ import { useState, useEffect } from "react";
 import styles from "./ArtistForm.module.css";
 
 const ArtistForm = () => {
+  const [artistName, setArtistName] = useState("");
+  const [age, setAge] = useState("");
+  const [country, setCountry] = useState("");
+  const [bio, setBio] = useState("");
+  const [numMember, setNumMember] = useState("");
+
   return (
     <div>
       <div className={styles.formContainer}>
