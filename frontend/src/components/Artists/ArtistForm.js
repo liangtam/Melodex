@@ -28,12 +28,22 @@ const ArtistForm = () => {
     setNumMember(e.target.value);
   };
 
+  const handleAddClick = (e) => {
+    e.preventDefault();
+  };
+
+  /*
+  const artist = {
+    "artistName": artistName,
+  };
+  */
+
   return (
     <div>
       <div className={styles.formContainer}>
         <h3>Add New Artist</h3>
         <label>
-          Artist name:{" "}
+          Artist Name:{" "}
           <input
             type="text"
             placeholder="Name"
