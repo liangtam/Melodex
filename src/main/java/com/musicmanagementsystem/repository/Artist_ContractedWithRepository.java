@@ -8,15 +8,21 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface Artist_ContractedWithRepository extends JpaRepository<Artist_ContractedWith, Integer> {
 
     String insertNewArtistQuery = "INSERT INTO Artist_ContractedWith (artistName, age, country, biography, numOfMembers, labelID) " +
             "VALUES (:artistName, :age, :country, :biography, :numOfMembers, :labelID)";
+    String getAllArtistsQuery = "SELECT * FROM Artist_ContractedWith";
 
     @Modifying
     @Transactional
     @Query(value=insertNewArtistQuery, nativeQuery = true)
     public void insertNewArtist(@Param("artistName") String artistName, @Param("age") int age, @Param("country")String country,
                                 @Param("biography") String biography, @Param("numOfMembers") int numOfMembers, @Param("labelID") int labelID);
+
+    @Query(value=getAllArtistsQuery, nativeQuery = true)
+    public List<Artist_ContractedWith> getAllArtists();
 }
