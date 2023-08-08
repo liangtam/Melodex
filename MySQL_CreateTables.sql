@@ -2,7 +2,7 @@ DROP DATABASE MusicManagement; -- RUN THIS IF YOU ALREADY HAVE THE DATABASE. IF 
 CREATE DATABASE MusicManagement;
 USE MusicManagement;
 
-
+-- INSERT INTO hibernate_sequences (sequence_name, next_val) VALUES ('discography_main_sequence', 1);
 /*CREATE TABLE Account( -- this is the User Entity. We cannot name it User. DELETE OR NO?
 	userID INTEGER PRIMARY KEY,
 	username VARCHAR(30) NOT NULL,
@@ -11,7 +11,7 @@ USE MusicManagement;
 	password VARCHAR(50) NOT NULL)*/
 
 CREATE TABLE RecordLabel(
-	labelID INTEGER PRIMARY KEY,
+	labelID INTEGER PRIMARY KEY AUTO_INCREMENT,
 	websiteURL VARCHAR(200) UNIQUE,
 	labelName VARCHAR(50) NOT NULL);
     
@@ -24,7 +24,6 @@ CREATE TABLE Artist_ContractedWith(
 	country  VARCHAR(56), -- apparently the longest country name is 56 characters
 	biography VARCHAR(200),
 	numOfMembers INTEGER NOT NULL,
-	ranking INTEGER,
 	labelID INTEGER,
 	FOREIGN KEY (labelID) REFERENCES RecordLabel(labelID)
     ON DELETE SET NULL
@@ -50,11 +49,12 @@ CREATE TABLE MusicListener( -- this is the Listener Entity. We cannot name it Li
 
 	-- NORMALIZED DISCOGRAPHY
 CREATE TABLE Discography_Main(
-	dID INTEGER PRIMARY KEY,
-	discoName VARCHAR(50) NOT NULL,
-	genre VARCHAR(50),
-	releaseDate DATETIME NOT NULL,
-	numOfLikes INTEGER NOT NULL);
+    dID INTEGER PRIMARY KEY AUTO_INCREMENT,
+    discoName VARCHAR(50) NOT NULL,
+    genre VARCHAR(50),
+    releaseDate DATETIME NOT NULL,
+    numOfLikes INTEGER NOT NULL
+);
 
 CREATE TABLE Discography_Ranking(
 	numOfLikes INTEGER PRIMARY KEY,
@@ -76,7 +76,7 @@ CREATE TABLE Song(
     ON UPDATE CASCADE);
 
 CREATE TABLE Playlist_Created(
-	playlistID INTEGER PRIMARY KEY,
+	playlistID INTEGER PRIMARY KEY AUTO_INCREMENT,
 	listenerID INTEGER NOT NULL,
 	playlistName VARCHAR(50) NOT NULL,
 	numOfSongs INTEGER NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE Playlist_Created(
     ON UPDATE CASCADE);
 
 CREATE TABLE Merchandise_Sold(
-	itemID INTEGER PRIMARY KEY,
+	itemID INTEGER PRIMARY KEY AUTO_INCREMENT,
 	artistID INTEGER NOT NULL,
 	itemName VARCHAR(50) NOT NULL,
 	price DECIMAL NOT NULL,
@@ -125,7 +125,7 @@ CREATE TABLE Venue_LocationTwo(
 
 
 CREATE TABLE LiveEvent_IsHeldAt(
-	eventID INTEGER PRIMARY KEY,
+	eventID INTEGER PRIMARY KEY AUTO_INCREMENT,
 	venueID INTEGER NOT NULL,
 	eventDate DATE,
 	startTime TIME,
