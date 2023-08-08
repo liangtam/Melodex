@@ -12,6 +12,10 @@ const ArtistForm = () => {
     setArtistName(e.target.value);
   };
 
+  const handleAgeChange = (e) => {
+    setAge(e, target.value);
+  };
+
   return (
     <div>
       <div className={styles.formContainer}>
