@@ -18,6 +18,10 @@ const ArtistsPage = () => {
             <Link to="/AllArtists">
               <button>Display All Artists</button>
             </Link>
+            <button>*Aggregation with Group By prompt*</button>
+            <button>*aggregation with having prompt*</button>
+            <button>*nested aggregation with group by prompt*</button>
+            <button>*division prompt*</button>
           </div>
         </div>
       </div>
