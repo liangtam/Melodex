@@ -1,7 +1,6 @@
 package com.musicmanagementsystem.repository;
 
 import com.musicmanagementsystem.model.Album;
-import com.musicmanagementsystem.service.DTO.AlbumDTO;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -16,9 +15,10 @@ import java.util.List;
 public interface AlbumRepository extends JpaRepository<Album, Integer> {
 
     String insertNewAlbum = "INSERT INTO Album (albumID, numOfSongs, totalDuration) VALUES (LAST_INSERT_ID(), :numOfSongs, :totalDuration);";
+    String getAllAlbumsIncludingIDQuery = "SELECT * FROM Album A, Discography_Main D WHERE A.albumID = D.dID";
 
-    @Query(nativeQuery = true)
-    List<AlbumDTO> getAllAlbums();
+    @Query(value=getAllAlbumsIncludingIDQuery, nativeQuery = true)
+    List<Album> getAllAlbums();
 
     @Modifying
     @Transactional

@@ -1,7 +1,6 @@
 package com.musicmanagementsystem.repository;
 
 import com.musicmanagementsystem.model.Song;
-import com.musicmanagementsystem.service.DTO.SongDTO;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -14,8 +13,10 @@ import java.util.List;
 @Repository
 public interface SongRepository extends JpaRepository<Song, Integer> {
 
-    @Query(nativeQuery = true)
-    public List<SongDTO> getAllSongs();
+    String getAllSongsIncludingIDQuery = "SELECT * " +
+                    "FROM Song S, Discography_Main D WHERE S.songID = D.dID";
+    @Query(value = getAllSongsIncludingIDQuery, nativeQuery = true)
+    public List<Song> getAllSongs();
 
     @Modifying // for INSERT, UPDATE, DELETE queries
     @Transactional

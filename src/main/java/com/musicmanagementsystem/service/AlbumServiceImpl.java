@@ -1,8 +1,8 @@
 package com.musicmanagementsystem.service;
 
+import com.musicmanagementsystem.model.Album;
 import com.musicmanagementsystem.repository.AlbumRepository;
 import com.musicmanagementsystem.repository.Discography_MainRepository;
-import com.musicmanagementsystem.service.DTO.AlbumDTO;
 import com.musicmanagementsystem.service.interfaces.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class AlbumServiceImpl implements AlbumService {
 
 
     @Override
-    public List<AlbumDTO> getAllAlbums() {
+    public List<Album> getAllAlbums() {
         return albumRepository.getAllAlbums();
     }
 

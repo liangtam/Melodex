@@ -1,7 +1,7 @@
 package com.musicmanagementsystem.service;
 
+import com.musicmanagementsystem.model.Song;
 import com.musicmanagementsystem.repository.SongRepository;
-import com.musicmanagementsystem.service.DTO.SongDTO;
 import com.musicmanagementsystem.service.interfaces.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class SongServiceImpl implements SongService {
     private SongRepository songRepository;
 
     @Override
-    public List<SongDTO> getAllSongs() {
+    public List<Song> getAllSongs() {
         return songRepository.getAllSongs();
     }
 

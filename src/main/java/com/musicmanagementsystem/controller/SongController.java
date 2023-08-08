@@ -1,7 +1,7 @@
 package com.musicmanagementsystem.controller;
 
 import com.musicmanagementsystem.controller.reqBodies.AddSongToAlbumReqBody;
-import com.musicmanagementsystem.service.DTO.SongDTO;
+import com.musicmanagementsystem.model.Song;
 import com.musicmanagementsystem.service.interfaces.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ public class SongController {
     public SongService songService;
 
     @GetMapping("/all")
-    public List<SongDTO> getAllSongs() {
+    public List<Song> getAllSongs() {
         System.out.println("Fetched all songs!");
         return songService.getAllSongs();
     }
