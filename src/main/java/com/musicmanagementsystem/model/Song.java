@@ -1,9 +1,21 @@
 package com.musicmanagementsystem.model;
 
+import com.musicmanagementsystem.service.DTO.SongDTO;
 import jakarta.persistence.*;
 
 import java.sql.Time;
 import java.util.Set;
+
+@NamedNativeQuery(name="Song.getAllSongs",
+        query="SELECT D.discoName, S.duration, D.releaseDate " +
+                "FROM Song S, Discography_Main D WHERE S.songID = D.dID",
+        resultSetMapping="Mapping.SongDTO")
+
+@SqlResultSetMapping(name="Mapping.SongDTO",
+        classes = @ConstructorResult(targetClass = SongDTO.class,
+                columns={@ColumnResult(name="discoName"),
+                        @ColumnResult(name="duration"),
+                        @ColumnResult(name="releaseDate")}))
 
 @Entity
 @Table(name = "Song")
