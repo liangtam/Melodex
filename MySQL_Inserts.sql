@@ -81,22 +81,22 @@ VALUES (6, 'http://www.columbiarecords.com/', 'Columbia Records');
 -- 	VALUES(6, 'Harry Styles', 'info@caa.com', 29, 'hspassword', 'United Kingdom', 'English singer and actor', 1, NULL, 6);
 
 INSERT INTO Artist_ContractedWith      
-	VALUES(1, 'HEIZE', 31, 'South Korea', NULL, 1, NULL,1);
+	VALUES(1, 'HEIZE', 31, 'South Korea', NULL, 1, 1);
 
 INSERT INTO Artist_ContractedWith
-	VALUES (2, '(G)I-DLE',  5, 'South Korea', '5-member self-producing Kpop girl group', 5, NULL, 2);
+	VALUES (2, '(G)I-DLE',  5, 'South Korea', '5-member self-producing Kpop girl group', 5,  2);
 
 INSERT INTO Artist_ContractedWith      
-	VALUES(3, 'Ryuichi Sakamoto', 71, 'Japan', NULL, 1, NULL, 3);
+	VALUES(3, 'Ryuichi Sakamoto', 71, 'Japan', NULL, 1, 3);
 
 INSERT INTO Artist_ContractedWith      
-	VALUES(4, 'Lil Gittu',  30, 'Canada', 'Raps about databases', 1, NULL, 4);
+	VALUES(4, 'Lil Gittu',  30, 'Canada', 'Raps about databases', 1,  4);
 
 INSERT INTO Artist_ContractedWith   
-	VALUES(5, 'Taylor Swift',  33,  'United States', 'American singer-songwriter', 1, NULL, 5);
+	VALUES(5, 'Taylor Swift',  33,  'United States', 'American singer-songwriter', 1,  5);
 
 INSERT INTO Artist_ContractedWith 
-	VALUES(6, 'Harry Styles', 29,  'United Kingdom', 'English singer and actor', 1, NULL, 6);
+	VALUES(6, 'Harry Styles', 29,  'United Kingdom', 'English singer and actor', 1, 6);
     
     
 
@@ -126,10 +126,22 @@ INSERT INTO Discography_Main
 	VALUES (8, 'The Gittu Album', 'Hip Hop', '2023-07-27 12:00', 2000007);
 
 INSERT INTO Discography_Main
-	VALUES (9, 'Midnights', 'pop', '2022-10-21 0:00', 2000008);
+	VALUES (9, 'Midnights', 'Pop', '2022-10-21 0:00', 2000008);
 
 INSERT INTO Discography_Main
-	VALUES (10, 'Reputation', 'pop', '2017-11-10 12:00', 2000009);
+	VALUES (10, 'Reputation', 'Pop', '2017-11-10 12:00', 2000009);
+    
+INSERT INTO Discography_Main
+	VALUES (11, 'K-GITTU-Pop', 'Kpop', '2023-08-05 12:00', 2000003);
+    
+INSERT INTO Discography_Main
+	VALUES (12, 'GITTU POP', 'Pop', '2023-08-05 12:00', 2000003);
+    
+INSERT INTO Discography_Main
+	VALUES (13, 'Old Gittu Town Road', 'Country', '2023-08-05 12:00', 2000003);
+    
+INSERT INTO Discography_Main
+	VALUES (14, 'Dance With Gittu', 'Dance', '2023-08-05 12:00', 2000003);
 
 
 SET SQL_SAFE_UPDATES = 0;
@@ -439,3 +451,25 @@ INSERT INTO Releases
 	VALUES (4, 9);
 INSERT INTO Releases
 	VALUES (3, 10);
+
+-- ------------------------
+INSERT INTO Releases
+	VALUES (4, 11);
+    
+INSERT INTO Releases
+	VALUES (4, 12);
+    
+INSERT INTO Releases
+	VALUES (4, 13);
+
+INSERT INTO Releases
+	VALUES (4, 14);
+    
+INSERT INTO Song
+	VALUES (11, '00:03:04');
+INSERT INTO Song
+	VALUES (12, '00:03:04');
+INSERT INTO Song
+	VALUES (13, '00:03:04');
+INSERT INTO Song
+	VALUES (14, '00:03:04');
