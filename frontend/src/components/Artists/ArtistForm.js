@@ -20,6 +20,10 @@ const ArtistForm = () => {
     setCountry(e.target.value);
   };
 
+  const handleBioChange = (e) => {
+    setBio(e.target.value);
+  };
+
   return (
     <div>
       <div className={styles.formContainer}>
