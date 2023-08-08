@@ -51,6 +51,15 @@ p {
 
 .rightBody .centered .regButtons button:hover {
   cursor: pointer;
+  background-color: aqua;
+}
+
+.userbtn {
+  background-color: cornflowerblue;
+}
+
+.artistbtn {
+  background-color: hotpink;
 }
 
 .centered {

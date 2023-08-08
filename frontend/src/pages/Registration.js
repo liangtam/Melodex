@@ -43,8 +43,12 @@ const Registration = () => {
         <div className={styles.centered}>
           <SignUpText />
           <div className={styles.regButtons}>
-            <button onClick={handleUserClick}>User</button>
-            <button onClick={handleArtistClick}>Artist</button>
+            <button className={styles.userbtn} onClick={handleUserClick}>
+              User
+            </button>
+            <button className={styles.artistbtn} onClick={handleArtistClick}>
+              Artist
+            </button>
           </div>
           <div className={styles.regForm}>
             {userRegClicked && (
