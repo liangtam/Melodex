@@ -15,7 +15,7 @@ const AlbumsPage = () => {
             <div className={styles.leftBody}>
                 <div className={styles.centered}>
                     <div className={styles.title}>
-                        <h4>Album</h4>
+                        <AlbumTuple/>
                     </div>
                 </div>
             </div>
