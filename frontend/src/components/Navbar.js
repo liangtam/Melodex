@@ -7,11 +7,22 @@ const Navbar = () => {
         <div className={styles.nav_container}>
             <div className={styles.navbar_links}>
                 <ul>
-                        <div className={styles.website_title}>
-                            <Link to="/">
-                                <h2><strong>Music Manager</strong></h2>
+                    <div className={styles.website_title}>
+                        <Link to="/">
+                            <h2><strong>Music Manager</strong></h2>
                             </Link>
-                        </div>
+                            </div>
+                    <li>
+                        <Link to="/loginPage">
+                        <h4>Log In</h4>
+                        </Link>
+                    </li>
+                    
+                    <li>
+                        <Link to="/SignupPage">
+                        <h4>Sign up</h4>
+                        </Link>
+                    </li>
 
                     <li>
                         <Link to="/artists">
