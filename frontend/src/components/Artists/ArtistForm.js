@@ -8,6 +8,10 @@ const ArtistForm = () => {
   const [bio, setBio] = useState("");
   const [numMember, setNumMember] = useState("");
 
+  const handleArtistNameChange = (e) => {
+    setArtistName(e.target.value);
+  };
+
   return (
     <div>
       <div className={styles.formContainer}>
