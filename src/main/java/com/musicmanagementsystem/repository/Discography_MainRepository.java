@@ -10,11 +10,20 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface Discography_MainRepository extends JpaRepository<Discography_Main, Integer> {
-    String insertNewDisco = "INSERT INTO Discography_Main (discoName, genre, releaseDate, numOfLikes) VALUES (:discoName, :genre, :releaseDate, :numOfLikes)";
+    String insertNewDiscoQuery = "INSERT INTO Discography_Main (discoName, genre, releaseDate, numOfLikes) VALUES (:discoName, :genre, :releaseDate, :numOfLikes)";
+    String deleteDiscoByIDQuery = "DELETE FROM Discography_Main WHERE dID = :dID";
 
+
+    // INSERT OPERATION submitted
     @Modifying
     @Transactional
-    @Query(value = insertNewDisco, nativeQuery = true)
+    @Query(value = insertNewDiscoQuery, nativeQuery = true)
     void insertNewDisco(@Param("discoName") String discoName,
                         @Param("genre") String genre, @Param("releaseDate") String releaseDate, @Param("numOfLikes") int numOfLikes);
+
+    // DELETE OPERATION submitted
+    @Modifying
+    @Transactional
+    @Query(value = deleteDiscoByIDQuery, nativeQuery = true)
+    void deleteDiscoByID(@Param("dID") int dID);
 }

@@ -22,11 +22,14 @@ public class AlbumController {
 //    public Discography_MainService discography_mainService;
 
 
+    // JOIN OPERATION to submit
     @GetMapping("/all")
     public List<Album> getAllAlbums() {
         return albumService.getAllAlbums();
     }
 
+
+    // INSERT OPERATION to submit
     @PostMapping("/add")
     public void insertNewAlbum(@RequestBody AlbumDisco reqBody) throws ParseException {
         String timeString = reqBody.getTotalDuration();
