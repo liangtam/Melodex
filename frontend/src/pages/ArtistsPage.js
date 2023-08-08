@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./ArtistsPage.module.css";
 
 import ArtistForm from "../components/Album/ArtistForm";
+import { Link } from "react-router-dom";
 
 const ArtistsPage = () => {
   const handleAddArtist = (e) => {
@@ -14,7 +15,9 @@ const ArtistsPage = () => {
         <div className={styles.centered}>
           <div className={styles.title}>
             <h4>All the artists you like, right in our app.</h4>
-            <button>Display All Artists</button>
+            <Link to="/AllArtists">
+              <button>Display All Artists</button>
+            </Link>
           </div>
         </div>
       </div>

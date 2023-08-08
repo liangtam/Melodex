@@ -8,6 +8,7 @@ import ArtistsPage from "./pages/ArtistsPage";
 import SongsPage from "./pages/SongsPage";
 import AlbumsPage from "./pages/AlbumsPage";
 import LabelPage from "./pages/LabelPage";
+import DisplayAllArtists from "./pages/DisplayAllArtists";
 
 // This is where we will be storing our links to the webpages :)
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/songs" element={<SongsPage />} />
             <Route exact path="/albums" element={<AlbumsPage />} />
             <Route exact path="/labels" element={<LabelPage />} />
+            <Route exact path="/AllArtists" element={<DisplayAllArtists />} />
           </Routes>
         </div>
       </BrowserRouter>
