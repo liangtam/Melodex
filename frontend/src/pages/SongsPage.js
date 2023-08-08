@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./SongsPage.module.css";
 
 import SongForm from "../components/Song/SongForm";
+import SongTuple from "../components/Song/SongTuple";
 
 const SongsPage = () => {
 
@@ -15,7 +16,7 @@ const SongsPage = () => {
             <div className={styles.leftBody}>
                 <div className={styles.centered}>
                     <div className={styles.title}>
-                        <h4>Song</h4>
+                        <SongTuple/>
                     </div>
                 </div>
             </div>
