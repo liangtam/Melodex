@@ -18,7 +18,7 @@ const HomePage = () => {
                     </div>
                     <p>A music website for users to discover a whole world of artists and music, all in one place.</p>
                     <p>Begin searching for your favourite discographies here:</p>
-                    <input className={styles.searchBar} type="text"></input>
+                    <input className={styles.searchBar} type="text" placeholder=" Search..."></input>
                     <button onClick={handleDiscographySearch}>Search</button>
                 </div>
 
