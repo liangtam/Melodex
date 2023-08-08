@@ -13,7 +13,7 @@ const ArtistForm = () => {
   };
 
   const handleAgeChange = (e) => {
-    setAge(e, target.value);
+    setAge(e.target.value);
   };
 
   return (
