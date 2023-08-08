@@ -5,7 +5,7 @@ const ArtistLogInForm = () => {
   return (
     <div className={styles.form}>
       <label>
-        Username: <input type="text" placeholder="Name"></input>
+        Email: <input type="text" placeholder="Artist Email"></input>
       </label>
       <label>
         Password: <input type="text" placeholder="Password"></input>
