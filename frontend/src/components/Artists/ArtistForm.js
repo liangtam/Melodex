@@ -24,6 +24,10 @@ const ArtistForm = () => {
     setBio(e.target.value);
   };
 
+  const handleNumMemberChange = (e) => {
+    setNumMember(e.target.value);
+  };
+
   return (
     <div>
       <div className={styles.formContainer}>
