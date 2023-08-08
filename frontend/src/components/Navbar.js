@@ -9,7 +9,7 @@ const Navbar = () => {
                 <ul>
                         <div className={styles.website_title}>
                             <Link to="/">
-                                <h2><strong>Music Manager</strong></h2>
+                                <h2><strong>Melodex</strong></h2>
                             </Link>
                         </div>
 

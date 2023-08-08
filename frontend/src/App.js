@@ -2,7 +2,9 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Registration from './pages/Registration';
+
+import HomePage from './pages/HomePage';
+import ArtistsPage from './pages/ArtistsPage';
 
 
 // This is where we will be storing our links to the webpages :)
@@ -15,9 +17,11 @@ function App() {
           <Routes>
 
             <Route exact path="/" element={
-              <Registration/>
+              <HomePage/>
             }/>
-            <Route exact path="/artists"/>
+            <Route exact path="/artists" element={
+              <ArtistsPage/>
+            }/>
             <Route exact path="/discography" />
 
           </Routes>
