@@ -21,6 +21,10 @@ const LogIn = () => {
     setArtistRegClicked(true);
   };
 
+  function LogInText() {
+    return <div className={styles.logInText}>Log In</div>;
+  }
+
   return (
     <div className={styles.regContainer}>
       <div className={styles.leftBody}>
@@ -37,6 +41,7 @@ const LogIn = () => {
       </div>
       <div className={styles.rightBody}>
         <div className={styles.centered}>
+          <LogInText />
           <div className={styles.regButtons}>
             <button onClick={handleUserClick}>User</button>
             <button onClick={handleArtistClick}>Artist</button>

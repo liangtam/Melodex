@@ -64,3 +64,10 @@ p {
 .title h2 {
   font-size: 50px;
 }
+
+.logInText {
+  margin-bottom: 40px;
+
+  justify-content: space-between;
+  font-size: 50px;
+}
