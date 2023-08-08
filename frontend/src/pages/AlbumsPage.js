@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./AlbumsPage.module.css";
 
 import AlbumForm from "../components/Album/AlbumForm";
+import AlbumTuple from "../components/Album/AlbumTuple";
 
 const AlbumsPage = () => {
 
