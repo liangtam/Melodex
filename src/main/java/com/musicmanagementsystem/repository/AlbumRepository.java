@@ -2,19 +2,29 @@ package com.musicmanagementsystem.repository;
 
 import com.musicmanagementsystem.model.Album;
 import com.musicmanagementsystem.service.DTO.AlbumDTO;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Time;
 import java.util.List;
 
 @Repository
 public interface AlbumRepository extends JpaRepository<Album, Integer> {
-//    String sqlAllAlbumName = "SELECT NEW com.musicmanagementsystem.service.DTO.AlbumDTO(A.discoName, A.numOfSongs, A.totalDuration, A.releaseDate) " +
-//            "FROM Album A";
+
+    String insertNewAlbum = "INSERT INTO Album (albumID, numOfSongs, totalDuration) VALUES (LAST_INSERT_ID(), :numOfSongs, :totalDuration);";
 
     @Query(nativeQuery = true)
     List<AlbumDTO> getAllAlbums();
+
+    @Modifying
+    @Transactional
+    @Query(value = insertNewAlbum, nativeQuery = true)
+    void insertNewAlbum(@Param("numOfSongs") int numOfSongs, @Param("totalDuration") Time totalDuration);
+
 }
 
 

@@ -1,31 +1,31 @@
-package com.musicmanagementsystem.model;
+package com.musicmanagementsystem.controller.reqBodies;
 
-import jakarta.persistence.*;
-
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "Discography_Main")
-
-public class Discography_Main {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int dID;
+public class AlbumDisco {
     private String discoName;
     private String genre;
     private String releaseDate;
     private int numOfLikes;
+    private int numOfSongs;
+    private String totalDuration;
 
-    public Discography_Main() {
+    public AlbumDisco() {
 
     }
 
-    public int getdID() {
-        return dID;
+    public int getNumOfSongs() {
+        return numOfSongs;
     }
 
-    public void setdID(int dID) {
-        this.dID = dID;
+    public void setNumOfSongs(int numOfSongs) {
+        this.numOfSongs = numOfSongs;
+    }
+
+    public String getTotalDuration() {
+        return totalDuration;
+    }
+
+    public void setTotalDuration(String totalDuration) {
+        this.totalDuration = totalDuration;
     }
 
     public String getDiscoName() {
