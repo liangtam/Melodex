@@ -1,4 +1,4 @@
--- DROP DATABASE MusicManagement; -- RUN THIS IF YOU ALREADY HAVE THE DATABASE. IF NOT, IGNORE
+DROP DATABASE MusicManagement; -- RUN THIS IF YOU ALREADY HAVE THE DATABASE. IF NOT, IGNORE
 CREATE DATABASE MusicManagement;
 USE MusicManagement;
 
@@ -17,10 +17,10 @@ CREATE TABLE RecordLabel(
     
 CREATE TABLE Artist_ContractedWith( 
 	artistID INTEGER PRIMARY KEY,
-    username VARCHAR(30) NOT NULL,
-	email VARCHAR(320) UNIQUE NOT NULL, -- apparently the longest email someone can create is 320 characters long
+    artistName VARCHAR(30) NOT NULL,
+	-- email VARCHAR(320) UNIQUE NOT NULL, -- apparently the longest email someone can create is 320 characters long
 	age INTEGER,
-	userPassword VARCHAR(50) NOT NULL, -- cannot use “password” in SQL
+	-- userPassword VARCHAR(50) NOT NULL, -- cannot use “password” in SQL
 	country  VARCHAR(56), -- apparently the longest country name is 56 characters
 	biography VARCHAR(200),
 	numOfMembers INTEGER NOT NULL,
