@@ -14,7 +14,7 @@ body {
   background-color: #333;
 }
 
-.songContainer .leftBody {
+.labelContainer .leftBody {
   left: 0;
 
   height: 100%;
@@ -33,7 +33,7 @@ p {
   font-size: 19.5px;
   animation: fadeInAnimation ease 3s;
 }
-.songContainer .rightBody {
+.labelContainer .rightBody {
   right: 0;
   height: 100%;
   width: 50%;
@@ -45,7 +45,7 @@ p {
   animation: fadeInAnimation ease 1s;
 }
 
-.rightBody .centered .songButtons button:hover {
+.rightBody .centered .labelButtons button:hover {
   cursor: pointer;
   background-color: aqua;
 }
