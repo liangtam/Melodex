@@ -68,6 +68,14 @@ const ListenerRegistrationForm = () => {
         ></input>
       </label>
       <label>
+        Username:{" "}
+        <input
+          type="text"
+          placeholder="Username"
+          onChange={handleUsernameChange}
+        ></input>
+      </label>
+      <label>
         Password:{" "}
         <input
           type="text"
