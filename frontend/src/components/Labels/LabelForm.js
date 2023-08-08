@@ -10,25 +10,7 @@ const LabelForm = () => {
           Label name: <input type="text" placeholder="Name"></input>
         </label>
         <label>
-          Age:{" "}
-          <input
-            type="text"
-            placeholder="Artist age or group age since debut"
-          ></input>
-        </label>
-        <label>
-          Country: <input type="text" placeholder="Name"></input>
-        </label>
-        <label>
-          Biography:{" "}
-          <textarea
-            type="text"
-            placeholder="This artist is a cool singer"
-          ></textarea>
-        </label>
-        <label>
-          Number of members:{" "}
-          <input type="text" placeholder="1 for solo artists"></input>
+          Website URL: <input type="text" placeholder="Website URL"></input>
         </label>
       </div>
     </div>
