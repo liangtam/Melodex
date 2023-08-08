@@ -41,6 +41,7 @@ const Registration = () => {
       </div>
       <div className={styles.rightBody}>
         <div className={styles.centered}>
+          <SignUpText />
           <div className={styles.regButtons}>
             <button onClick={handleUserClick}>User</button>
             <button onClick={handleArtistClick}>Artist</button>
