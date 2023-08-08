@@ -1,1 +1,33 @@
+.formContainer {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+
+  }
+  
+  .formContainer h3 {
+    margin-bottom: 20px;
+  }
+  
+  .formContainer label {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .formContainer textArea {
+    height: 60px;
+    resize: vertical;
+  }
+
+  .formContainer input, textarea {
+    width: 300px;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid#fff;
+  }
 
