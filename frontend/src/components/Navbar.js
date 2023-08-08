@@ -11,7 +11,18 @@ const Navbar = () => {
                             <Link to="/">
                                 <h2><strong>Melodex</strong></h2>
                             </Link>
-                        </div>
+                            </div>
+                    <li>
+                        <Link to="/loginPage">
+                        <h4>Log In</h4>
+                        </Link>
+                    </li>
+                    
+                    <li>
+                        <Link to="/SignupPage">
+                        <h4>Sign up</h4>
+                        </Link>
+                    </li>
 
                     <li>
                         <Link to="/artists">

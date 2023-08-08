@@ -8,10 +8,14 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    color: white;
-    background-color: #333;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background-image: url("./images/812556.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  overflow: hidden;
 }
 
 .regContainer .leftBody {
@@ -30,9 +34,8 @@ body {
 }
 
 p {
-    font-size: 19.5px;
-    animation: fadeInAnimation ease 3s;
-
+  font-size: 19.5px;
+  animation: fadeInAnimation ease 2s;
 }
 .regContainer .rightBody {
   right: 0;
@@ -71,7 +74,7 @@ p {
   font-size: 50px;
 }
 
-.signUpText {
+.logInText {
   margin-bottom: 40px;
   justify-content: space-between;
   font-size: 50px;
