@@ -12,6 +12,7 @@ const LabelForm = () => {
         <label>
           Website URL: <input type="text" placeholder="Website URL"></input>
         </label>
+        <div className={styles.btn}>Add</div>
       </div>
     </div>
   );

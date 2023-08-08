@@ -27,3 +27,17 @@ textarea {
   border-radius: 4px;
   font-size: 14px;
 }
+
+.btn {
+  background: #fff;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #3c3e7c;
+  font-size: 15px;
+  height: 100%;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.4);
+}
