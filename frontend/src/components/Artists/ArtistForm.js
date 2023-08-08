@@ -33,28 +33,44 @@ const ArtistForm = () => {
       <div className={styles.formContainer}>
         <h3>Add New Artist</h3>
         <label>
-          Artist name: <input type="text" placeholder="Name"></input>
+          Artist name:{" "}
+          <input
+            type="text"
+            placeholder="Name"
+            onChange={handleArtistNameChange}
+          ></input>
         </label>
         <label>
           Age:{" "}
           <input
             type="text"
             placeholder="Artist age or group age since debut"
+            onChange={handleAgeChange}
           ></input>
         </label>
         <label>
-          Country: <input type="text" placeholder="Name"></input>
+          Country:{" "}
+          <input
+            type="text"
+            placeholder="Name"
+            onChange={handleCountryChange}
+          ></input>
         </label>
         <label>
           Biography:{" "}
           <textarea
             type="text"
             placeholder="This artist is a cool singer"
+            onChange={handleBioChange}
           ></textarea>
         </label>
         <label>
           Number of members:{" "}
-          <input type="text" placeholder="1 for solo artists"></input>
+          <input
+            type="text"
+            placeholder="1 for solo artists"
+            onChange={handleNumMemberChange}
+          ></input>
         </label>
         <div className={styles.btn}>Add</div>
       </div>
