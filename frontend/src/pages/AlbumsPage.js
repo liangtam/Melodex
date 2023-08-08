@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./AlbumsPage.module.css";
 
 import AlbumForm from "../components/Album/AlbumForm";
+import AlbumTuple from "../components/Album/AlbumTuple";
 
 const AlbumsPage = () => {
 
@@ -15,7 +16,7 @@ const AlbumsPage = () => {
             <div className={styles.leftBody}>
                 <div className={styles.centered}>
                     <div className={styles.title}>
-                        <h4>Album</h4>
+                        <AlbumTuple/>
                     </div>
                 </div>
             </div>
