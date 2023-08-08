@@ -30,13 +30,29 @@ const ArtistForm = () => {
 
   const handleAddClick = (e) => {
     e.preventDefault();
-  };
 
-  /*
-  const artist = {
-    "artistName": artistName,
+    const artist = {
+      username: artistName,
+      age: age,
+      country: country,
+      biography: bio,
+      numOfMembers: numMember,
+    };
+
+    const response = fetch("http://localhost:8080/api/user/add", {
+      method: "POST",
+      body: JSON.stringify(artist),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      console.log("New artist added!");
+    } else {
+      console.log("Error!");
+    }
   };
-  */
 
   return (
     <div>
@@ -82,7 +98,9 @@ const ArtistForm = () => {
             onChange={handleNumMemberChange}
           ></input>
         </label>
-        <div className={styles.btn}>Add</div>
+        <div className={styles.btn} onClick={handleAddClick}>
+          Add
+        </div>
       </div>
     </div>
   );
