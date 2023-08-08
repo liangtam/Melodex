@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./LabelPage.module.css";
 
 import LabelForm from "../components/Labels/LabelForm";
+import LabelTuple from "../components/Labels/LabelTuple";
 
 const LabelPage = () => {
   const handleAddLabel = (e) => {
@@ -13,7 +14,7 @@ const LabelPage = () => {
       <div className={styles.leftBody}>
         <div className={styles.centered}>
           <div className={styles.title}>
-            <h4>Label</h4>
+            <LabelTuple />
           </div>
         </div>
       </div>
