@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./ArtistsPage.module.css";
 
-import ArtistForm from "../components/Album/ArtistForm";
+import ArtistForm from "../components/Artists/ArtistForm";
 import { Link } from "react-router-dom";
 
 const ArtistsPage = () => {
