@@ -62,23 +62,43 @@ VALUES (6, 'http://www.columbiarecords.com/', 'Columbia Records');
 
 
 
+-- INSERT INTO Artist_ContractedWith      
+-- 	VALUES(1, 'HEIZE', 'heize11@gmail.com', 31, 'heizepassword', 'South Korea', NULL, 1, NULL,1);
+
+-- INSERT INTO Artist_ContractedWith
+-- 	VALUES (2, '(G)I-DLE', 'gidle@email.com', 5, 'gidlepassword', 'South Korea', '5-member self-producing Kpop girl group', 5, NULL, 2);
+
+-- INSERT INTO Artist_ContractedWith      
+-- 	VALUES(3, 'Ryuichi Sakamoto', 'ryuichi11@gmail.com', 71, 'ryuichipassword', 'Japan', NULL, 1, NULL, 3);
+
+-- INSERT INTO Artist_ContractedWith      
+-- 	VALUES(4, 'Lil Gittu', 'lilgittu@gmail.com', 30, 'gittupassword', 'Canada', 'Raps about databases', 1, NULL, 4);
+
+-- INSERT INTO Artist_ContractedWith   
+-- 	VALUES(5, 'Taylor Swift', 'taylorswift@umgstores.com', 33, 'tspassword', 'United States', 'American singer-songwriter', 1, NULL, 5);
+
+-- INSERT INTO Artist_ContractedWith 
+-- 	VALUES(6, 'Harry Styles', 'info@caa.com', 29, 'hspassword', 'United Kingdom', 'English singer and actor', 1, NULL, 6);
+
 INSERT INTO Artist_ContractedWith      
-	VALUES(1, 'HEIZE', 'heize11@gmail.com', 31, 'heizepassword', 'South Korea', NULL, 1, NULL,1);
+	VALUES(1, 'HEIZE', 31, 'South Korea', NULL, 1, NULL,1);
 
 INSERT INTO Artist_ContractedWith
-	VALUES (2, '(G)I-DLE', 'gidle@email.com', 5, 'gidlepassword', 'South Korea', '5-member self-producing Kpop girl group', 5, NULL, 2);
+	VALUES (2, '(G)I-DLE',  5, 'South Korea', '5-member self-producing Kpop girl group', 5, NULL, 2);
 
 INSERT INTO Artist_ContractedWith      
-	VALUES(3, 'Ryuichi Sakamoto', 'ryuichi11@gmail.com', 71, 'ryuichipassword', 'Japan', NULL, 1, NULL, 3);
+	VALUES(3, 'Ryuichi Sakamoto', 71, 'Japan', NULL, 1, NULL, 3);
 
 INSERT INTO Artist_ContractedWith      
-	VALUES(4, 'Lil Gittu', 'lilgittu@gmail.com', 30, 'gittupassword', 'Canada', 'Raps about databases', 1, NULL, 4);
+	VALUES(4, 'Lil Gittu',  30, 'Canada', 'Raps about databases', 1, NULL, 4);
 
 INSERT INTO Artist_ContractedWith   
-	VALUES(5, 'Taylor Swift', 'taylorswift@umgstores.com', 33, 'tspassword', 'United States', 'American singer-songwriter', 1, NULL, 5);
+	VALUES(5, 'Taylor Swift',  33,  'United States', 'American singer-songwriter', 1, NULL, 5);
 
 INSERT INTO Artist_ContractedWith 
-	VALUES(6, 'Harry Styles', 'info@caa.com', 29, 'hspassword', 'United Kingdom', 'English singer and actor', 1, NULL, 6);
+	VALUES(6, 'Harry Styles', 29,  'United Kingdom', 'English singer and actor', 1, NULL, 6);
+    
+    
 
 
 INSERT INTO Discography_Main
@@ -147,7 +167,7 @@ INSERT INTO Discography_Ranking
 
 
 
-INSERT INTO Album -- Goblin OST
+INSERT INTO Album (albumID, numOfSongs, totalDuration)-- Goblin OST
 	VALUES (1, 15, '00:53:00');
 
 INSERT INTO Album -- I FEEL
