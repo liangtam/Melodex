@@ -30,8 +30,13 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/discography">
-                                <h4>Music</h4>
+                            <Link to="/songs">
+                                <h4>Song</h4>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/albums">
+                                <h4>Album</h4>
                             </Link>
                         </li>
                         <li>
