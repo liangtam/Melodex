@@ -16,6 +16,10 @@ const ArtistForm = () => {
     setAge(e.target.value);
   };
 
+  const handleCountryChange = (e) => {
+    setCountry(e.target.value);
+  };
+
   return (
     <div>
       <div className={styles.formContainer}>
