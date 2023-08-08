@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./LabelPage.module.css";
 
-import SongForm from "../components/Labels/LabelForm";
+import LabelForm from "../components/Labels/LabelForm";
 
 const LabelPage = () => {
   const handleAddLabel = (e) => {
