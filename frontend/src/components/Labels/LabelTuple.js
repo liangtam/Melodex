@@ -1,6 +1,6 @@
 import styles from "./LabelTuple.module.css";
 
-const LabelTuple = () => {
+const LabelTuple = (props) => {
   return (
     <div>
       <div className={styles.tupleContainer}>
