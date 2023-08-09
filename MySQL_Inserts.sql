@@ -102,46 +102,46 @@ INSERT INTO Artist_ContractedWith
 
 
 INSERT INTO Discography_Main
-	VALUES (1, 'Goblin OST', 'Kpop', '2017-01-21 12:00', 2000000);
+	VALUES (1, 'Goblin OST', 'Kpop', '2017-01-21 12:00');
 
 INSERT INTO Discography_Main
-	VALUES (2, 'I FEEL', 'Kpop', '2022-03-15 02:00', 2000001);
+	VALUES (2, 'I FEEL', 'Kpop', '2022-03-15 02:00');
 
 INSERT INTO Discography_Main
-	VALUES (3, 'Merry Christmas Mr.Lawrence', NULL, '2015-05-21 12:00', 2000002) ;
+	VALUES (3, 'Merry Christmas Mr.Lawrence', NULL, '2015-05-21 12:00') ;
 
 INSERT INTO Discography_Main
-	VALUES (4, 'GITTU RAP', 'Hip Hop', '2023-08-05 12:00', 2000003);
+	VALUES (4, 'GITTU RAP', 'Hip Hop', '2023-08-05 12:00');
 
 INSERT INTO Discography_Main
-	VALUES (5, '1996', 'Dance', '1996-06-04 12:00', 2000004);
+	VALUES (5, '1996', 'Dance', '1996-06-04 12:00');
 
 INSERT INTO Discography_Main
-	VALUES (6, 'Round and Round', 'Kpop', '2017-01-21 12:00', 2000005);
+	VALUES (6, 'Round and Round', 'Kpop', '2017-01-21 12:00');
 
 INSERT INTO Discography_Main
-	VALUES (7, 'Rain', 'Dance', '1996-06-04 12:00', 2000006);
+	VALUES (7, 'Rain', 'Dance', '1996-06-04 12:00');
 
 INSERT INTO Discography_Main
-	VALUES (8, 'The Gittu Album', 'Hip Hop', '2023-07-27 12:00', 2000007);
+	VALUES (8, 'The Gittu Album', 'Hip Hop', '2023-07-27 12:00');
 
 INSERT INTO Discography_Main
-	VALUES (9, 'Midnights', 'Pop', '2022-10-21 0:00', 2000008);
+	VALUES (9, 'Midnights', 'Pop', '2022-10-21 0:00');
 
 INSERT INTO Discography_Main
-	VALUES (10, 'Reputation', 'Pop', '2017-11-10 12:00', 2000009);
+	VALUES (10, 'Reputation', 'Pop', '2017-11-10 12:00');
     
 INSERT INTO Discography_Main
-	VALUES (11, 'K-GITTU-Pop', 'Kpop', '2023-08-05 12:00', 2000003);
+	VALUES (11, 'K-GITTU-Pop', 'Kpop', '2023-08-05 12:00');
     
 INSERT INTO Discography_Main
-	VALUES (12, 'GITTU POP', 'Pop', '2023-08-05 12:00', 2000003);
+	VALUES (12, 'GITTU POP', 'Pop', '2023-08-05 12:00');
     
 INSERT INTO Discography_Main
-	VALUES (13, 'Old Gittu Town Road', 'Country', '2023-08-05 12:00', 2000003);
+	VALUES (13, 'Old Gittu Town Road', 'Country', '2023-08-05 12:00');
     
 INSERT INTO Discography_Main
-	VALUES (14, 'Dance With Gittu', 'Dance', '2023-08-05 12:00', 2000003);
+	VALUES (14, 'Dance With Gittu', 'Dance', '2023-08-05 12:00');
 
 
 SET SQL_SAFE_UPDATES = 0;
