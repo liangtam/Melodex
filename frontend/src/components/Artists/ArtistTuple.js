@@ -1,10 +1,9 @@
 import styles from "./ArtistTuple.module.css";
 
-const ArtistTuple = () => {
+const ArtistTuple = ({artist}) => {
   return (
     <div>
       <div className={styles.tupleContainer}>
-        <h3>Artist List</h3>
         <div className={styles.titlebox}>
           <div className={styles.titlelist}>
             <div className={styles.titlecontent}>
@@ -19,11 +18,11 @@ const ArtistTuple = () => {
         <div className={styles.box}>
           <div className={styles.list}>
             <div className={styles.content}>
-              <p>...</p>
-              <p>...</p>
-              <p>...</p>
-              <p>...</p>
-              <p>...</p>
+              <p>{artist && artist.artistName}</p>
+              <p>{artist && artist.age}</p>
+              <p>{artist && artist.country}</p>
+              <p>{artist && artist.biography}</p>
+              <p>{artist && artist.numOfMembers}</p>
             </div>
           </div>
         </div>
