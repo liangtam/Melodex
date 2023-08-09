@@ -28,6 +28,8 @@ const AlbumForm = () => {
     setTotalDuration(e.target.value);
   };
 
+  const handleAddClick = (e) => {};
+
   return (
     <div>
       <div className={styles.formContainer}>
