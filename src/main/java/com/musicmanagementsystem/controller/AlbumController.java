@@ -42,7 +42,7 @@ public class AlbumController {
         long ms = sdf.parse(timeString).getTime();
         Time t = new Time(ms);
 
-        albumService.insertNewAlbum(reqBody.getDiscoName(), reqBody.getGenre(), reqBody.getReleaseDate(), reqBody.getNumOfLikes(),
+        albumService.insertNewAlbum(reqBody.getDiscoName(), reqBody.getGenre(), reqBody.getReleaseDate(),
                 reqBody.getNumOfSongs(), t);
     }
 }

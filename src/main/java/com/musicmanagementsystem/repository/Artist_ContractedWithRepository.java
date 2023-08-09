@@ -16,6 +16,9 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
     String insertNewArtistQuery = "INSERT INTO Artist_ContractedWith (artistName, age, country, biography, numOfMembers, labelID) " +
             "VALUES (:artistName, :age, :country, :biography, :numOfMembers, :labelID)";
     String getAllArtistsQuery = "SELECT * FROM Artist_ContractedWith";
+    String updateArtistQuery = "UPDATE Artist_ContractedWith " +
+            "SET artistName= :artistName, age=:age, country=:country, biography=:biography, numOfMembers=:numOfMembers, labelID=:labelID " +
+            "WHERE Artist_ContractedWith.artistID= :artistID";
 
     @Modifying
     @Transactional
@@ -25,4 +28,12 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
 
     @Query(value=getAllArtistsQuery, nativeQuery = true)
     public List<Artist_ContractedWith> getAllArtists();
+
+    @Modifying
+    @Transactional
+    @Query(value=updateArtistQuery, nativeQuery = true)
+    public void updateArtist(@Param("artistID") int artistID, @Param("artistName") String artistName, @Param("age") int age, @Param("country")String country,
+                             @Param("biography") String biography, @Param("numOfMembers") int numOfMembers, @Param("labelID") int labelID);
+
+
 }

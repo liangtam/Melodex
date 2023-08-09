@@ -4,7 +4,7 @@ public class AlbumDisco {
     private String discoName;
     private String genre;
     private String releaseDate;
-    private int numOfLikes;
+    //private int numOfLikes;
     private int numOfSongs;
     private String totalDuration;
 
@@ -52,11 +52,11 @@ public class AlbumDisco {
         this.releaseDate = releaseDate;
     }
 
-    public int getNumOfLikes() {
-        return numOfLikes;
-    }
-
-    public void setNumOfLikes(int numOfLikes) {
-        this.numOfLikes = numOfLikes;
-    }
+//    public int getNumOfLikes() {
+//        return numOfLikes;
+//    }
+//
+//    public void setNumOfLikes(int numOfLikes) {
+//        this.numOfLikes = numOfLikes;
+//    }
 }

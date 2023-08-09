@@ -26,4 +26,12 @@ public class Artist_ContractedWithController {
     public List<Artist_ContractedWith> getAllArtists() {
         return artist_contractedWithService.getAllArtists();
     }
+
+    // UPDATE OPERATION to submit
+    @PatchMapping("/update/{id}")
+    public void updateArtist(@PathVariable int id, @RequestBody Artist_ContractedWithBody reqBody) {
+        artist_contractedWithService.updateArtist(id, reqBody.getArtistName(), reqBody.getAge(), reqBody.getCountry(),
+                reqBody.getBiography(), reqBody.getNumOfMembers(), reqBody.getLabelID());
+        System.out.println("Updated artist!");
+    }
 }

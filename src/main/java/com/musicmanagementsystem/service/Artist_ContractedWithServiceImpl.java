@@ -23,4 +23,9 @@ public class Artist_ContractedWithServiceImpl implements Artist_ContractedWithSe
     public List<Artist_ContractedWith> getAllArtists() {
         return artist_contractedWithRepository.getAllArtists();
     }
+
+    @Override
+    public void updateArtist(int artistID, String artistName, int age, String country, String biography, int numOfMembers, int labelID) {
+        artist_contractedWithRepository.updateArtist(artistID, artistName, age, country, biography, numOfMembers, labelID);
+    }
 }

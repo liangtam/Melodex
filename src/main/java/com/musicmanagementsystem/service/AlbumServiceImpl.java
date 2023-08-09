@@ -25,8 +25,8 @@ public class AlbumServiceImpl implements AlbumService {
     }
 
     @Override
-    public void insertNewAlbum(String discoName, String genre, String releaseDate, int numOfLikes, int numOfSongs, Time totalDuration) {
-        discography_mainRepository.insertNewDisco(discoName, genre, releaseDate, numOfLikes);
+    public void insertNewAlbum(String discoName, String genre, String releaseDate, int numOfSongs, Time totalDuration) {
+        discography_mainRepository.insertNewDisco(discoName, genre, releaseDate);
         albumRepository.insertNewAlbum(numOfSongs, totalDuration);
     }
 

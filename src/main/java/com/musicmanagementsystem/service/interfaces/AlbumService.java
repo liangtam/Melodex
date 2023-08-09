@@ -8,7 +8,7 @@ import java.util.List;
 public interface AlbumService {
     public List<Album> getAllAlbums();
 
-    public void insertNewAlbum(String discoName, String genre, String releaseDate, int numOfLikes, int numOfSongs, Time totalDuration);
+    public void insertNewAlbum(String discoName, String genre, String releaseDate, int numOfSongs, Time totalDuration);
 
     public List<Album> getAllAlbumsWithName(String discoName);
 
