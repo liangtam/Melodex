@@ -22,7 +22,7 @@ public class SongController {
         return songService.getAllSongs();
     }
 
-    @PostMapping("/isIn")
+    @PostMapping("/isin")
     public void addSongToAlbum(@RequestBody AddSongToAlbumReqBody request) {
         songService.addSongToAlbum(request.getAlbumID(), request.getSongID());
         System.out.println("Added song to album!");
