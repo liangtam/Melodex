@@ -10,7 +10,6 @@ const SongTuple = (props) => {
                     <div className={styles.titlelist}>
                         <div className={styles.titlecontent}>
                             <h4>Song Name</h4>
-                            <h4>Artist Name</h4>
                             <h4>Genre</h4>
                             <h4>Release Date</h4>
                             <h4>Duration</h4>
@@ -22,11 +21,12 @@ const SongTuple = (props) => {
                     {props.songs.map(song => (
                         <div className={styles.list} key={song.name}>
                             <div className={styles.content}>
+                                <div className={styles.editbtn}>Edit</div>
                                 <p>{song.name}</p>
-                                <p>{song.artist}</p>
                                 <p>{song.genre}</p>
                                 <p>{song.releaseDate}</p>
                                 <p>{song.duration}</p>
+                                <div className={styles.editbtn}>Delete</div>
                             </div>
                         </div>
                     ))}
