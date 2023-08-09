@@ -6,10 +6,14 @@ import com.musicmanagementsystem.model.Artist_ContractedWith;
 import com.musicmanagementsystem.service.DTO.AggGroupByDTO;
 import com.musicmanagementsystem.service.DTO.AggHavingDTO;
 import com.musicmanagementsystem.service.interfaces.Artist_ContractedWithService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/artists")
@@ -17,6 +21,9 @@ import java.util.List;
 public class Artist_ContractedWithController {
     @Autowired
     public Artist_ContractedWithService artist_contractedWithService;
+
+    @Autowired
+    public JdbcTemplate jdbcTemplate;
 
     @PostMapping("/add")
     public void addNewArtist(@RequestBody Artist_ContractedWithBody reqBody) {
@@ -66,5 +73,39 @@ public class Artist_ContractedWithController {
     @GetMapping("/aggregationhaving")
     public List<AggHavingDTO> aggregationHaving() {
         return artist_contractedWithService.aggregationHaving();
+    }
+
+    @GetMapping("/projection")
+    public String projection(@RequestBody List<String> attributes) {
+        String attributesString = "";
+        for (int i = 0; i < attributes.size(); i++) {
+            if (i == attributes.size() - 1) {
+                attributesString += attributes.get(i);
+            } else {
+                attributesString += (attributes.get(i) + ", ");
+            }
+        }
+        System.out.println("Attributes string: " + attributesString);
+
+        String dynamicQuery = "SELECT " + attributesString + " FROM Artist_ContractedWith";
+        System.out.println("Dynamic query: " + dynamicQuery); // this is just for me debugging
+
+        List<Map<String, Object>> queryResult = jdbcTemplate.queryForList(dynamicQuery);
+
+        List<JSONObject> jsonObjects = new ArrayList<>();
+        for (Map<String, Object> row : queryResult) {
+            JSONObject jsonObject = new JSONObject();
+            for (Map.Entry<String, Object> entry : row.entrySet()) {
+                System.out.println("Key: " + entry.getKey() + " Val: " + entry.getValue()); // this is just for me debugging
+                jsonObject.put(entry.getKey(), entry.getValue());
+            }
+            jsonObjects.add(jsonObject);
+
+        }
+        System.out.println("JsonObjects: " + jsonObjects);
+
+
+        return JSONObject.valueToString(jsonObjects);
+
     }
 }
