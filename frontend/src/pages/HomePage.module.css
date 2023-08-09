@@ -57,11 +57,11 @@ button {
     padding-left: 7px;
     padding-right: 7px;
     border-radius: 5px;
-    background-color: rgb(0, 145, 235);
+    background-color: #3c3e7c;
     color: white;
 }
 
 button:hover {
     cursor: pointer;
-    background-color: rgb(0, 109, 233);
+    background-color: rgb(100, 89, 156);
 }
