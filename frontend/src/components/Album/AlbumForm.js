@@ -1,57 +1,38 @@
 import { useState, useEffect } from "react";
 import styles from "./AlbumForm.module.css";
 
-const AlbumForm = () => {
-  const [albumName, setAlbumName] = useState("");
-  const [genre, setGenre] = useState("");
-  const [releaseDate, setReleaseDate] = useState("");
-  const [numOfSongs, setNumOfSongs] = useState("");
-  const [totalDuration, setTotalDuration] = useState("");
+const AlbumForm = (props) => {
+  const [album, setAlbum] = useState({
+    albumName: "",
+    genre: "",
+    releaseDate: "",
+    numOfSongs: "",
+    totalDuration: "",
+  });
 
-  const handleAlbumNameChange = (e) => {
-    setAlbumName(e.target.value);
+  const [albums, setAlbums] = useState([]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLabel((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleGenreChange = (e) => {
-    setGenre(e.target.value);
+  const handleAdd = () => {
+    props.addAlbum(album);
+    resetForm();
   };
 
-  const handleReleaseDateChange = (e) => {
-    setReleaseDate(e.target.value);
-  };
-
-  const handleNumOfSongsChange = (e) => {
-    setNumOfSongs(e.target.value);
-  };
-
-  const handleTotalDurationChange = (e) => {
-    setTotalDuration(e.target.value);
-  };
-
-  const handleAddClick = (e) => {
-    e.preventDefault();
-
-    const album = {
-      discoName: albumName,
-      genre: genre,
-      releaseDate: releaseDate,
-      numOfSongs: numOfSongs,
-      totalDuration: totalDuration,
-    };
-
-    const response = fetch("http://localhost:8080/api/user/add", {
-      method: "POST",
-      body: JSON.stringify(album),
-      headers: {
-        "Content-Type": "application/json",
-      },
+  const resetForm = () => {
+    setAlbum({
+      albumName: "",
+      genre: "",
+      releaseDate: "",
+      numOfSongs: "",
+      totalDuration: "",
     });
-
-    if (response.ok) {
-      console.log("New album added!");
-    } else {
-      console.log("Error!");
-    }
   };
 
   return (
