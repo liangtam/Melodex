@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./LabelForm.module.css";
 
-const LabelForm = () => {
+const LabelForm = (props) => {
   return (
     <div>
       <div className={styles.formContainer}>
