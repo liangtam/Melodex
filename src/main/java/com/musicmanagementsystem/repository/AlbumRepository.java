@@ -16,6 +16,9 @@ public interface AlbumRepository extends JpaRepository<Album, Integer> {
 
     String insertNewAlbum = "INSERT INTO Album (albumID, numOfSongs, totalDuration) VALUES (LAST_INSERT_ID(), :numOfSongs, :totalDuration);";
     String getAllAlbumsIncludingIDQuery = "SELECT * FROM Album A, Discography_Main D WHERE A.albumID = D.dID";
+    String getAllAlbumsWithNameQuery = "SELECT * " +
+                                        "FROM Album A, Discography_Main D " +
+                                        "WHERE A.albumID = D.dID AND D.discoName = :discoName";
 
     @Query(value=getAllAlbumsIncludingIDQuery, nativeQuery = true)
     List<Album> getAllAlbums();
@@ -24,6 +27,11 @@ public interface AlbumRepository extends JpaRepository<Album, Integer> {
     @Transactional
     @Query(value = insertNewAlbum, nativeQuery = true)
     void insertNewAlbum(@Param("numOfSongs") int numOfSongs, @Param("totalDuration") Time totalDuration);
+
+
+    // JOIN OPERATION to submit
+    @Query(value = getAllAlbumsWithNameQuery, nativeQuery = true)
+    List<Album> getAllAlbumsWithName(@Param("discoName") String discoName);
 
 }
 

@@ -10,4 +10,6 @@ public interface AlbumService {
 
     public void insertNewAlbum(String discoName, String genre, String releaseDate, int numOfLikes, int numOfSongs, Time totalDuration);
 
+    public List<Album> getAllAlbumsWithName(String discoName);
+
 }

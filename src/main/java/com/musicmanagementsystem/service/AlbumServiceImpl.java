@@ -29,4 +29,9 @@ public class AlbumServiceImpl implements AlbumService {
         discography_mainRepository.insertNewDisco(discoName, genre, releaseDate, numOfLikes);
         albumRepository.insertNewAlbum(numOfSongs, totalDuration);
     }
+
+    @Override
+    public List<Album> getAllAlbumsWithName(String discoName) {
+        return albumRepository.getAllAlbumsWithName(discoName);
+    }
 }

@@ -23,6 +23,11 @@ public class AlbumController {
 
 
     // JOIN OPERATION to submit
+    @GetMapping("all/{name}")
+    public List<Album> getAllAlbumsWithName(@PathVariable String name) {
+        return albumService.getAllAlbumsWithName(name);
+    }
+
     @GetMapping("/all")
     public List<Album> getAllAlbums() {
         return albumService.getAllAlbums();
