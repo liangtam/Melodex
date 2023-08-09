@@ -17,4 +17,6 @@ public interface Artist_ContractedWithService {
     public void releaseDiscography(int artistID, int discoID);
 
     public List<Integer> nestedAggregation();
+
+    public List<Integer> division();
 }

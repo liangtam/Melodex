@@ -42,6 +42,17 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
             "        GROUP BY artistID\n" +
             "    ) AS overall_avg_query\n" +
             ");";
+    String divisionQuery ="SELECT artistID \n" +
+            "FROM Artist_ContractedWith A \n" +
+            "WHERE NOT EXISTS (\n" +
+            "    SELECT DISTINCT genre \n" +
+            "    FROM Discography_Main D\n" +
+            "    WHERE D.genre NOT IN (\n" +
+            "        SELECT DISTINCT Dm.genre\n" +
+            "        FROM Discography_Main Dm, Song S, Releases R\n" +
+            "        WHERE Dm.dID = R.dID AND S.songID = R.dID AND R.artistID = A.artistID\n" +
+            "    )\n" +
+            ");\n";
 
 
     @Modifying
@@ -70,6 +81,9 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
 
     @Query(value = nestAggregationQuery, nativeQuery = true)
     public List<Integer> nestedAggregation();
+
+    @Query(value = divisionQuery, nativeQuery = true)
+    public List<Integer> division();
 
 
 

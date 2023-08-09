@@ -47,4 +47,10 @@ public class Artist_ContractedWithController {
     public List<Integer> nestedAggregation() {
         return artist_contractedWithService.nestedAggregation();
     }
+
+    // finds ids of all artists who have covered every single genre
+    @GetMapping("/division")
+    public List<Integer> division() {
+        return artist_contractedWithService.division();
+    }
 }

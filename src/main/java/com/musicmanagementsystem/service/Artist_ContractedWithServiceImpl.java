@@ -43,4 +43,9 @@ public class Artist_ContractedWithServiceImpl implements Artist_ContractedWithSe
     public List<Integer> nestedAggregation() {
         return artist_contractedWithRepository.nestedAggregation();
     }
+
+    @Override
+    public List<Integer> division() {
+        return artist_contractedWithRepository.division();
+    }
 }
