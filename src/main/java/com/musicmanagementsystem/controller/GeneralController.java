@@ -35,20 +35,25 @@ public class GeneralController {
         System.out.println(attributesString);
         System.out.println(reqBody.getTable());
 
-        String dynamicQuery = "SELECT " + attributesString + " FROM " + reqBody.getTable();
+
+
+        String dynamicQuery = "SELECT " + attributesString + " FROM " + reqBody.getTable() + " WHERE " +
+        reqBody.getField1() + "=" + "'" + reqBody.getVal1() + "'" + " AND " + reqBody.getField2() + ">=" + reqBody.getVal2();
+        System.out.println("Dynamic query: " + dynamicQuery); // this is just for me debugging
+
         List<Map<String, Object>> queryResult = jdbcTemplate.queryForList(dynamicQuery);
 
         List<JSONObject> jsonObjects = new ArrayList<>();
         for (Map<String, Object> row : queryResult) {
             JSONObject jsonObject = new JSONObject();
             for (Map.Entry<String, Object> entry : row.entrySet()) {
-                System.out.println(entry.getKey() + " val: " + entry.getValue()); // this is just me debugging
+                System.out.println("Key: " + entry.getKey() + " Val: " + entry.getValue()); // this is just for me debugging
                 jsonObject.put(entry.getKey(), entry.getValue());
             }
             jsonObjects.add(jsonObject);
 
         }
-        System.out.println(jsonObjects);
+        System.out.println("JsonObjects: " + jsonObjects);
 
 
         return JSONObject.valueToString(jsonObjects);
