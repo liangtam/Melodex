@@ -4,6 +4,7 @@ import com.musicmanagementsystem.controller.reqBodies.ArtistReleaseDiscoReqBody;
 import com.musicmanagementsystem.controller.reqBodies.Artist_ContractedWithBody;
 import com.musicmanagementsystem.model.Artist_ContractedWith;
 import com.musicmanagementsystem.service.DTO.AggGroupByDTO;
+import com.musicmanagementsystem.service.DTO.AggHavingDTO;
 import com.musicmanagementsystem.service.interfaces.Artist_ContractedWithService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -59,5 +60,11 @@ public class Artist_ContractedWithController {
     @GetMapping("/aggregationgroupby")
     public List<AggGroupByDTO> aggregationGroupBy() {
         return artist_contractedWithService.aggregationGroupBy();
+    }
+
+    // For each artist who have released more than 1 discographies, find the earliest release date
+    @GetMapping("/aggregationhaving")
+    public List<AggHavingDTO> aggregationHaving() {
+        return artist_contractedWithService.aggregationHaving();
     }
 }

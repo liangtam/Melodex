@@ -2,6 +2,7 @@ package com.musicmanagementsystem.repository;
 
 import com.musicmanagementsystem.model.Artist_ContractedWith;
 import com.musicmanagementsystem.service.DTO.AggGroupByDTO;
+import com.musicmanagementsystem.service.DTO.AggHavingDTO;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -96,6 +97,10 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
     //@Query(value = aggregationGroupByQuery, nativeQuery = true)
     @Query(name="Artist_ContractedWith.aggregationGroupBy", nativeQuery = true)
     public List<AggGroupByDTO> aggregationGroupBy();
+
+    // AGGRE HAVING
+    @Query(name="Artist_ContractedWith.aggregationHaving", nativeQuery = true)
+    public List<AggHavingDTO> aggregationHaving();
 
 
 

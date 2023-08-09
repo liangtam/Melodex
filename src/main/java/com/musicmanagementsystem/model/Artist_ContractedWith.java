@@ -1,6 +1,7 @@
 package com.musicmanagementsystem.model;
 
 import com.musicmanagementsystem.service.DTO.AggGroupByDTO;
+import com.musicmanagementsystem.service.DTO.AggHavingDTO;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -11,10 +12,20 @@ import java.util.Set;
                 "FROM Releases R\n" +
                 "GROUP BY R.artistID;",
         resultSetMapping="Mapping.AggGroupByDTO")
+@NamedNativeQuery(name="Artist_ContractedWith.aggregationHaving",
+        query="SELECT A.artistName, MIN(D.releaseDate) as earliestReleaseDate\n" +
+                "FROM Artist_ContractedWith A, Discography_Main D, Releases R\n" +
+                "GROUP BY A.artistName\n" +
+                "HAVING COUNT(D.dID) > 1;",
+        resultSetMapping="Mapping.AggHavingDTO")
 @SqlResultSetMapping(name="Mapping.AggGroupByDTO",
                 classes = @ConstructorResult(targetClass = AggGroupByDTO.class,
                 columns={@ColumnResult(name="artistID", type=Integer.class),
                         @ColumnResult(name="numOfDiscography", type=Integer.class)}))
+@SqlResultSetMapping(name="Mapping.AggHavingDTO",
+        classes = @ConstructorResult(targetClass = AggHavingDTO.class,
+                columns={@ColumnResult(name="artistName"),
+                        @ColumnResult(name="earliestReleaseDate")}))
 @Entity
 public class Artist_ContractedWith {
     @Id

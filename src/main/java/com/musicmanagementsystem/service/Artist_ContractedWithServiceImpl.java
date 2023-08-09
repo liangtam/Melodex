@@ -3,6 +3,7 @@ package com.musicmanagementsystem.service;
 import com.musicmanagementsystem.model.Artist_ContractedWith;
 import com.musicmanagementsystem.repository.Artist_ContractedWithRepository;
 import com.musicmanagementsystem.service.DTO.AggGroupByDTO;
+import com.musicmanagementsystem.service.DTO.AggHavingDTO;
 import com.musicmanagementsystem.service.interfaces.Artist_ContractedWithService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,5 +54,10 @@ public class Artist_ContractedWithServiceImpl implements Artist_ContractedWithSe
     @Override
     public List<AggGroupByDTO> aggregationGroupBy() {
         return artist_contractedWithRepository.aggregationGroupBy();
+    }
+
+    @Override
+    public List<AggHavingDTO> aggregationHaving() {
+        return artist_contractedWithRepository.aggregationHaving();
     }
 }
