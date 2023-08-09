@@ -67,6 +67,29 @@
     transform: translate(-50%, -50%);
     text-align: center;
   }
+
+  
+  .tuples {
+    max-width: 100%; /* Set a maximum width for the container */
+    margin: 0 auto;
+    padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: calc(100vh - 150px); /* Adjust the value to leave space for the header/footer */
+  }
+
+
+  .tuples::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .tuples::-webkit-scrollbar-thumb {
+    background-color: #296d9b;
+    border-radius: 5px;
+  }
+  
+  .tuples::-webkit-scrollbar-thumb:hover {
+    background-color: #3582b6;
+  }
   
   .title h2 {
     font-size: 50px;

@@ -3,14 +3,17 @@ import styles from "./AlbumForm.module.css";
 
 const AlbumForm = (props) => {
   const [album, setAlbum] = useState({
-    albumName: "",
+    discoName: "",
     genre: "",
     releaseDate: "",
     numOfSongs: "",
     totalDuration: "",
   });
 
-  const [albums, setAlbums] = useState([]);
+  const [successAdd, setSuccessAdd] = useState(false);
+  const [error, setError] = useState(false);
+
+  // const [albums, setAlbums] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,14 +23,36 @@ const AlbumForm = (props) => {
     }));
   };
 
-  const handleAdd = () => {
-    props.addAlbum(album);
-    resetForm();
+  const handleAddClick = async (e) => {
+    e.preventDefault();
+
+        console.log("Album: ", album); // this is just for debugging purposes
+
+        const response = await fetch('http://localhost:8080/api/albums/add', {
+            method: 'POST',
+            body: JSON.stringify(album),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        if (response.ok) {
+            console.log("Added new album!");
+            props.addAlbum(album);
+            setSuccessAdd(true);
+            setError(false);
+        } else {
+            console.log("Error!");
+            setError(true);
+            setSuccessAdd(false);
+        }
+
+            //resetForm();
   };
 
   const resetForm = () => {
     setAlbum({
-      albumName: "",
+      discoName: "",
       genre: "",
       releaseDate: "",
       numOfSongs: "",
@@ -63,7 +88,7 @@ const AlbumForm = (props) => {
           Release Date:{" "}
           <input
             type="text"
-            placeholder="eg. 2000-00-00(?)"
+            placeholder="eg. YYYY-MM-DD HH:MM"
             name="releaseDate"
             value={album.releaseDate}
             onChange={handleChange}
@@ -83,16 +108,22 @@ const AlbumForm = (props) => {
           Total Duration:{" "}
           <input
             type="text"
-            placeholder="The length of album"
+            placeholder="HH:MM:SS"
             name="totalDuration"
             value={album.totalDuration}
             onChange={handleChange}
           ></input>
         </label>
+                {successAdd && (
+                    <div className={styles.successMessage}>Added new album successfully!</div>
+                )}
+                {error && (
+                    <div className={styles.errorMessage}>Could not add album. Double check inputs.</div>
+                )}
         <label>
-          <div className={styles.btn} onClick={handleAdd}>
+          <button className={styles.btn} onClick={handleAddClick}>
             Add
-          </div>
+          </button>
         </label>
       </div>
     </div>

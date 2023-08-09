@@ -46,6 +46,16 @@
     box-shadow: rgba(0, 0, 0,0.4);
   }
 
+  .errorMessage {
+    margin-bottom: 10px;
+    color: rgb(255, 103, 103);
+  }
+  
+  .successMessage {
+    margin-bottom: 10px;
+    color: rgb(72, 255, 142);
+  }
+
   .btn:hover {
     cursor: pointer;
     background-color: rgb(100, 89, 156);

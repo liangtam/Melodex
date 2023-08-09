@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./AlbumTuple.module.css";
 
-const AlbumTuple = (props) => {
+const AlbumTuple = ({album}) => {
   return (
     <div>
       <div className={styles.tupleContainer}>
@@ -17,19 +17,17 @@ const AlbumTuple = (props) => {
           </div>
         </div>
         <div className={styles.box}>
-          {props.albums.map((album) => (
-            <div className={styles.list} key={album.name}>
+            <div className={styles.list}>
               <div className={styles.content}>
-                <div className={styles.editbtn}>Edit</div>
-                <p>{album.albumName}</p>
-                <p>{album.genre}</p>
-                <p>{album.releaseDate}</p>
-                <p>{album.numOfSongs}</p>
-                <p>{album.totalDuration}</p>
+                <p>{album && album.discoName}</p>
+                <p>{album && album.genre}</p>
+                <p>{album && album.releaseDate}</p>
+                <p>{album && album.numOfSongs}</p>
+                <p>{album && album.totalDuration}</p>
                 <div className={styles.editbtn}>Delete</div>
+                <div className={styles.editbtn}>Edit</div>
               </div>
             </div>
-          ))}
         </div>
       </div>
     </div>

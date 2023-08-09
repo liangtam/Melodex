@@ -22,7 +22,7 @@ const SongsPage = () => {
           setSongs(json);
           console.log("Fetched songs! ", json)
         } else {
-          console.log("Could not fetch artists");
+          console.log("Could not fetch songs");
         }
       }
 

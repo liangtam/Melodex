@@ -11,12 +11,36 @@ const AlbumsPage = () => {
     setAlbums([...albums, album]);
   };
 
+  const fetchAlbums = async () => {
+    const response = await fetch('http://localhost:8080/api/albums/all', {
+      method: 'GET'
+    }).catch((err) => {
+      console.log(err);
+    })
+
+    if (response.ok) {
+      const json = await response.json();
+      setAlbums(json);
+      console.log("Fetched albums! ", json)
+    } else {
+      console.log("Could not fetch albums");
+    }
+  }
+
+  useEffect(() => {
+    fetchAlbums();
+  }, [])
+
+
+
   return (
     <div className={styles.albumContainer}>
       <div className={styles.leftBody}>
         <div className={styles.centered}>
-          <div className={styles.title}>
-            <AlbumTuple albums={albums} />
+          <div className={styles.tuples}>
+            { albums && albums.map((album) => {
+              return <AlbumTuple album={album}/>
+            })}
           </div>
         </div>
       </div>

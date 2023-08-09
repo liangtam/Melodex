@@ -49,7 +49,7 @@ p {
     border-radius: 15px;
 }
 
-button {
+.centered button {
     translate: 0px 10px;
     border: none;
     margin: 10px;
@@ -59,9 +59,10 @@ button {
     border-radius: 5px;
     background-color: #3c3e7c;
     color: white;
+    font-size: 15px;
 }
 
-button:hover {
+.centered  button:hover {
     cursor: pointer;
     background-color: rgb(100, 89, 156);
 }
