@@ -24,7 +24,7 @@ CREATE TABLE Artist_ContractedWith(
 	country  VARCHAR(56), -- apparently the longest country name is 56 characters
 	biography VARCHAR(200),
 	numOfMembers INTEGER NOT NULL,
-	labelID INTEGER,
+	labelID INTEGER NULL,
 	FOREIGN KEY (labelID) REFERENCES RecordLabel(labelID)
     ON DELETE SET NULL
     ON UPDATE CASCADE);
