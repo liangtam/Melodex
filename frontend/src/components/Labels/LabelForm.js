@@ -53,7 +53,9 @@ const LabelForm = (props) => {
             onChange={handleChange}
           ></input>
         </label>
-        <div className={styles.btn}>Add</div>
+        <div className={styles.btn} onClick={handleAdd}>
+          Add
+        </div>
       </div>
     </div>
   );
