@@ -16,7 +16,7 @@ CREATE TABLE RecordLabel(
 	labelName VARCHAR(50) NOT NULL);
     
 CREATE TABLE Artist_ContractedWith( 
-	artistID INTEGER PRIMARY KEY,
+	artistID INTEGER PRIMARY KEY AUTO_INCREMENT,
     artistName VARCHAR(30) NOT NULL,
 	-- email VARCHAR(320) UNIQUE NOT NULL, -- apparently the longest email someone can create is 320 characters long
 	age INTEGER,
@@ -52,8 +52,7 @@ CREATE TABLE Discography_Main(
     dID INTEGER PRIMARY KEY AUTO_INCREMENT,
     discoName VARCHAR(50) NOT NULL,
     genre VARCHAR(50),
-    releaseDate DATETIME NOT NULL,
-    numOfLikes INTEGER NOT NULL
+    releaseDate DATETIME NOT NULL
 );
 
 CREATE TABLE Discography_Ranking(
