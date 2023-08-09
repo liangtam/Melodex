@@ -30,6 +30,14 @@ const AlbumForm = () => {
 
   const handleAddClick = (e) => {
     e.preventDefault();
+
+    const album = {
+      discoName: albumName,
+      genre: genre,
+      releaseDate: releaseDate,
+      numOfSongs: numOfSongs,
+      totalDuration: totalDuration,
+    };
   };
 
   return (
