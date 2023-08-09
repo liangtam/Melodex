@@ -34,4 +34,5 @@ public class AlbumServiceImpl implements AlbumService {
     public List<Album> getAllAlbumsWithName(String discoName) {
         return albumRepository.getAllAlbumsWithName(discoName);
     }
+
 }

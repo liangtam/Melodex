@@ -19,6 +19,8 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
     String updateArtistQuery = "UPDATE Artist_ContractedWith " +
             "SET artistName= :artistName, age=:age, country=:country, biography=:biography, numOfMembers=:numOfMembers, labelID=:labelID " +
             "WHERE Artist_ContractedWith.artistID= :artistID";
+    String dynamicSelection = "SELECT :attributes FROM :table ";
+
 
     @Modifying
     @Transactional
@@ -34,6 +36,10 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
     @Query(value=updateArtistQuery, nativeQuery = true)
     public void updateArtist(@Param("artistID") int artistID, @Param("artistName") String artistName, @Param("age") int age, @Param("country")String country,
                              @Param("biography") String biography, @Param("numOfMembers") int numOfMembers, @Param("labelID") int labelID);
+
+    // SELECTION OPERATION to submit
+    @Query(value = dynamicSelection, nativeQuery = true)
+    List<Object> getDynamicSelection(@Param("table") String table, @Param("attributes") String attributes);
 
 
 }

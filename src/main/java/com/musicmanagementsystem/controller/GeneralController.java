@@ -1,0 +1,68 @@
+package com.musicmanagementsystem.controller;
+
+import com.musicmanagementsystem.controller.reqBodies.CustomQueryReqBody;
+import com.musicmanagementsystem.service.interfaces.Artist_ContractedWithService;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/general")
+@CrossOrigin
+
+public class GeneralController {
+    @Autowired
+    public Artist_ContractedWithService artist_contractedWithService;
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate; // Autowire the JdbcTemplate
+
+    @GetMapping("/")
+    public String getDynamicSelection(@RequestBody CustomQueryReqBody reqBody) {
+        String attributesString = "";
+        for (int i = 0; i < reqBody.getAttributes().size(); i++) {
+            if (i == reqBody.getAttributes().size() - 1) {
+                attributesString += reqBody.getAttributes().get(i);
+            } else {
+                attributesString += (reqBody.getAttributes().get(i) + ", ");
+            }
+        }
+        System.out.println(attributesString);
+        System.out.println(reqBody.getTable());
+
+        String dynamicQuery = "SELECT " + attributesString + " FROM " + reqBody.getTable();
+        List<Map<String, Object>> queryResult = jdbcTemplate.queryForList(dynamicQuery);
+
+        List<JSONObject> jsonObjects = new ArrayList<>();
+        for (Map<String, Object> row : queryResult) {
+            JSONObject jsonObject = new JSONObject();
+            for (Map.Entry<String, Object> entry : row.entrySet()) {
+                System.out.println(entry.getKey() + " val: " + entry.getValue()); // this is just me debugging
+                jsonObject.put(entry.getKey(), entry.getValue());
+            }
+            jsonObjects.add(jsonObject);
+
+        }
+        System.out.println(jsonObjects);
+
+
+        return JSONObject.valueToString(jsonObjects);
+
+    }
+
+//    public List<JSONObject> parseObjsToJSON (List<Object> objects, List<String> attributes){
+//        List<JSONObject> jsonObjects = new ArrayList<>();
+//
+//        for (int i = 0; i < objects.size(); i++) {
+//            JSONObject jsonObj = new JSONObject();
+//            jsonObj.put(attributes.get(i), objects.get(i));
+//        }
+//    }
+
+
+}

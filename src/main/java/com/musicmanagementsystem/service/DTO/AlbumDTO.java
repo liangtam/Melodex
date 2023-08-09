@@ -9,11 +9,11 @@ import java.sql.Time;
 public class AlbumDTO {
 
     private String albumName;
-    private int numOfSongs;
+    private Integer numOfSongs;
     private Time totalDuration;
     private String releaseDate;
 
-    public AlbumDTO(String discoName, int numOfSongs, Time totalDuration, String releaseDate) {
+    public AlbumDTO(String discoName, Integer numOfSongs, Time totalDuration, String releaseDate) {
         albumName = discoName;
         this.numOfSongs = numOfSongs;
         this.totalDuration = totalDuration;

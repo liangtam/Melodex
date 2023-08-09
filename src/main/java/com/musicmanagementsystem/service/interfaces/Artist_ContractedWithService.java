@@ -11,4 +11,6 @@ public interface Artist_ContractedWithService {
     public List<Artist_ContractedWith> getAllArtists();
 
     public void updateArtist(int artistID, String artistName, int age, String country, String biography, int numOfMembers, int labelID);
+
+    List<Object> getDynamicSelection(String table, String attributes);
 }

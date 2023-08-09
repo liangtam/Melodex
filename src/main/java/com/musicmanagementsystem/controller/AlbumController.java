@@ -21,7 +21,6 @@ public class AlbumController {
 //    @Autowired
 //    public Discography_MainService discography_mainService;
 
-
     // JOIN OPERATION to submit
     @GetMapping("all/{name}")
     public List<Album> getAllAlbumsWithName(@PathVariable String name) {

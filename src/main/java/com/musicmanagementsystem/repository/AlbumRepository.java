@@ -33,6 +33,7 @@ public interface AlbumRepository extends JpaRepository<Album, Integer> {
     @Query(value = getAllAlbumsWithNameQuery, nativeQuery = true)
     List<Album> getAllAlbumsWithName(@Param("discoName") String discoName);
 
+
 }
 
 
