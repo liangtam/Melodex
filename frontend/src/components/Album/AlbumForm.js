@@ -3,9 +3,11 @@ import styles from "./AlbumForm.module.css";
 
 const AlbumForm = () => {
   const [albumName, setAlbumName] = useState("");
-  const [artistName, serArtistName] = useState("");
   const [genre, setGenre] = useState("");
   const [releaseDate, setReleaseDate] = useState("");
+  const [numOfSongs, setNumOfSongs] = useState("");
+  const [totalDuration, setTotalDuration] = useState("");
+
   return (
     <div>
       <div className={styles.formContainer}>
