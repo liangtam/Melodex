@@ -5,8 +5,10 @@ import LabelForm from "../components/Labels/LabelForm";
 import LabelTuple from "../components/Labels/LabelTuple";
 
 const LabelPage = () => {
-  const handleAddLabel = (e) => {
-    e.preventDefault();
+  const [labels, setLabels] = useState([]);
+
+  const addLabel = (label) => {
+    setLabels([...labels, label]);
   };
 
   return (
