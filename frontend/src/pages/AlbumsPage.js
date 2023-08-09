@@ -16,14 +16,14 @@ const AlbumsPage = () => {
       <div className={styles.leftBody}>
         <div className={styles.centered}>
           <div className={styles.title}>
-            <AlbumTuple />
+            <AlbumTuple albums={albums} />
           </div>
         </div>
       </div>
       <div className={styles.rightBody}>
         <div className={styles.centered}>
           <div className={styles.addForm}>
-            <AlbumForm />
+            <AlbumForm addAlbum={addAlbum} />
           </div>
         </div>
       </div>
