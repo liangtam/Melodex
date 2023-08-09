@@ -95,6 +95,7 @@
     box-shadow: rgba(0, 0, 0,0.4);
   }
 
+
   .editbtn:hover {
     cursor: pointer;
     background-color: rgb(100, 89, 156);
