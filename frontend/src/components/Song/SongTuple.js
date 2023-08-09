@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./SongTuple.module.css";
 
-const SongTuple = (props) => {
+const SongTuple = ({song}) => {
     return (
         <div>
             <div className={styles.tupleContainer}>
@@ -18,18 +18,16 @@ const SongTuple = (props) => {
                 </div>
 
                 <div className={styles.box}>
-                    {props.songs.map(song => (
-                        <div className={styles.list} key={song.name}>
+                        <div className={styles.list}>
                             <div className={styles.content}>
-                                <div className={styles.editbtn}>Edit</div>
-                                <p>{song.name}</p>
-                                <p>{song.genre}</p>
-                                <p>{song.releaseDate}</p>
-                                <p>{song.duration}</p>
-                                <div className={styles.editbtn}>Delete</div>
+                                <p>{song && song.discoName}</p>
+                                <p>{song && song.genre}</p>
+                                <p>{song && song.releaseDate}</p>
+                                <p>{song && song.duration}</p>
+                                <button className={styles.editbtn}>Edit</button>
+                                <button className={styles.deleteBtn}>Delete</button>
                             </div>
                         </div>
-                    ))}
                 </div>
             </div>
         </div>

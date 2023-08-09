@@ -81,8 +81,8 @@
     color: #333;
   }
 
-  .editbtn{
-    width: 100%;
+  button {
+    padding: 5px;
     outline: none;
     border: none;
     border-radius: 2px;
@@ -96,7 +96,7 @@
   }
 
 
-  .editbtn:hover {
+  button:hover {
     cursor: pointer;
     background-color: rgb(100, 89, 156);
 }

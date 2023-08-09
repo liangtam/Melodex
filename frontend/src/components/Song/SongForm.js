@@ -40,6 +40,7 @@ const SongForm = (props) => {
 
         if (response.ok) {
             console.log("Added new song!");
+            props.addSong(song);
             setSuccessAdd(true);
             setError(false);
         } else {
@@ -72,10 +73,10 @@ const SongForm = (props) => {
                 <label>Release Date: <input type="text" placeholder="YYYY-MM-DD HH:MM" name="releaseDate" value={song.releaseDate} onChange={handleChange}></input></label>
                 <label>Duration: <input type="text" placeholder="HH:MM:SS" name="duration" value={song.duration} onChange={handleChange}></input></label>
                 {successAdd && (
-                    <div className={styles.successMessage}>Added successfully!</div>
+                    <div className={styles.successMessage}>Added new song successfully!</div>
                 )}
                 {error && (
-                    <div className={styles.errorMessage}>Could not add artist.</div>
+                    <div className={styles.errorMessage}>Could not add song.</div>
                 )}
                 <div className={styles.btn} onClick={handleAddClick}>Add</div>
             </div>

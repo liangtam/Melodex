@@ -1,6 +1,6 @@
 import SongForm from "../../components/Song/SongForm";
 import SongTuple from "../../components/Song/SongTuple";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from './SongsPage.module.css';
 
 const SongsPage = () => {
@@ -10,12 +10,38 @@ const SongsPage = () => {
         setSongs([...songs, song]);
     };
 
+    const fetchSongs = async () => {
+        const response = await fetch('http://localhost:8080/api/songs/all', {
+          method: 'GET'
+        }).catch((err) => {
+          console.log(err);
+        })
+    
+        if (response.ok) {
+          const json = await response.json();
+          setSongs(json);
+          console.log("Fetched songs! ", json)
+        } else {
+          console.log("Could not fetch artists");
+        }
+      }
+
+    useEffect(() => {
+        fetchSongs();
+    }, [])
+
+    useEffect(() => {
+        console.log("Songs in songs page: ", songs)
+    }, [songs])
+
     return (
         <div className={styles.songContainer}>
             <div className={styles.leftBody}>
                 <div className={styles.centered}>
-                    <div className={styles.title}>
-                    <SongTuple songs={songs} />
+                    <div className={styles.tuples}>
+                        {songs && songs.map((song) => {
+                            return <SongTuple song={song} />;
+                        })}
                     </div>
                 </div>
             </div>
