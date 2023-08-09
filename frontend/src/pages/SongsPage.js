@@ -1,37 +1,34 @@
-import { useState, useEffect } from "react";
-import styles from "./SongsPage.module.css";
-
 import SongForm from "../components/Song/SongForm";
 import SongTuple from "../components/Song/SongTuple";
 
 const SongsPage = () => {
+    const [songs, setSongs] = useState([]);
 
-    const handleAddSong = (e) => {
-        e.preventDefault();
-
-    }
+    const addSong = (song) => {
+        setSongs([...songs, song]);
+    };
 
     return (
         <div className={styles.songContainer}>
             <div className={styles.leftBody}>
                 <div className={styles.centered}>
                     <div className={styles.title}>
-                        <SongTuple/>
+                    <SongTuple songs={songs} />
                     </div>
                 </div>
             </div>
             <div className={styles.rightBody}>
                 <div className={styles.centered}>
                     <div className={styles.addForm}>
-                        <SongForm/>
+                        <SongForm addSong={addSong} />
                     </div>
                 </div>
             </div>
             
         </div>
         
-    )
-}
+    );
 
-// DO NOT FORGET THIS LINE! It is very important. If we don't export the page, we can't use it LOL
+};
+
 export default SongsPage;
