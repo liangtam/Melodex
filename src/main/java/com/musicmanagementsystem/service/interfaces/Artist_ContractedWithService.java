@@ -13,4 +13,8 @@ public interface Artist_ContractedWithService {
     public void updateArtist(int artistID, String artistName, int age, String country, String biography, int numOfMembers, int labelID);
 
     List<Object> getDynamicSelection(String table, String attributes);
+
+    public void releaseDiscography(int artistID, int discoID);
+
+    public List<Integer> nestedAggregation();
 }

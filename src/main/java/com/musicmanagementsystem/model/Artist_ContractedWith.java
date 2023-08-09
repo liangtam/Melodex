@@ -2,6 +2,8 @@ package com.musicmanagementsystem.model;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class Artist_ContractedWith {
     @Id
@@ -16,6 +18,14 @@ public class Artist_ContractedWith {
     @ManyToOne
     @JoinColumn(name = "labelID", referencedColumnName = "labelID")
     private RecordLabel recordLabel;
+
+    @ManyToMany
+    @JoinTable(
+            name="Releases",
+            joinColumns = @JoinColumn(name="artistID"), // connects to owner side of relationship. We chose artist to be owner in this case
+            inverseJoinColumns = @JoinColumn(name="dID") // connects to the other side of the relationship
+    )
+    Set<Discography_Main> discographyReleases;
 
     public int getArtistID() {
         return artistID;

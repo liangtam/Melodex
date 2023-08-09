@@ -2,6 +2,8 @@ package com.musicmanagementsystem.model;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "Discography_Main")
@@ -19,6 +21,9 @@ public class Discography_Main {
     public Discography_Main() {
 
     }
+
+    @ManyToMany(mappedBy = "discographyReleases")
+    Set<Artist_ContractedWith> artists;
 
     public int getdID() {
         return dID;

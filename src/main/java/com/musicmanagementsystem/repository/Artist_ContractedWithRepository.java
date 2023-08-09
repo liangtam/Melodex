@@ -20,6 +20,28 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
             "SET artistName= :artistName, age=:age, country=:country, biography=:biography, numOfMembers=:numOfMembers, labelID=:labelID " +
             "WHERE Artist_ContractedWith.artistID= :artistID";
     String dynamicSelection = "SELECT :attributes FROM :table ";
+    String nestAggregationQuery = "SELECT artistID\n" +
+            "FROM Artist_ContractedWith A\n" +
+            "WHERE (\n" +
+            "    SELECT AVG(songCount)\n" +
+            "    FROM (\n" +
+            "        SELECT albumID,\n" +
+            "               (SELECT COUNT(*) FROM Song S WHERE S.songID = Album.albumID) AS songCount\n" +
+            "        FROM Album\n" +
+            "        WHERE A.artistID = Album.albumID\n" +
+            "    ) AS inner_query\n" +
+            ") = \n" +
+            "(\n" +
+            "    SELECT MIN(avgSongs)\n" +
+            "    FROM (\n" +
+            "        SELECT artistID,\n" +
+            "               AVG(\n" +
+            "                   (SELECT COUNT(*) FROM Song S WHERE S.songID = Album.albumID)\n" +
+            "               ) AS avgSongs\n" +
+            "        FROM Album\n" +
+            "        GROUP BY artistID\n" +
+            "    ) AS overall_avg_query\n" +
+            ");";
 
 
     @Modifying
@@ -40,6 +62,15 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
     // SELECTION OPERATION to submit
     @Query(value = dynamicSelection, nativeQuery = true)
     List<Object> getDynamicSelection(@Param("table") String table, @Param("attributes") String attributes);
+
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO Releases (artistID, dID) VALUES (:artistID, :dID)", nativeQuery = true)
+    public void releaseDiscography(@Param("artistID") Integer albumID, @Param("dID") Integer discoID);
+
+    @Query(value = nestAggregationQuery, nativeQuery = true)
+    public List<Integer> nestedAggregation();
+
 
 
 }

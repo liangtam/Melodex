@@ -33,4 +33,14 @@ public class Artist_ContractedWithServiceImpl implements Artist_ContractedWithSe
     public List<Object> getDynamicSelection(String table, String attributes) {
         return artist_contractedWithRepository.getDynamicSelection(table, attributes);
     }
+
+    @Override
+    public void releaseDiscography(int artistID, int discoID) {
+        artist_contractedWithRepository.releaseDiscography(artistID, discoID);
+    }
+
+    @Override
+    public List<Integer> nestedAggregation() {
+        return artist_contractedWithRepository.nestedAggregation();
+    }
 }

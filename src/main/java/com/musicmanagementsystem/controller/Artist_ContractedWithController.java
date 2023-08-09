@@ -1,5 +1,6 @@
 package com.musicmanagementsystem.controller;
 
+import com.musicmanagementsystem.controller.reqBodies.ArtistReleaseDiscoReqBody;
 import com.musicmanagementsystem.controller.reqBodies.Artist_ContractedWithBody;
 import com.musicmanagementsystem.model.Artist_ContractedWith;
 import com.musicmanagementsystem.service.interfaces.Artist_ContractedWithService;
@@ -33,5 +34,17 @@ public class Artist_ContractedWithController {
         artist_contractedWithService.updateArtist(id, reqBody.getArtistName(), reqBody.getAge(), reqBody.getCountry(),
                 reqBody.getBiography(), reqBody.getNumOfMembers(), reqBody.getLabelID());
         System.out.println("Updated artist!");
+    }
+
+    @PostMapping("/releases")
+    public void releaseDiscography(@RequestBody ArtistReleaseDiscoReqBody reqBody) {
+        artist_contractedWithService.releaseDiscography(reqBody.getArtistID(), reqBody.getdID());
+        System.out.println("Released discography!");
+    }
+
+    // finds ids of all artists whose avg num of songs released per album is the lowest among all artists
+    @GetMapping("/nestedaggregation")
+    public List<Integer> nestedAggregation() {
+        return artist_contractedWithService.nestedAggregation();
     }
 }

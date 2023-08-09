@@ -44,4 +44,5 @@ public class AlbumController {
         albumService.insertNewAlbum(reqBody.getDiscoName(), reqBody.getGenre(), reqBody.getReleaseDate(),
                 reqBody.getNumOfSongs(), t);
     }
+
 }
