@@ -14,12 +14,16 @@ const LabelTuple = (props) => {
           </div>
         </div>
         <div className={styles.box}>
-          <div className={styles.list}>
-            <div className={styles.content}>
-              <p>...</p>
-              <p>...</p>
+          {props.labels.map((label) => (
+            <div className={styles.list} key={label.name}>
+              <div className={styles.content}>
+                <div className={styles.editbtn}>Edit</div>
+                <p>{label.labelName}</p>
+                <p>{label.websiteURL}</p>
+                <div className={styles.editbtn}>Delete</div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
