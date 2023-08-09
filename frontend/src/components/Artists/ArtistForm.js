@@ -84,11 +84,11 @@ const ArtistForm = () => {
         </label>
         <label>
           Biography:{" "}
-          <textarea
+          <input
             type="text"
             placeholder="This artist is a cool singer"
             onChange={handleBioChange}
-          ></textarea>
+          ></input>
         </label>
         <label>
           Number of members:{" "}
