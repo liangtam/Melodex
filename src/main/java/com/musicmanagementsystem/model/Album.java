@@ -8,10 +8,6 @@ import java.sql.Time;
 import java.util.Set;
 
 
-//@NamedNativeQuery(name="Album.getAllAlbums",
-//        query="SELECT D.discoName, A.numOfSongs, A.totalDuration, D.releaseDate " +
-//                "FROM Album A, Discography_Main D WHERE A.albumID = D.dID",
-//        resultSetMapping="Mapping.AlbumDTO")
 @NamedNativeQuery(name="Album.bloop",
         query="SELECT D.discoName, A.numOfSongs, A.totalDuration, D.releaseDate " +
                 "FROM Album A, Discography_Main D WHERE A.albumID = D.dID",

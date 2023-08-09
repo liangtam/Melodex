@@ -1,9 +1,20 @@
 package com.musicmanagementsystem.model;
 
+import com.musicmanagementsystem.service.DTO.AggGroupByDTO;
 import jakarta.persistence.*;
 
 import java.util.Set;
 
+
+@NamedNativeQuery(name="Artist_ContractedWith.aggregationGroupBy",
+        query="SELECT R.artistID, COUNT(dID) AS numOfDiscography\n" +
+                "FROM Releases R\n" +
+                "GROUP BY R.artistID;",
+        resultSetMapping="Mapping.AggGroupByDTO")
+@SqlResultSetMapping(name="Mapping.AggGroupByDTO",
+                classes = @ConstructorResult(targetClass = AggGroupByDTO.class,
+                columns={@ColumnResult(name="artistID", type=Integer.class),
+                        @ColumnResult(name="numOfDiscography", type=Integer.class)}))
 @Entity
 public class Artist_ContractedWith {
     @Id

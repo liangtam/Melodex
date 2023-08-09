@@ -1,6 +1,7 @@
 package com.musicmanagementsystem.service.interfaces;
 
 import com.musicmanagementsystem.model.Artist_ContractedWith;
+import com.musicmanagementsystem.service.DTO.AggGroupByDTO;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface Artist_ContractedWithService {
     public List<Integer> nestedAggregation();
 
     public List<Integer> division();
+
+    public List<AggGroupByDTO> aggregationGroupBy();
 }

@@ -1,6 +1,7 @@
 package com.musicmanagementsystem.repository;
 
 import com.musicmanagementsystem.model.Artist_ContractedWith;
+import com.musicmanagementsystem.service.DTO.AggGroupByDTO;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -53,6 +54,9 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
             "        WHERE Dm.dID = R.dID AND S.songID = R.dID AND R.artistID = A.artistID\n" +
             "    )\n" +
             ");\n";
+//    String aggregationGroupByQuery = "SELECT R.artistID, COUNT(dID) AS numDiscography\n" +
+//            "FROM Releases R\n" +
+//            "GROUP BY R.artistID;";
 
 
     @Modifying
@@ -79,11 +83,19 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
     @Query(value = "INSERT INTO Releases (artistID, dID) VALUES (:artistID, :dID)", nativeQuery = true)
     public void releaseDiscography(@Param("artistID") Integer albumID, @Param("dID") Integer discoID);
 
+
+    // NESTED AGGRE
     @Query(value = nestAggregationQuery, nativeQuery = true)
     public List<Integer> nestedAggregation();
 
+    // DIVISION
     @Query(value = divisionQuery, nativeQuery = true)
     public List<Integer> division();
+
+    // AGGRE GROUP BY
+    //@Query(value = aggregationGroupByQuery, nativeQuery = true)
+    @Query(name="Artist_ContractedWith.aggregationGroupBy", nativeQuery = true)
+    public List<AggGroupByDTO> aggregationGroupBy();
 
 
 
