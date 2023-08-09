@@ -16,14 +16,14 @@ const LabelPage = () => {
       <div className={styles.leftBody}>
         <div className={styles.centered}>
           <div className={styles.title}>
-            <LabelTuple />
+            <LabelTuple labels={labels} />
           </div>
         </div>
       </div>
       <div className={styles.rightBody}>
         <div className={styles.centered}>
           <div className={styles.addForm}>
-            <LabelForm />
+            <LabelForm addLabel={addLabel} />
           </div>
         </div>
       </div>
