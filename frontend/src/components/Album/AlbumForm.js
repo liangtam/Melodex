@@ -38,6 +38,14 @@ const AlbumForm = () => {
       numOfSongs: numOfSongs,
       totalDuration: totalDuration,
     };
+
+    const response = fetch("http://localhost:8080/api/user/add", {
+      method: "POST",
+      body: JSON.stringify(album),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   };
 
   return (
