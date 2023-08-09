@@ -34,10 +34,24 @@ const LabelForm = (props) => {
       <div className={styles.formContainer}>
         <h3>Add New Label</h3>
         <label>
-          Label name: <input type="text" placeholder="Name"></input>
+          Label name:{" "}
+          <input
+            type="text"
+            placeholder="Name"
+            name="labelName"
+            value={label.labelName}
+            onChange={handleChange}
+          ></input>
         </label>
         <label>
-          Website URL: <input type="text" placeholder="Website URL"></input>
+          Website URL:{" "}
+          <input
+            type="text"
+            placeholder="Website URL"
+            name="websiteURL"
+            value={label.websiteURL}
+            onChange={handleChange}
+          ></input>
         </label>
         <div className={styles.btn}>Add</div>
       </div>
