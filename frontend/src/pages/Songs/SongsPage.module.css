@@ -8,12 +8,12 @@
     }
   }
   
-  body {
+/* .songPage #content {
       margin: 0;
       padding: 0;
       color: rgb(255, 255, 255);
       background-color: #333;
-  }
+  } */
   
   .songContainer .leftBody {
     left: 0;

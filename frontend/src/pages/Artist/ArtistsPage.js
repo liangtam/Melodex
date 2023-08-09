@@ -5,6 +5,7 @@ import ArtistForm from "../../components/Artists/ArtistForm";
 import { Link } from "react-router-dom";
 
 const ArtistsPage = () => {
+
   const handleAddArtist = (e) => {
     e.preventDefault();
   };
@@ -19,9 +20,9 @@ const ArtistsPage = () => {
               <button>Display All Artists</button>
             </Link>
             <button>*Aggregation with Group By prompt*</button>
-            <button>*aggregation with having prompt*</button>
-            <button>*nested aggregation with group by prompt*</button>
-            <button>*division prompt*</button>
+            <button>*Aggregation with Having prompt*</button>
+            <button>*Nested Aggregation with Group By prompt*</button>
+            <button>Genre God (Division)</button>
           </div>
         </div>
       </div>
