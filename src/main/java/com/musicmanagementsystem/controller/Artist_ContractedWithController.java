@@ -17,7 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/artists")
-@CrossOrigin
+@CrossOrigin("http://localhost:3000")
 public class Artist_ContractedWithController {
     @Autowired
     public Artist_ContractedWithService artist_contractedWithService;

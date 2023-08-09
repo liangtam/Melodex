@@ -17,7 +17,7 @@ public class Artist_ContractedWithServiceImpl implements Artist_ContractedWithSe
     private Artist_ContractedWithRepository artist_contractedWithRepository;
 
     @Override
-    public void insertNewArtist(String artistName, int age, String country, String biography, int numOfMembers, int labelID) {
+    public void insertNewArtist(String artistName, int age, String country, String biography, int numOfMembers, Integer labelID) {
         artist_contractedWithRepository.insertNewArtist(artistName, age, country, biography, numOfMembers, labelID);
     }
 
@@ -27,7 +27,7 @@ public class Artist_ContractedWithServiceImpl implements Artist_ContractedWithSe
     }
 
     @Override
-    public void updateArtist(int artistID, String artistName, int age, String country, String biography, int numOfMembers, int labelID) {
+    public void updateArtist(int artistID, String artistName, int age, String country, String biography, int numOfMembers, Integer labelID) {
         artist_contractedWithRepository.updateArtist(artistID, artistName, age, country, biography, numOfMembers, labelID);
     }
 

@@ -64,7 +64,7 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
     @Transactional
     @Query(value=insertNewArtistQuery, nativeQuery = true)
     public void insertNewArtist(@Param("artistName") String artistName, @Param("age") int age, @Param("country")String country,
-                                @Param("biography") String biography, @Param("numOfMembers") int numOfMembers, @Param("labelID") int labelID);
+                                @Param("biography") String biography, @Param("numOfMembers") int numOfMembers, @Param("labelID") Integer labelID);
 
     @Query(value=getAllArtistsQuery, nativeQuery = true)
     public List<Artist_ContractedWith> getAllArtists();
@@ -73,7 +73,7 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
     @Transactional
     @Query(value=updateArtistQuery, nativeQuery = true)
     public void updateArtist(@Param("artistID") int artistID, @Param("artistName") String artistName, @Param("age") int age, @Param("country")String country,
-                             @Param("biography") String biography, @Param("numOfMembers") int numOfMembers, @Param("labelID") int labelID);
+                             @Param("biography") String biography, @Param("numOfMembers") int numOfMembers, @Param("labelID") Integer labelID);
 
     // SELECTION OPERATION to submit
     @Query(value = dynamicSelection, nativeQuery = true)

@@ -6,7 +6,7 @@ public class Artist_ContractedWithBody {
     private String country;
     private String biography;
     private int numOfMembers;
-    private int labelID;
+    private Integer labelID;
 
     public Artist_ContractedWithBody() {
 
@@ -52,11 +52,11 @@ public class Artist_ContractedWithBody {
         this.numOfMembers = numOfMembers;
     }
 
-    public int getLabelID() {
+    public Integer getLabelID() {
         return labelID;
     }
 
-    public void setRecordLabel(int labelID) {
+    public void setRecordLabel(Integer labelID) {
         this.labelID = labelID;
     }
 }

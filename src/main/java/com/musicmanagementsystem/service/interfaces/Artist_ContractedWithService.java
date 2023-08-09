@@ -8,11 +8,11 @@ import java.util.List;
 
 public interface Artist_ContractedWithService {
 
-    public void insertNewArtist(String artistName, int age, String country, String biography, int numOfMembers, int labelID);
+    public void insertNewArtist(String artistName, int age, String country, String biography, int numOfMembers, Integer labelID);
 
     public List<Artist_ContractedWith> getAllArtists();
 
-    public void updateArtist(int artistID, String artistName, int age, String country, String biography, int numOfMembers, int labelID);
+    public void updateArtist(int artistID, String artistName, int age, String country, String biography, int numOfMembers, Integer labelID);
 
     List<Object> getDynamicSelection(String table, String attributes);
 

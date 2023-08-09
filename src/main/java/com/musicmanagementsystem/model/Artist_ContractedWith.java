@@ -3,6 +3,7 @@ package com.musicmanagementsystem.model;
 import com.musicmanagementsystem.service.DTO.AggGroupByDTO;
 import com.musicmanagementsystem.service.DTO.AggHavingDTO;
 import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Set;
 
@@ -27,6 +28,7 @@ import java.util.Set;
                 columns={@ColumnResult(name="artistName"),
                         @ColumnResult(name="earliestReleaseDate")}))
 @Entity
+@CrossOrigin
 public class Artist_ContractedWith {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -38,7 +40,7 @@ public class Artist_ContractedWith {
     private int numOfMembers;
 
     @ManyToOne
-    @JoinColumn(name = "labelID", referencedColumnName = "labelID")
+    @JoinColumn(name = "labelID", referencedColumnName = "labelID", nullable = true)
     private RecordLabel recordLabel;
 
     @ManyToMany
