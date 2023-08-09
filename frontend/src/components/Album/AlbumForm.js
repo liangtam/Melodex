@@ -94,12 +94,6 @@ const AlbumForm = (props) => {
             Add
           </div>
         </label>
-        <label>
-          <div className={styles.btn}>Delete</div>
-        </label>
-        <label>
-          <div className={styles.btn}>Update</div>
-        </label>
       </div>
     </div>
   );
