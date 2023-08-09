@@ -2,6 +2,33 @@ import { useState, useEffect } from "react";
 import styles from "./LabelForm.module.css";
 
 const LabelForm = (props) => {
+  const [label, setLabel] = useState({
+    labelName: "",
+    websiteURL: "",
+  });
+
+  const [labels, setLabels] = useState([]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLabel((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleAdd = () => {
+    props.addLabel(label);
+    resetForm();
+  };
+
+  const resetForm = () => {
+    setLabel({
+      labelName: "",
+      websiteURL: "",
+    });
+  };
+
   return (
     <div>
       <div className={styles.formContainer}>
