@@ -1,5 +1,7 @@
 import SongForm from "../components/Song/SongForm";
 import SongTuple from "../components/Song/SongTuple";
+import { useState } from "react";
+import styles from './SongsPage.module.css';
 
 const SongsPage = () => {
     const [songs, setSongs] = useState([]);

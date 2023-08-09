@@ -17,8 +17,11 @@ const HomePage = () => {
                         <h2>Welcome to Melodex</h2>
                     </div>
                     <p>A music website for users to discover a whole world of artists and music, all in one place.</p>
-                    <p>Begin searching for your favourite discographies here:</p>
-                    <input className={styles.searchBar} type="text" placeholder=" Search..."></input>
+                    <p>Try a simple search here:</p>
+                    <select name="table">
+                        <option value="Artist_ContractedWith">Artist</option>
+                    </select>
+                    {/* <input className={styles.searchBar} type="text" placeholder=" Search..."></input> */}
                     <button onClick={handleDiscographySearch}>Search</button>
                 </div>
 
