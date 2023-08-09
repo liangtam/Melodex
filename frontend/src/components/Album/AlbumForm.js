@@ -28,7 +28,9 @@ const AlbumForm = () => {
     setTotalDuration(e.target.value);
   };
 
-  const handleAddClick = (e) => {};
+  const handleAddClick = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div>
