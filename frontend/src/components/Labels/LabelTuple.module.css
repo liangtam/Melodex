@@ -79,3 +79,22 @@
   align-items: center;
   color: #333;
 }
+
+.editbtn {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  background: #3c3e7c;
+  font-size: 10px;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 1px;
+  box-shadow: rgba(0, 0, 0, 0.4);
+}
+
+.editbtn:hover {
+  cursor: pointer;
+  background-color: rgb(100, 89, 156);
+}
