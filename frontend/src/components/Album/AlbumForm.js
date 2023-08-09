@@ -8,6 +8,26 @@ const AlbumForm = () => {
   const [numOfSongs, setNumOfSongs] = useState("");
   const [totalDuration, setTotalDuration] = useState("");
 
+  const handleAlbumNameChange = (e) => {
+    setAlbumName(e.target.value);
+  };
+
+  const handleGenreChange = (e) => {
+    setGenre(e.target.value);
+  };
+
+  const handleReleaseDateChange = (e) => {
+    setReleaseDate(e.target.value);
+  };
+
+  const handleNumOfSongsChange = (e) => {
+    setNumOfSongs(e.target.value);
+  };
+
+  const handleTotalDurationChange = (e) => {
+    setTotalDuration(e.target.value);
+  };
+
   return (
     <div>
       <div className={styles.formContainer}>
