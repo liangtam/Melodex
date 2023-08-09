@@ -99,7 +99,9 @@ const AlbumForm = () => {
           ></input>
         </label>
         <label>
-          <div className={styles.btn}>Add</div>
+          <div className={styles.btn} onClick={handleAddClick}>
+            Add
+          </div>
         </label>
         <label>
           <div className={styles.btn}>Delete</div>
