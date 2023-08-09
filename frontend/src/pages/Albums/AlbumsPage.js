@@ -1,29 +1,29 @@
 import { useState, useEffect } from "react";
-import styles from "./LabelPage.module.css";
+import styles from "./AlbumsPage.module.css";
 
-import LabelForm from "../components/Labels/LabelForm";
-import LabelTuple from "../components/Labels/LabelTuple";
+import AlbumForm from "../../components/Album/AlbumForm";
+import AlbumTuple from "../../components/Album/AlbumTuple";
 
-const LabelPage = () => {
-  const [labels, setLabels] = useState([]);
+const AlbumsPage = () => {
+  const [albums, setAlbums] = useState([]);
 
-  const addLabel = (label) => {
-    setLabels([...labels, label]);
+  const addAlbum = (album) => {
+    setAlbums([...albums, album]);
   };
 
   return (
-    <div className={styles.labelContainer}>
+    <div className={styles.albumContainer}>
       <div className={styles.leftBody}>
         <div className={styles.centered}>
           <div className={styles.title}>
-            <LabelTuple labels={labels} />
+            <AlbumTuple albums={albums} />
           </div>
         </div>
       </div>
       <div className={styles.rightBody}>
         <div className={styles.centered}>
           <div className={styles.addForm}>
-            <LabelForm addLabel={addLabel} />
+            <AlbumForm addAlbum={addAlbum} />
           </div>
         </div>
       </div>
@@ -32,4 +32,4 @@ const LabelPage = () => {
 };
 
 // DO NOT FORGET THIS LINE! It is very important. If we don't export the page, we can't use it LOL
-export default LabelPage;
+export default AlbumsPage;

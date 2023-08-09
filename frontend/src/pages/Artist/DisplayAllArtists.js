@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./DisplayAllArtists.module.css";
-import ArtistTuple from "../components/Artists/ArtistTuple";
+import ArtistTuple from "../../components/Artists/ArtistTuple.js"
 
 const DisplayAllArtists = () => {
 
@@ -13,11 +13,12 @@ const DisplayAllArtists = () => {
   const fetchArtists = async () => {
     const response = await fetch('http://localhost:8080/api/artists/all', {
       method: 'GET'
+    }).catch((err) => {
+      console.log(err);
     })
 
-    const json = await response.json();
-
     if (response.ok) {
+      const json = await response.json();
       setArtists(json);
       console.log("Fetched artists! ", json)
     } else {

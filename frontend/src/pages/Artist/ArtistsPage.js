@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./ArtistsPage.module.css";
 
-import ArtistForm from "../components/Artists/ArtistForm";
+import ArtistForm from "../../components/Artists/ArtistForm";
 import { Link } from "react-router-dom";
 
 const ArtistsPage = () => {
@@ -15,7 +15,7 @@ const ArtistsPage = () => {
         <div className={styles.centered}>
           <div className={styles.title}>
             <h4>All the artists you like, right in our app.</h4>
-            <Link to="/AllArtists">
+            <Link to="/display-artists">
               <button>Display All Artists</button>
             </Link>
             <button>*Aggregation with Group By prompt*</button>
