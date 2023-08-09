@@ -46,6 +46,12 @@ const AlbumForm = () => {
         "Content-Type": "application/json",
       },
     });
+
+    if (response.ok) {
+      console.log("New album added!");
+    } else {
+      console.log("Error!");
+    }
   };
 
   return (
