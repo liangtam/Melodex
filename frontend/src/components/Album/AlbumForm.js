@@ -59,21 +59,44 @@ const AlbumForm = () => {
       <div className={styles.formContainer}>
         <h3>Album</h3>
         <label>
-          Album Name: <input type="text" placeholder="Album name"></input>
+          Album Name:{" "}
+          <input
+            type="text"
+            placeholder="Album name"
+            onChange={handleAlbumNameChange}
+          ></input>
         </label>
         <label>
-          Genre: <input type="text" placeholder="Genre"></input>
+          Genre:{" "}
+          <input
+            type="text"
+            placeholder="Genre"
+            onChange={handleGenreChange}
+          ></input>
         </label>
         <label>
           Release Date:{" "}
-          <input type="text" placeholder="eg. 2000-00-00(?)"></input>
+          <input
+            type="text"
+            placeholder="eg. 2000-00-00(?)"
+            onChange={handleReleaseDateChange}
+          ></input>
         </label>
         <label>
-          Number of Songs: <input type="text" placeholder="1 or more"></input>
+          Number of Songs:{" "}
+          <input
+            type="text"
+            placeholder="1 or more"
+            onChange={handleNumOfSongsChange}
+          ></input>
         </label>
         <label>
           Total Duration:{" "}
-          <input type="text" placeholder="The length of album"></input>
+          <input
+            type="text"
+            placeholder="The length of album"
+            onChange={handleTotalDurationChange}
+          ></input>
         </label>
         <label>
           <div className={styles.btn}>Add</div>
