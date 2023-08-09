@@ -14,7 +14,7 @@ const AlbumForm = (props) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setLabel((prev) => ({
+    setAlbum((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -44,7 +44,9 @@ const AlbumForm = (props) => {
           <input
             type="text"
             placeholder="Album name"
-            onChange={handleAlbumNameChange}
+            name="albumName"
+            value={album.albumName}
+            onChange={handleChange}
           ></input>
         </label>
         <label>
@@ -52,7 +54,9 @@ const AlbumForm = (props) => {
           <input
             type="text"
             placeholder="Genre"
-            onChange={handleGenreChange}
+            name="genre"
+            value={album.genre}
+            onChange={handleChange}
           ></input>
         </label>
         <label>
@@ -60,7 +64,9 @@ const AlbumForm = (props) => {
           <input
             type="text"
             placeholder="eg. 2000-00-00(?)"
-            onChange={handleReleaseDateChange}
+            name="releaseDate"
+            value={album.releaseDate}
+            onChange={handleChange}
           ></input>
         </label>
         <label>
@@ -68,7 +74,9 @@ const AlbumForm = (props) => {
           <input
             type="text"
             placeholder="1 or more"
-            onChange={handleNumOfSongsChange}
+            name="numOfSongs"
+            value={album.numOfSongs}
+            onChange={handleChange}
           ></input>
         </label>
         <label>
@@ -76,11 +84,13 @@ const AlbumForm = (props) => {
           <input
             type="text"
             placeholder="The length of album"
-            onChange={handleTotalDurationChange}
+            name="totalDuration"
+            value={album.totalDuration}
+            onChange={handleChange}
           ></input>
         </label>
         <label>
-          <div className={styles.btn} onClick={handleAddClick}>
+          <div className={styles.btn} onClick={handleAdd}>
             Add
           </div>
         </label>
