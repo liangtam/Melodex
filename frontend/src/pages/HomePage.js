@@ -77,9 +77,7 @@ const HomePage = () => {
 
     const handleSearchClick = async (e) => {
         e.preventDefault();
-        // const customQueryReqBody = {
-        //     table, attributes, field1, field2, val1, val2
-        // }
+
         let attributesCopy = [... attributes];
         const attributeString = attributesCopy.join(", ");
         console.log("Attributes: ", attributeString);
@@ -110,27 +108,14 @@ const HomePage = () => {
             console.log("Error status text:", response.statusText);
             throw new Error("Request failed");
         }
-        const json = await response.json();
-        console.log("Select success! ", json );
+            const json = await response.json();
+            console.log("Select success! ", json );
         } catch (error) {
             console.log("Error:", error);
         }
 
-        // const response = fetch(`http://localhost:8080/api/general/?${queryParams}`, {
-        //     method: 'GET',
-        //     //body: JSON.stringify(customQueryReqBody),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // })
 
-        // if (response.ok) {
-        //     const json = response.json();
-        //     console.log("Select success! ", json);
-        // } else {
-        //     console.log("Error status:", response.status);
-        //     console.log("Error status text:", response.statusText);
-        // }
+        
     }
 
     useEffect(() => {

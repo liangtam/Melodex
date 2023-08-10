@@ -12,7 +12,7 @@ const AlbumsPage = () => {
   };
 
   const fetchAlbums = async () => {
-    const response = await fetch('http://localhost:8080/api/albums/all', {
+    const response = await fetch('http://localhost:8080/api/albums/alldto', {
       method: 'GET'
     }).catch((err) => {
       console.log(err);

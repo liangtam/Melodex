@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import styles from "./AlbumTuple.module.css";
 
 const AlbumTuple = ({ album }) => {
+
+
   return (
     <div>
       <div className={styles.tupleContainer}>

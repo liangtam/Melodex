@@ -69,8 +69,8 @@ const AlbumForm = (props) => {
           <input
             type="text"
             placeholder="Album name"
-            name="albumName"
-            value={album.albumName}
+            name="discoName"
+            value={album.discoName}
             onChange={handleChange}
           ></input>
         </label>
