@@ -115,10 +115,10 @@ const ArtistsPage = () => {
             <div className={styles.buttons}>
             <h4>Fun</h4>
               <ul>
-                <li><button onClick={aggGroupFetch}>*Aggregation with Group By prompt*</button></li>
-                <li><button onClick={aggHavingFetch}>*Aggregation with Having prompt*</button></li>
-                <li><button onClick={nestedFetch}>*Nested Aggregation with Group By prompt*</button></li>
-                <li><button onClick={divisionFetch}>Genre God (Division)</button></li>
+                <li><button className={styles.alignbtn} onClick={aggGroupFetch}>*Aggregation with Group By prompt*</button></li>
+                <li><button className={styles.alignbtn} onClick={aggHavingFetch}>*Aggregation with Having prompt*</button></li>
+                <li><button className={styles.alignbtn} onClick={nestedFetch}>*Nested Aggregation with Group By prompt*</button></li>
+                <li><button className={styles.alignbtn} onClick={divisionFetch}>Genre God (Division)</button></li>
               </ul>
             </div>
             </div>
