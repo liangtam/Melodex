@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./DisplayAllArtists.module.css";
 import ArtistTuple from "../../components/Artists/ArtistTuple.js"
+import ProjectedArtistTuple from "../../components/Artists/ProjectedArtistTuple.js"
 import { Link } from "react-router-dom";
 
 const DisplayAllArtists = () => {
@@ -60,6 +61,7 @@ const DisplayAllArtists = () => {
   const handleProjectionClick = (e) => {
     e.preventDefault();
     setArtists([]);
+    setProjectionClicked(true);
     fetchProjection();
   }
 
@@ -130,12 +132,18 @@ const DisplayAllArtists = () => {
             })}
         </ul>
         <button onClick ={handleProjectionClick}>Project</button>
-        <div className={styles.tuples}>
+        {artists.length && <div className={styles.tuples}>
           <h2>All Artists</h2>
             {artists && artists.map((artist) => {
               return <ArtistTuple artist={artist} artistID={artist.artistID} setArtists={setArtists}/>
             })}
-        </div>
+        </div>}
+        {projectionClicked && <div className={styles.tuples}>
+          <h2>Projected Artists</h2>
+            {projectedArtists.map((projectedArtist) => {
+              return <ProjectedArtistTuple artist={projectedArtist} artistID={projectedArtist.artistID} setProjectedArtists={setProjectedArtists}/>
+            })}
+        </div>}
       </div>
     </div>
   
