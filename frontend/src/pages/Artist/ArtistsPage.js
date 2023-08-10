@@ -127,7 +127,7 @@ const ArtistsPage = () => {
           {divisionClicked && divisionObj && <div className={styles.divisionResult}> <h4>Artist ID of artists who covered all genres:</h4> {divisionObj.map((result) => {
             return <div><b>Artist ID: </b>{result}</div>
           })}</div>}
-          {aggHavingClicked && aggHaving && <div className={styles.aggHavingResult}><h4>Artist IDs whose average number of songs released per album is the lowest among all artists:</h4> {aggHaving.map((result) => {
+          {aggHavingClicked && aggHaving && <div className={styles.aggHavingResult}><h4>Names of artists who released the earliest discographies:</h4> {aggHaving.map((result) => {
             return <div><b>Name: </b> {result.artistName} <b>Earliest Release Date:</b> {result.earliestReleaseDate}</div>
           })}</div>}
           {aggGroupClicked && aggGroup && <div className={styles.aggGroupResult}><h4>Number of Discographies Released by Each Artist:</h4> {aggGroup.map((result) => {
