@@ -22,6 +22,7 @@ const ArtistsPage = () => {
 
 
   const aggGroupFetch = async (e) => {
+    setAggGroupClicked(true);
     const response = await fetch('http://localhost:8080/api/artists/aggregationgroupby', {
       method: 'GET'
     }).catch((err) => {
@@ -38,6 +39,7 @@ const ArtistsPage = () => {
   }
 
   const aggHavingFetch = async (e) => {
+    setAggHavingClicked(true);
     const response = await fetch('http://localhost:8080/api/artists/aggregationhaving', {
       method: 'GET'
     }).catch((err) => {
@@ -54,6 +56,7 @@ const ArtistsPage = () => {
   }
 
   const divisionFetch = async (e) => {
+    setDivisionClicked(true);
     const response = await fetch('http://localhost:8080/api/artists/division', {
       method: 'GET'
     }).catch((err) => {
@@ -62,7 +65,7 @@ const ArtistsPage = () => {
 
     if (response.ok) {
       const json = await response.json();
-      setAggGroup(json);
+      setDivisionObj(json);
       console.log("Fetched division! ", json)
     } else {
       console.log("error");
@@ -70,6 +73,7 @@ const ArtistsPage = () => {
   }
 
   const nestedFetch = async (e) => {
+    setNestedAggClicked(true);
     const response = await fetch('http://localhost:8080/api/artists/nestedaggregation', {
       method: 'GET'
     }).catch((err) => {
@@ -94,11 +98,13 @@ const ArtistsPage = () => {
             <Link to="/display-artists">
               <button>Display All Artists</button>
             </Link>
-            <button>*Aggregation with Group By prompt*</button>
-            <button>*Aggregation with Having prompt*</button>
-            <button>*Nested Aggregation with Group By prompt*</button>
-            <button>Genre God (Division)</button>
+            <button onClick={aggGroupFetch}>*Aggregation with Group By prompt*</button>
+            <button onClick={aggHavingFetch}>*Aggregation with Having prompt*</button>
+            <button onClick={nestedFetch}>*Nested Aggregation with Group By prompt*</button>
+            <button onClick={divisionFetch}>Genre God (Division)</button>
           </div>
+
+          {divisionClicked && <div>Artist ID: {divisionObj}</div>}
         </div>
       </div>
       <div className={styles.rightBody}>
