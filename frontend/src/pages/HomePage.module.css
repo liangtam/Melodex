@@ -87,3 +87,8 @@ ul {
 .filters {
   margin-right: 100px;
 }
+
+.layout {
+  display: flex;
+  flex-direction: column;
+}

@@ -75,7 +75,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className={styles.regContainer}>
+    <div className={styles.homepageContainer}>
       <div className={styles.centered}>
         <div className={styles.title}>
           <h2>Welcome to Melodex</h2>
@@ -85,85 +85,87 @@ const HomePage = () => {
           music, all in one place.
         </p>
         <p>Try a simple search here:</p>
-        <div className={styles.searchArea}>
-          <label>Table: </label>
-          <select name="table" onChange={handleTableChange}>
-            <option value="Artist_ContractedWith">Artists</option>
-            <option value="Discography_Main, Album">Albums</option>
-          </select>
-          <div />
-          <div className={styles.attributeOptions}>
-            <label> Attributes: </label>
-            <ul>
-              {artistSelected &&
-                artistAttributes.map((item) => {
-                  return (
-                    <li>
-                      <label key={item.value}>
-                        <input
-                          type="checkbox"
-                          value={item.value}
-                          onChange={handleAttributesChange}
-                          checked={attributes.includes(item.value)}
-                        />
-                        {item.label}
-                      </label>
-                    </li>
-                  );
-                })}
+        <div className={styles.layout}>
+          <div className={styles.searchArea}>
+            <label>Table: </label>
+            <select name="table" onChange={handleTableChange}>
+              <option value="Artist_ContractedWith">Artists</option>
+              <option value="Discography_Main, Album">Albums</option>
+            </select>
+            <div />
+            <div className={styles.attributeOptions}>
+              <label> Attributes: </label>
+              <ul>
+                {artistSelected &&
+                  artistAttributes.map((item) => {
+                    return (
+                      <li>
+                        <label key={item.value}>
+                          <input
+                            type="checkbox"
+                            value={item.value}
+                            onChange={handleAttributesChange}
+                            checked={attributes.includes(item.value)}
+                          />
+                          {item.label}
+                        </label>
+                      </li>
+                    );
+                  })}
 
-              {albumsSelected &&
-                albumAttributes.map((item) => {
-                  return (
-                    <li>
-                      <label key={item.value}>
-                        <input
-                          type="checkbox"
-                          value={item.value}
-                          onChange={handleAttributesChange}
-                          checked={attributes.includes(item.value)}
-                        />
-                        {item.label}
-                      </label>
-                    </li>
-                  );
-                })}
-            </ul>
-          </div>
-          <div className={styles.filters}>
-            <label>Filters: </label>
-            {artistSelected && (
-              <select onChange={handleField1Change}>
-                <option value="artistName">Name</option>
-                <option value="country">Country</option>
-              </select>
-            )}
-            {albumsSelected && (
-              <select onChange={handleField1Change}>
-                <option value="genre">Genre</option>
-                <option value="discoName">Album Name</option>
-              </select>
-            )}
-            <label>:</label>
-            <input type="text" onChange={handleVal1Change}></input>
-            {artistSelected && (
-              <select onChange={handleField2Change}>
-                <option value="numOfMembers">Number of Members</option>
-                <option value="age">Age</option>
-              </select>
-            )}
-            {albumsSelected && (
-              <select onChange={handleField2Change}>
-                <option value="dID">Album ID</option>
-                <option value="numOfSongs">Number of Songs</option>
-              </select>
-            )}
-            <label>is at least: </label>
-            <input
-              type="text"
-              placeholder="An integer"
-              onChange={handleVal2Change}
-            ></input>
+                {albumsSelected &&
+                  albumAttributes.map((item) => {
+                    return (
+                      <li>
+                        <label key={item.value}>
+                          <input
+                            type="checkbox"
+                            value={item.value}
+                            onChange={handleAttributesChange}
+                            checked={attributes.includes(item.value)}
+                          />
+                          {item.label}
+                        </label>
+                      </li>
+                    );
+                  })}
+              </ul>
+            </div>
+            <div className={styles.filters}>
+              <label>Filters: </label>
+              {artistSelected && (
+                <select onChange={handleField1Change}>
+                  <option value="artistName">Name</option>
+                  <option value="country">Country</option>
+                </select>
+              )}
+              {albumsSelected && (
+                <select onChange={handleField1Change}>
+                  <option value="genre">Genre</option>
+                  <option value="discoName">Album Name</option>
+                </select>
+              )}
+              <label>:</label>
+              <input type="text" onChange={handleVal1Change}></input>
+              {artistSelected && (
+                <select onChange={handleField2Change}>
+                  <option value="numOfMembers">Number of Members</option>
+                  <option value="age">Age</option>
+                </select>
+              )}
+              {albumsSelected && (
+                <select onChange={handleField2Change}>
+                  <option value="dID">Album ID</option>
+                  <option value="numOfSongs">Number of Songs</option>
+                </select>
+              )}
+              <label>is at least: </label>
+              <input
+                type="text"
+                placeholder="An integer"
+                onChange={handleVal2Change}
+              ></input>
+            </div>
           </div>
         </div>
 
