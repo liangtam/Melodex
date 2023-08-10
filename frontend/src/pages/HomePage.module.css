@@ -21,9 +21,14 @@ body {
 }
 
 input {
+  background: none;
+}
+
+.regContainer .searchArea input {
   border: none;
   border-radius: 2px;
   height: 30px;
+  color: black;
   background: white;
 }
 
