@@ -49,7 +49,7 @@ public class GeneralController {
             return null;
         }
 
-        String dynamicQuery = "SELECT " + attributes + " FROM " + table + " WHERE " +
+        String dynamicQuery = "SELECT DISTINCT " + attributes + " FROM " + table + " WHERE " +
         field1 + "=" + "'" + val1 + "'" + " AND " + field2 + ">=" + val2;
         System.out.println("Dynamic query: " + dynamicQuery); // this is just for me debugging
 
