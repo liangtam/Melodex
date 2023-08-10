@@ -49,6 +49,11 @@ const DisplayAllArtists = () => {
     }
   }
 
+  const fetchProjection = async (e) => {
+    e.preventDefault();
+
+  }
+
 
 
   useEffect(() => {
@@ -56,7 +61,8 @@ const DisplayAllArtists = () => {
   }, [])
 
     return (
-    <div className={styles.attributeOptions}>
+      <div className={styles.displayArtistsPage}>
+        <div className={styles.attributeOptions}>
         <label> Attributes: </label>
         <ul>
           {artistAttributes.map((item) => {
@@ -73,17 +79,16 @@ const DisplayAllArtists = () => {
               );
             })}
         </ul>
+        <div className={styles.tuples}>
+          <h2>All Artists</h2>
+            {artists && artists.map((artist) => {
+              return <ArtistTuple artist={artist} artistID={artist.artistID} setArtists={setArtists}/>
+            })}
+        </div>
       </div>
-  )
-
-
-  return (
-  <div className={styles.tuples}>
-      {artists && artists.map((artist) => {
-        return <ArtistTuple artist={artist} artistID={artist.artistID}/>
-      })}
     </div>
-  );
+  
+  )
 };
 
 // DO NOT FORGET THIS LINE! It is very important. If we don't export the page, we can't use it LOL
