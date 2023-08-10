@@ -31,6 +31,11 @@ p {
   animation: fadeInAnimation ease 3s;
 }
 
+.simpleSearchText {
+  font-weight: bold;
+  font-size: 24px;
+}
+
 .centered {
   position: absolute;
   top: 50%;

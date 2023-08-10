@@ -15,8 +15,8 @@ const HomePage = () => {
   const [tableInfo, setTableInfo] = useState([]);
   const [tableRowKeys, setTableRowKeys] = useState([]);
   useEffect(() => {
-    if(tableInfo.length) {
-        setTableRowKeys(Object.keys(tableInfo[0]));
+    if (tableInfo.length) {
+      setTableRowKeys(Object.keys(tableInfo[0]));
     }
   }, [tableInfo]);
 
@@ -116,7 +116,7 @@ const HomePage = () => {
       }
       const tableToDisplay = await response.json();
       console.log("Select success! ", tableToDisplay);
-      setTableInfo(tableToDisplay)
+      setTableInfo(tableToDisplay);
     } catch (error) {
       console.log("Error:", error);
     }
@@ -136,7 +136,7 @@ const HomePage = () => {
           A music website for users to discover a whole world of artists and
           music, all in one place.
         </p>
-        <p>Try a simple search here:</p>
+        <p className={styles.simpleSearchText}>Try a simple search here:</p>
         <div className={styles.searchArea}>
           <label>Table: </label>
           <select name="table" onChange={handleTableChange}>
@@ -216,13 +216,18 @@ const HomePage = () => {
               onChange={handleVal2Change}
             ></input>
             <div className={styles.tableInfo}>
-              {tableInfo && tableInfo.map((tableRow, index) => (
-                <div key={index}>
-                  {tableRowKeys && tableRowKeys.map((tableRowKey) => (
-                    <div>{`${tableRowKey}: `}{tableRow[tableRowKey]}</div>
-                  ))}
-                </div>
-              ))}
+              {tableInfo &&
+                tableInfo.map((tableRow, index) => (
+                  <div key={index}>
+                    {tableRowKeys &&
+                      tableRowKeys.map((tableRowKey) => (
+                        <div>
+                          {`${tableRowKey}: `}
+                          {tableRow[tableRowKey]}
+                        </div>
+                      ))}
+                  </div>
+                ))}
             </div>
           </div>
         </div>
