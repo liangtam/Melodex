@@ -1,10 +1,37 @@
 import { useState, useEffect } from "react";
 import styles from "./DisplayAllArtists.module.css";
 import ArtistTuple from "../../components/Artists/ArtistTuple.js"
+import { Link } from "react-router-dom";
 
 const DisplayAllArtists = () => {
 
   const [artists, setArtists] = useState([]);
+
+  const [attributes, setAttributes] = useState([]);
+
+  const artistAttributes = [
+    { label: "Artist ID", value: "artistID" },
+    { label: "Artist Name", value: "artistName" },
+    { label: "Age", value: "age" },
+    { label: "Country", value: "country" },
+    { label: "Biography", value: "biography" },
+    { label: "Number of Members", value: "numOfMembers" },
+    { label: "Record Label ID", value: "labelID" },
+  ];
+
+  useEffect(() => {
+    console.log("Attribute change: ", attributes)
+  }, [attributes]);
+
+  const handleAttributesChange = (e) => {
+    const attributeVal = e.target.value;
+
+    if (e.target.checked) {
+      setAttributes([...attributes, attributeVal]);
+    } else {
+      setAttributes(attributes.filter((att) => att !== attributeVal));
+    }
+  };
 
   const fetchArtists = async () => {
     const response = await fetch('http://localhost:8080/api/artists/all', {
@@ -29,15 +56,28 @@ const DisplayAllArtists = () => {
   }, [])
 
   return (
-    <div className={styles.artistsPage}>
-      <div className={styles.centeredContent}>
-        <h2>All Artists</h2>
+  <div className={styles.tuples}>
+      {artists && artists.map((artist) => {
+        <div className={styles.attributeOptions}>
+        <label> Attributes: </label>
+        <ul>
+          {artistAttributes.map((item) => {
+              return (
+                <li><label key={item.value}><input
+                      type="checkbox"
+                      value={item.value}
+                      onChange={handleAttributesChange}
+                      checked={attributes.includes(item.value)}
+                    />
+                    {item.label}
+                  </label>
+                </li>
+              );
+            })}
+        </ul>
       </div>
-      <div className={styles.tuples}>
-        {artists && artists.map((artist) => {
-          return <ArtistTuple artist={artist} artistID={artist.artistID} artists={artists} setArtists={setArtists}/>
-        })}
-      </div>
+        return <ArtistTuple artist={artist} artistID={artist.artistID}/>
+      })}
     </div>
   );
 };
