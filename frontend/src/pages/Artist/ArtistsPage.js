@@ -10,8 +10,79 @@ const ArtistsPage = () => {
   //   e.preventDefault();
   // };
 
-  const handleNestedAggro = (e) => {
-    
+  const [aggGroupClicked, setAggGroupClicked] =useState(false);
+  const [aggHavingClicked, setAggHavingClicked] =useState(false);
+  const [nestedAggClicked, setNestedAggClicked] =useState(false);
+  const [divisionClicked, setDivisionClicked] =useState(false);
+
+  const [aggGroup, setAggGroup] =useState('');
+  const [aggHaving, setAggHaving] =useState('');
+  const [nestedAgg, setNestedAgg] =useState('');
+  const [divisionObj, setDivisionObj] =useState('');
+
+
+  const aggGroupFetch = async (e) => {
+    const response = await fetch('http://localhost:8080/api/artists/aggregationgroupby', {
+      method: 'GET'
+    }).catch((err) => {
+      console.log(err);
+    })
+
+    if (response.ok) {
+      const json = await response.json();
+      setAggGroup(json);
+      console.log("Fetched aggrogroup! ", json)
+    } else {
+      console.log("error");
+    }
+  }
+
+  const aggHavingFetch = async (e) => {
+    const response = await fetch('http://localhost:8080/api/artists/aggregationhaving', {
+      method: 'GET'
+    }).catch((err) => {
+      console.log(err);
+    })
+
+    if (response.ok) {
+      const json = await response.json();
+      setAggGroup(json);
+      console.log("Fetched aggHaving! ", json)
+    } else {
+      console.log("error");
+    }
+  }
+
+  const divisionFetch = async (e) => {
+    const response = await fetch('http://localhost:8080/api/artists/division', {
+      method: 'GET'
+    }).catch((err) => {
+      console.log(err);
+    })
+
+    if (response.ok) {
+      const json = await response.json();
+      setAggGroup(json);
+      console.log("Fetched division! ", json)
+    } else {
+      console.log("error");
+    }
+  }
+
+  const nestedFetch = async (e) => {
+    const response = await fetch('http://localhost:8080/api/artists/nestedaggregation', {
+      method: 'GET'
+    }).catch((err) => {
+      console.log(err);
+    })
+
+    if (response.ok) {
+      const json = await response.json();
+      setAggGroup(json);
+      console.log("Fetched nested! ", json)
+    } else {
+      console.log("error");
+    }
   }
 
   return (
