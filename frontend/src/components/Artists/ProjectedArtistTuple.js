@@ -4,9 +4,38 @@ import { useState, useEffect } from "react";
 const ProjectedArtistTuple = ({projectedArtist, artistID, artists, setProjectedArtists}) => {
 
   // const [artistObj, setArtistObj] = useState('');
-  
 
- 
+  const [keys, setKeys] = useState(Object.keys(projectedArtist));
+  const [values, setValues] = useState(Object.values(projectedArtist));
+
+  useEffect(() => {
+    console.log("Keys and vals: ", keys);
+  }, [keys])
+
+  const mapKeyToLabel = (key) => {
+    if (key === "artistID") {
+        return "Artist ID"
+    }
+    if (key === "artistName") {
+        return "Artist Name"
+    }
+    if (key === "age") {
+        return "Age"
+    }
+    if (key === "country") {
+        return "Country"
+    }
+    if (key === "biography") {
+        return "Bio"
+    }
+    if (key === "numOfMembers") {
+        return "Number of Members"
+    }
+    if (key === "labelID") {
+        return "Label ID"
+    }
+  }
+   
 
 //   const fetchArtists = async () => {
 //     const response = await fetch('http://localhost:8080/api/artists/all', {
@@ -32,24 +61,18 @@ const ProjectedArtistTuple = ({projectedArtist, artistID, artists, setProjectedA
         <div className={styles.titlebox}>
           <div className={styles.titlelist}>
             <div className={styles.titlecontent}>
-              <h4>Artist Name</h4>
-              <h4>Age</h4>
-              <h4>Country</h4>
-              <h4>Bio</h4>
-              <h4>Number of Member</h4>
-              <h4>Delete</h4>
-              <h4>Update</h4>
+              {keys && keys.map((key) => {
+                return <h4>{mapKeyToLabel(key)}</h4>;
+              })}
             </div>
           </div>
         </div>
         <div className={styles.box}>
           <div className={styles.list}>
             <div className={styles.content}>
-              <p>{projectedArtist && projectedArtist.artistName}</p>
-              <p>{projectedArtist && projectedArtist.age}</p>
-              <p>{projectedArtist && projectedArtist.country}</p>
-              <p>{projectedArtist && projectedArtist.biography}</p>
-              <p>{projectedArtist && projectedArtist.numOfMembers}</p>
+              {values && values.map((value) => {
+                return <p>{value}</p>
+              })}
             </div>
           </div>
         </div>
