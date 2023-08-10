@@ -2,6 +2,8 @@ import styles from "./ArtistTuple.module.css";
 import { useState, useEffect } from "react";
 
 const ArtistTuple = ({artist, artistID}) => {
+
+  const [artistFetched, setArtistFetched] = useState('')
   
   const [editClicked, setEditClicked] = useState(false)
   const [newArtistName,setNewArtistName] = useState("")
@@ -10,6 +12,27 @@ const ArtistTuple = ({artist, artistID}) => {
   const [newArtistBiography,setNewArtistBiography] = useState("")
   const [newNumberOfMembers,setNewNumberOfMembers] = useState("")
   const [newLabelId,setNewLabelId] = useState("")
+
+  // useEffect((() => {
+  //   fetchArtist();
+  // }), [])
+
+  // const fetchArtist = async () => {
+  //   const response = await fetch(`http://localhost:8080/api/artists/${artistID}`, {
+  //           method: 'GET',
+  //           headers: {
+  //               'Content-Type': 'application/json'
+  //           }
+  //       })
+
+  //       if (response.ok) {
+  //         const json = response.json();
+  //         setArtistFetched(json);
+  //         console.log(json);
+  //       } else {
+  //           console.log("Error!");
+  //       }
+  // }
 
   const handleDelete = async(event) => {
     event.preventDefault();
@@ -30,8 +53,8 @@ const ArtistTuple = ({artist, artistID}) => {
   }
 
   const handleUpdate = async(event) => {
-    const {artistId} = artist
-    const response = await fetch(`http://localhost:8080/api/artists/update/${artistId}`, {
+    setEditClicked(true);
+    const response = await fetch(`http://localhost:8080/api/artists/update/${artistID}`, {
             method: 'PATCH',
             body: JSON.stringify({
               artistId: newArtistName, 
@@ -78,9 +101,8 @@ const ArtistTuple = ({artist, artistID}) => {
               <p>{artist && artist.biography}</p>
               <p>{artist && artist.numOfMembers}</p>
               <button onClick = {handleDelete}>X</button>
-              <button onClick = {(e) => {
-                setEditClicked(true)}
-                }>Edit</button>
+              <button onClick = {handleUpdate}
+                >Edit</button>
             </div>
           </div>
         </div>

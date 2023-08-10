@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 
 const ArtistsPage = () => {
 
-  const handleAddArtist = (e) => {
-    e.preventDefault();
-  };
+  // const handleAddArtist = (e) => {
+  //   e.preventDefault();
+  // };
+
+  const handleNestedAggro = (e) => {
+    
+  }
 
   return (
     <div className={styles.regContainer}>
