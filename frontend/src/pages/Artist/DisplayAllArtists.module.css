@@ -19,3 +19,9 @@
   .tuples::-webkit-scrollbar-thumb:hover {
     background-color: #3582b6;
   }
+
+  .attributeOptions {
+    display: flex;
+    align-items: start; /* To align the label and the list at the top */
+    gap: 10px; /* Space between the label and the list */
+  }
