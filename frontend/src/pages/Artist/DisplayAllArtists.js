@@ -22,16 +22,22 @@ const DisplayAllArtists = () => {
     }
   }
 
+
+
   useEffect(() => {
     fetchArtists();
   }, [])
 
   return (
-    <div className={styles.tuples}>
-      {artists && artists.map((artist) => {
-        return <ArtistTuple artist={artist} artistID={artist.artistID} artists={artists} setArtists={setArtists}/>
-      })}
-
+    <div className={styles.artistsPage}>
+      <div className={styles.centeredContent}>
+        <h2>All Artists</h2>
+      </div>
+      <div className={styles.tuples}>
+        {artists && artists.map((artist) => {
+          return <ArtistTuple artist={artist} artistID={artist.artistID} artists={artists} setArtists={setArtists}/>
+        })}
+      </div>
     </div>
   );
 };
