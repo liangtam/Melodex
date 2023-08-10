@@ -1,6 +1,7 @@
 import styles from "./ArtistTuple.module.css";
+import { useState, useEffect } from "react";
 
-const ArtistTuple = ({artist}) => {
+const ArtistTuple = ({artist, artistID}) => {
   
   const [editClicked, setEditClicked] = useState(false)
   const [newArtistName,setNewArtistName] = useState("")
@@ -11,8 +12,10 @@ const ArtistTuple = ({artist}) => {
   const [newLabelId,setNewLabelId] = useState("")
 
   const handleDelete = async(event) => {
-    const {artistId} = artist
-    const response = await fetch(`http://localhost:8080/api/artists/${artistId}`, {
+    event.preventDefault();
+    // const id = artist.artistId;
+    // console.log(artist);
+    const response = await fetch(`http://localhost:8080/api/artists/${artistID}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
