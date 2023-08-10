@@ -7,7 +7,7 @@ const LabelForm = (props) => {
     websiteURL: "",
   });
 
-  const [labels, setLabels] = useState([]);
+  //const [labels, setLabels] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
