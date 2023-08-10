@@ -48,7 +48,7 @@ const ArtistsPage = () => {
 
     if (response.ok) {
       const json = await response.json();
-      setAggGroup(json);
+      setAggHaving(json);
       console.log("Fetched aggHaving! ", json)
     } else {
       console.log("error");
@@ -104,6 +104,9 @@ const ArtistsPage = () => {
             <button onClick={divisionFetch}>Genre God (Division)</button>
           </div>
 
+          {divisionClicked && <div>Artist ID: {divisionObj}</div>}
+          {aggHavingClicked && <div>Result: {JSON.stringify(aggHaving)}</div>}
+          {divisionClicked && <div>Artist ID: {divisionObj}</div>}
           {divisionClicked && <div>Artist ID: {divisionObj}</div>}
         </div>
       </div>
