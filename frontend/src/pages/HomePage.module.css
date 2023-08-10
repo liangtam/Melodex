@@ -21,7 +21,10 @@ body {
 }
 
 input {
-  background: none;
+  border: none;
+  border-radius: 2px;
+  height: 30px;
+  background: white;
 }
 
 .title {
@@ -65,7 +68,7 @@ p {
 
 select {
   height: 30px;
-  width: 100px;
+  width: 150px;
 }
 
 ul {
