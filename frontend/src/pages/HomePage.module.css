@@ -31,12 +31,21 @@ p {
   animation: fadeInAnimation ease 3s;
 }
 
+.simpleSearchText {
+  font-weight: bold;
+  font-size: 24px;
+}
+
 .centered {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.centered input[type="text"] {
+  color: black; /* Sets the text color to black */
 }
 
 .title h2 {
@@ -60,10 +69,10 @@ ul {
 }
 
 .attributeOptions {
-  flex-direction: column;
-  align-items: start; /* aligns children to the left */
-  gap: 50px; /* provides space between stacked children */
-  margin-left: 30px;
+  display: flex;
+  align-items: start; /* To align the label and the list at the top */
+  gap: 10px; /* Space between the label and the list */
+  margin-left: 150px;
 }
 
 .searchBar {
@@ -92,6 +101,9 @@ ul {
 }
 
 .filters {
+  display: flex; /* Set the container to flex */
+  align-items: center; /* Vertically center align the items in case they have different heights */
+  gap: 10px; /* Add a little gap between items */
   margin-left: 0;
 }
 
