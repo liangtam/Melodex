@@ -6,6 +6,7 @@ import AlbumTuple from "../../components/Album/AlbumTuple";
 
 const AlbumsPage = () => {
   const [albums, setAlbums] = useState([]);
+  const [name, setName] = useState([]);
 
   const addAlbum = (album) => {
     setAlbums([...albums, album]);
@@ -27,6 +28,26 @@ const AlbumsPage = () => {
     }
   }
 
+  const handleSearchClick = async (e) => {
+    e.preventDefault();
+    if (name === '') {
+      return;
+    }
+    const response = await fetch('http://localhost:8080/api/albums/all/' + name, {
+      method: 'GET'
+    }).catch((err) => {
+      console.log(err);
+    })
+
+    if (response.ok) {
+      const json = await response.json();
+      setAlbums(json);
+      console.log("Fetched artists! ", json)
+    } else {
+      console.log("Could not fetch artists");
+    }
+  }
+
   useEffect(() => {
     fetchAlbums();
   }, [])
@@ -35,9 +56,15 @@ const AlbumsPage = () => {
 
   return (
     <div className={styles.albumContainer}>
+
       <div className={styles.leftBody}>
         <div className={styles.centered}>
           <div className={styles.tuples}>
+          <div className={styles.searchArea}>
+              <h2>Albums</h2>
+              <input type="text" placeholder="Search by Name" onChange={(e) => setName(e.target.value)}></input>
+              <button onClick={handleSearchClick}>Search</button>
+          </div>
             { albums && albums.map((album) => {
               return <AlbumTuple album={album}/>
             })}
@@ -49,6 +76,7 @@ const AlbumsPage = () => {
           <div className={styles.addForm}>
             <AlbumForm addAlbum={addAlbum} />
           </div>
+          
         </div>
       </div>
     </div>
