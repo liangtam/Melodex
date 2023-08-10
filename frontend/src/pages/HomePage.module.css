@@ -39,6 +39,10 @@ p {
   text-align: center;
 }
 
+.centered input[type="text"] {
+  color: black; /* Sets the text color to black */
+}
+
 .title h2 {
   font-size: 50px;
 }
