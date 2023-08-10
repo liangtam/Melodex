@@ -42,6 +42,22 @@ p {
     font-size: 50px;
 }
 
+.searchArea {
+    display: flex;
+}
+select {
+    height: 30px;
+    width: 100px;
+}
+
+ul {
+    list-style: none;
+}
+
+.attributeOptions {
+    display: flex;
+}
+
 .searchBar {
     translate: 0px 10px;
     width: 500px;
