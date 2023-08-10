@@ -94,14 +94,21 @@ const ArtistsPage = () => {
       <div className={styles.leftBody}>
         <div className={styles.centered}>
           <div className={styles.title}>
-            <h4>All the artists you like, right in our app.</h4>
+            <h3>Choose what you'd like to do!</h3>
             <Link to="/display-artists">
-              <button>Display All Artists</button>
+              <button className={styles.displayArtistsBtn}>Display All Artists</button>
             </Link>
-            <button onClick={aggGroupFetch}>*Aggregation with Group By prompt*</button>
-            <button onClick={aggHavingFetch}>*Aggregation with Having prompt*</button>
-            <button onClick={nestedFetch}>*Nested Aggregation with Group By prompt*</button>
-            <button onClick={divisionFetch}>Genre God (Division)</button>
+            <div className={styles.fun}>
+            <div className={styles.buttons}>
+            <h4>Fun</h4>
+              <ul>
+                <li><button onClick={aggGroupFetch}>*Aggregation with Group By prompt*</button></li>
+                <li><button onClick={aggHavingFetch}>*Aggregation with Having prompt*</button></li>
+                <li><button onClick={nestedFetch}>*Nested Aggregation with Group By prompt*</button></li>
+                <li><button onClick={divisionFetch}>Genre God (Division)</button></li>
+              </ul>
+            </div>
+            </div>
           </div>
 
           {divisionClicked && <div>Artist ID: {divisionObj}</div>}

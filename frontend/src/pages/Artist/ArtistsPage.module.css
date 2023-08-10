@@ -56,3 +56,21 @@ p {
 .title h2 {
   font-size: 50px;
 }
+
+.title ul {
+  align-items: center;
+}
+
+.displayArtistsBtn {
+  font-size: 15px;
+  background-color: rgb(102, 77, 192);
+}
+.title ul li button {
+  font-size: 14px;
+}
+
+.fun {
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
