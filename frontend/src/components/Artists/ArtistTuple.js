@@ -1,7 +1,7 @@
 import styles from "./ArtistTuple.module.css";
 import { useState, useEffect } from "react";
 
-const ArtistTuple = ({artist, artistID}) => {
+const ArtistTuple = ({artist, artistID, artists, setArtists}) => {
 
   // const [artistFetched, setArtistFetched] = useState('')
   
@@ -33,6 +33,21 @@ const ArtistTuple = ({artist, artistID}) => {
   //           console.log("Error!");
   //       }
   // }
+  const fetchArtists = async () => {
+    const response = await fetch('http://localhost:8080/api/artists/all', {
+      method: 'GET'
+    }).catch((err) => {
+      console.log(err);
+    })
+
+    if (response.ok) {
+      const json = await response.json();
+      setArtists(json);
+      console.log("Fetched artists! ", json)
+    } else {
+      console.log("Could not fetch artists");
+    }
+  }
 
   const handleDelete = async(event) => {
     event.preventDefault();
@@ -47,6 +62,7 @@ const ArtistTuple = ({artist, artistID}) => {
 
         if (response.ok) {
             console.log("Deleted artist");
+            fetchArtists();
         } else {
             console.log("Error!");
         }
