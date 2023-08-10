@@ -42,3 +42,13 @@
     align-items: start; /* To align the label and the list at the top */
     gap: 10px; /* Space between the label and the list */
   }
+
+  .errorMessage {
+    margin-bottom: 10px;
+    color: rgb(255, 103, 103);
+  }
+  
+  .successMessage {
+    margin-bottom: 10px;
+    color: rgb(72, 255, 142);
+  }

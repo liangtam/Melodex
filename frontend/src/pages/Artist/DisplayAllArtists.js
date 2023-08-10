@@ -14,6 +14,9 @@ const DisplayAllArtists = () => {
 
   const [attributes, setAttributes] = useState([]);
 
+  const [successAdd, setSuccessAdd] = useState(false);
+  const [error, setError] = useState(false);
+
   useEffect(() => {
     console.log("Attributes: ", attributes)
   }, [attributes])
@@ -68,6 +71,8 @@ const DisplayAllArtists = () => {
   const fetchProjection = async () => {
 
     if (!attributes.length) {
+      setSuccessAdd(false);
+      setError('Please choose an attribute, or refresh for all artists again.')
       return;
     }
 
@@ -99,9 +104,13 @@ const DisplayAllArtists = () => {
       // if response is ok
       const projectedArtists = await response.json();
       console.log("Projection success! ", projectedArtists);
+      setError(false);
+      setSuccessAdd("Projection success! Refresh to see all artists or to try a different projection.")
       setProjectedArtists(projectedArtists);
     } catch (error) {
       console.log("Error :( ", error);
+      setSuccessAdd(false);
+      setError("Could not project.");
     }
 
   };
@@ -132,7 +141,13 @@ const DisplayAllArtists = () => {
             })}
         </ul>
         <button onClick ={handleProjectionClick}>Project</button>
-        {artists.length && <div className={styles.tuples}>
+        {successAdd && (
+                    <div className={styles.successMessage}>{successAdd}</div>
+                )}
+                {error && (
+                    <div className={styles.errorMessage}>{error}</div>
+          )}
+        {artists && <div className={styles.tuples}>
           <h2>All Artists</h2>
             {artists && artists.map((artist) => {
               return <ArtistTuple artist={artist} artistID={artist.artistID} setArtists={setArtists}/>
