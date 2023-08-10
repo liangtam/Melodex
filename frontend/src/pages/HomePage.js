@@ -14,6 +14,14 @@ const HomePage = () => {
 
   const [tableInfo, setTableInfo] = useState([]);
   const [tableRowKeys, setTableRowKeys] = useState([]);
+
+  useEffect(() => {
+    console.log("Attribute change: ", attributes)
+    console.log("Field 1 change: ", field1 )
+    console.log("Field 2 change: ", field2 )
+    console.log("Val 1 change: ", val1 )
+    console.log("Val 2 change: ", val2)
+  }, [attributes, field1, field2, val1, val2])
   useEffect(() => {
     if (tableInfo.length) {
       setTableRowKeys(Object.keys(tableInfo[0]));
@@ -44,11 +52,19 @@ const HomePage = () => {
     if (e.target.value === "Artist_ContractedWith") {
       setArtistSelected(true);
       setAlbumsSelected(false);
+      setField1('artistName');
+      setField2('numOfMembers')
       setAttributes([]);
+      setVal1('');
+      setVal2('');
     } else {
       setAlbumsSelected(true);
       setArtistSelected(false);
+      setField1('genre');
+      setField2('dID');
       setAttributes([]);
+      setVal1('');
+      setVal2('');
     }
   };
 
