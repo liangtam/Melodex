@@ -29,7 +29,7 @@ const DisplayAllArtists = () => {
   return (
     <div className={styles.tuples}>
       {artists && artists.map((artist) => {
-        return <ArtistTuple artist={artist} artistID={artist.artistID}/>
+        return <ArtistTuple artist={artist} artistID={artist.artistID} artists={artists} setArtists={setArtists}/>
       })}
 
     </div>

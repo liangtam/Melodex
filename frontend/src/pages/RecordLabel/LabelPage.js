@@ -15,16 +15,18 @@ const LabelPage = () => {
     <div className={styles.labelContainer}>
       <div className={styles.leftBody}>
         <div className={styles.centered}>
-          <div className={styles.title}>
+          {/* <div className={styles.title}>
             <LabelTuple labels={labels} />
-          </div>
+          </div> */}
+          NOT IMPLEMENTED
         </div>
       </div>
       <div className={styles.rightBody}>
         <div className={styles.centered}>
-          <div className={styles.addForm}>
+          {/* <div className={styles.addForm}>
             <LabelForm addLabel={addLabel} />
-          </div>
+          </div> */}
+          NOT IMPLEMENTED
         </div>
       </div>
     </div>

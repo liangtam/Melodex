@@ -23,6 +23,10 @@ const ArtistsPage = () => {
 
   const aggGroupFetch = async (e) => {
     setAggGroupClicked(true);
+    setAggHavingClicked(false);
+    setDivisionClicked(false);
+    setNestedAggClicked(false);
+
     const response = await fetch('http://localhost:8080/api/artists/aggregationgroupby', {
       method: 'GET'
     }).catch((err) => {
@@ -31,7 +35,7 @@ const ArtistsPage = () => {
 
     if (response.ok) {
       const json = await response.json();
-      setAggGroup(json);
+      setAggGroup(JSON.stringify(json));
       console.log("Fetched aggrogroup! ", json)
     } else {
       console.log("error");
@@ -39,7 +43,10 @@ const ArtistsPage = () => {
   }
 
   const aggHavingFetch = async (e) => {
+    setAggGroupClicked(false);
     setAggHavingClicked(true);
+    setDivisionClicked(false);
+    setNestedAggClicked(false);
     const response = await fetch('http://localhost:8080/api/artists/aggregationhaving', {
       method: 'GET'
     }).catch((err) => {
@@ -48,7 +55,7 @@ const ArtistsPage = () => {
 
     if (response.ok) {
       const json = await response.json();
-      setAggHaving(json);
+      setAggHaving(JSON.stringify(json));
       console.log("Fetched aggHaving! ", json)
     } else {
       console.log("error");
@@ -56,7 +63,10 @@ const ArtistsPage = () => {
   }
 
   const divisionFetch = async (e) => {
+    setAggGroupClicked(false);
+    setAggHavingClicked(false);
     setDivisionClicked(true);
+    setNestedAggClicked(false);
     const response = await fetch('http://localhost:8080/api/artists/division', {
       method: 'GET'
     }).catch((err) => {
@@ -73,6 +83,9 @@ const ArtistsPage = () => {
   }
 
   const nestedFetch = async (e) => {
+    setAggGroupClicked(false);
+    setAggHavingClicked(false);
+    setDivisionClicked(false);
     setNestedAggClicked(true);
     const response = await fetch('http://localhost:8080/api/artists/nestedaggregation', {
       method: 'GET'
@@ -82,7 +95,7 @@ const ArtistsPage = () => {
 
     if (response.ok) {
       const json = await response.json();
-      setNestedAgg(json);
+      setNestedAgg(JSON.stringify(json));
       console.log("Fetched nested! ", json)
     } else {
       console.log("error");
@@ -94,20 +107,30 @@ const ArtistsPage = () => {
       <div className={styles.leftBody}>
         <div className={styles.centered}>
           <div className={styles.title}>
-            <h4>All the artists you like, right in our app.</h4>
+            <h3>Choose what you'd like to do!</h3>
             <Link to="/display-artists">
-              <button>Display All Artists</button>
+              <button className={styles.displayArtistsBtn}>Display All Artists</button>
             </Link>
-            <button onClick={aggGroupFetch}>*Aggregation with Group By prompt*</button>
-            <button onClick={aggHavingFetch}>*Aggregation with Having prompt*</button>
-            <button onClick={nestedFetch}>*Nested Aggregation with Group By prompt*</button>
-            <button onClick={divisionFetch}>Genre God (Division)</button>
+            <div className={styles.fun}>
+            <div className={styles.buttons}>
+            <h4>Fun</h4>
+              <ul>
+                <li><button onClick={aggGroupFetch}>*Aggregation with Group By prompt*</button></li>
+                <li><button onClick={aggHavingFetch}>*Aggregation with Having prompt*</button></li>
+                <li><button onClick={nestedFetch}>*Nested Aggregation with Group By prompt*</button></li>
+                <li><button onClick={divisionFetch}>Genre God (Division)</button></li>
+              </ul>
+            </div>
+            </div>
           </div>
 
-          {divisionClicked && <div>Artist ID: {divisionObj}</div>}
-          {aggHavingClicked && <div>Result: {JSON.stringify(aggHaving)}</div>}
-          {aggGroupClicked && <div>Result: {JSON.stringify(aggGroup)}</div>}
-          {nestedAggClicked && <div>Result: {JSON.stringify(nestedAgg)}</div>}
+          {divisionClicked && divisionObj && <div> <h4>Artist ID of artists who covered all genres:</h4> {divisionObj.map((result) => {
+            return <div className={styles.divisionResult}>Artist ID: {result}</div>
+          })}</div>}
+          {/* { divisionClicked && <div className={styles.divisionResult}>Artist ID: {divisionObj}</div>} */}
+          {aggHavingClicked && <div className={styles.aggHavingResult}>Result: {aggHaving}</div>}
+          {aggGroupClicked && <div className={styles.aggGroupResult}>Result: {aggGroup}</div>}
+          {nestedAggClicked && <div className={styles.nestedAggResult}>Result: {nestedAgg}</div>}
         </div>
       </div>
       <div className={styles.rightBody}>
