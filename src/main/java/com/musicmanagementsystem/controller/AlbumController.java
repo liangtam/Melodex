@@ -23,7 +23,7 @@ public class AlbumController {
 //    public Discography_MainService discography_mainService;
 
     // JOIN OPERATION to submit
-    @GetMapping("all/{name}")
+    @GetMapping("/all/{name}")
     public List<Album> getAllAlbumsWithName(@PathVariable String name) {
         return albumService.getAllAlbumsWithName(name);
     }
