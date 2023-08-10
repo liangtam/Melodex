@@ -30,9 +30,8 @@
 }
 
 p {
-    font-size: 19.5px;
-    animation: fadeInAnimation ease 3s;
-
+  font-size: 19.5px;
+  animation: fadeInAnimation ease 3s;
 }
 .regContainer .rightBody {
   right: 0;
@@ -46,19 +45,6 @@ p {
   animation: fadeInAnimation ease 1s;
 }
 
-.rightBody .centered .regButtons button:hover {
-  cursor: pointer;
-  background-color: aqua;
-}
-
-.userbtn {
-  background-color: cornflowerblue;
-}
-
-.artistbtn {
-  background-color: hotpink;
-}
-
 .centered {
   position: absolute;
   top: 50%;
@@ -68,11 +54,5 @@ p {
 }
 
 .title h2 {
-  font-size: 50px;
-}
-
-.signUpText {
-  margin-bottom: 40px;
-  justify-content: space-between;
   font-size: 50px;
 }
