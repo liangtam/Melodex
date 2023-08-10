@@ -1,6 +1,5 @@
 package com.musicmanagementsystem.controller;
 
-import com.musicmanagementsystem.controller.reqBodies.CustomQueryReqBody;
 import com.musicmanagementsystem.service.interfaces.Artist_ContractedWithService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,26 +22,35 @@ public class GeneralController {
     private JdbcTemplate jdbcTemplate; // Autowire the JdbcTemplate
 
     @GetMapping("/")
-    public String getDynamicSelection(@RequestBody CustomQueryReqBody reqBody) {
-        if (reqBody.getAttributes().isEmpty() || reqBody.getVal1() == "" || reqBody.getVal2() == "") {
+    public String getDynamicSelection(@RequestParam String table, @RequestParam String attributes,
+                                      @RequestParam String field1, @RequestParam String field2,
+                                      @RequestParam String val1, @RequestParam Integer val2) {
+//        if (reqBody.getAttributes().isEmpty() || reqBody.getVal1() == "" || reqBody.getVal2() == "") {
+//            return null;
+//        }
+//
+//        String attributesString = "";
+//        for (int i = 0; i < reqBody.getAttributes().size(); i++) {
+//            if (i == reqBody.getAttributes().size() - 1) {
+//                attributesString += reqBody.getAttributes().get(i);
+//            } else {
+//                attributesString += (reqBody.getAttributes().get(i) + ", ");
+//            }
+//        }
+//        System.out.println(attributesString);
+//        System.out.println(reqBody.getTable());
+//
+//
+//
+//        String dynamicQuery = "SELECT " + attributesString + " FROM " + reqBody.getTable() + " WHERE " +
+//        reqBody.getField1() + "=" + "'" + reqBody.getVal1() + "'" + " AND " + reqBody.getField2() + ">=" + reqBody.getVal2();
+
+        if (table == "" || attributes == "" || field1 == "" || field2 == "" || val1 == "" || val2 == null) {
             return null;
         }
 
-        String attributesString = "";
-        for (int i = 0; i < reqBody.getAttributes().size(); i++) {
-            if (i == reqBody.getAttributes().size() - 1) {
-                attributesString += reqBody.getAttributes().get(i);
-            } else {
-                attributesString += (reqBody.getAttributes().get(i) + ", ");
-            }
-        }
-        System.out.println(attributesString);
-        System.out.println(reqBody.getTable());
-
-
-
-        String dynamicQuery = "SELECT " + attributesString + " FROM " + reqBody.getTable() + " WHERE " +
-        reqBody.getField1() + "=" + "'" + reqBody.getVal1() + "'" + " AND " + reqBody.getField2() + ">=" + reqBody.getVal2();
+        String dynamicQuery = "SELECT " + attributes + " FROM " + table + " WHERE " +
+        field1 + "=" + "'" + val1 + "'" + " AND " + field2 + ">=" + val2;
         System.out.println("Dynamic query: " + dynamicQuery); // this is just for me debugging
 
         List<Map<String, Object>> queryResult = jdbcTemplate.queryForList(dynamicQuery);
