@@ -88,7 +88,7 @@ public class Artist_ContractedWithController {
         return artist_contractedWithService.aggregationHaving();
     }
 
-    @GetMapping("/projection")
+    @GetMapping("/projection/")
     public String projection(@RequestParam String attributes) {
 
         if (attributes == "") {
