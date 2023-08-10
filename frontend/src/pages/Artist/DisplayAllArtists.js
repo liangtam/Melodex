@@ -7,7 +7,15 @@ const DisplayAllArtists = () => {
 
   const [artists, setArtists] = useState([]);
 
+  const [projectedArtists, setProjectedArtists] = useState([]);
+
+  const [projectionClicked, setProjectionClicked] = useState(false);
+
   const [attributes, setAttributes] = useState([]);
+
+  useEffect(() => {
+    console.log("Attributes: ", attributes)
+  }, [attributes])
 
   const artistAttributes = [
     { label: "Artist ID", value: "artistID" },
@@ -49,10 +57,52 @@ const DisplayAllArtists = () => {
     }
   }
 
-  const fetchProjection = async (e) => {
+  const handleProjectionClick = (e) => {
     e.preventDefault();
-
+    setArtists([]);
+    fetchProjection();
   }
+
+  const fetchProjection = async () => {
+
+    if (!attributes.length) {
+      return;
+    }
+
+    let attributesCopy = [...attributes];
+    const attributeString = attributesCopy.join(", ");
+    console.log("Attribute string: ", attributeString);
+
+    const queryParams = new URLSearchParams({
+      attributes: attributeString
+    }).toString();
+
+    console.log("Query params: ", queryParams);
+
+    try {
+      const response = await fetch(`http://localhost:8080/api/artists/projection/?${queryParams}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      if (!response.ok) {
+        console.log("Error status:", response.status);
+        console.log("Error status text:", response.statusText);
+        throw new Error("Request failed");
+      }
+
+      // if response is ok
+      const projectedArtists = await response.json();
+      console.log("Projection success! ", projectedArtists);
+      setProjectedArtists(projectedArtists);
+    } catch (error) {
+      console.log("Error :( ", error);
+    }
+
+  };
 
 
 
@@ -79,6 +129,7 @@ const DisplayAllArtists = () => {
               );
             })}
         </ul>
+        <button onClick ={handleProjectionClick}>Project</button>
         <div className={styles.tuples}>
           <h2>All Artists</h2>
             {artists && artists.map((artist) => {
