@@ -4,10 +4,10 @@ import styles from "./HomePage.module.css";
 
 const HomePage = () => {
 
-    const [table, setTable] = useState('');
+    const [table, setTable] = useState('Artist_ContractedWith');
     const [attributes, setAttributes] = useState([]);
-    const [field1, setField1] = useState('');
-    const [field2, setField2] = useState('');
+    const [field1, setField1] = useState('artistName');
+    const [field2, setField2] = useState('numOfMembers');
     const [val1, setVal1] = useState('');
     const [val2, setVal2] = useState('');
 
@@ -75,9 +75,67 @@ const HomePage = () => {
     }
 
 
-    const handleSearchClick = (e) => {
+    const handleSearchClick = async (e) => {
         e.preventDefault();
+        // const customQueryReqBody = {
+        //     table, attributes, field1, field2, val1, val2
+        // }
+        let attributesCopy = [... attributes];
+        const attributeString = attributesCopy.join(", ");
+        console.log("Attributes: ", attributeString);
+
+        console.log("Table: ", table);
+
+        const queryParams = new URLSearchParams({
+            table: table,
+            attributes: attributeString,
+            field1: field1,
+            field2: field2,
+            val1: val1,
+            val2: val2,
+          }).toString();
+
+          console.log("Query Params: " , queryParams);
+
+          try {
+        const response = await fetch(`http://localhost:8080/api/general/?${queryParams}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            console.log("Error status:", response.status);
+            console.log("Error status text:", response.statusText);
+            throw new Error("Request failed");
+        }
+        const json = await response.json();
+        console.log("Select success! ", json );
+        } catch (error) {
+            console.log("Error:", error);
+        }
+
+        // const response = fetch(`http://localhost:8080/api/general/?${queryParams}`, {
+        //     method: 'GET',
+        //     //body: JSON.stringify(customQueryReqBody),
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // })
+
+        // if (response.ok) {
+        //     const json = response.json();
+        //     console.log("Select success! ", json);
+        // } else {
+        //     console.log("Error status:", response.status);
+        //     console.log("Error status text:", response.statusText);
+        // }
     }
+
+    useEffect(() => {
+        console.log("Table: ", table);
+    }, [table])
 
     return (
         <div className={styles.regContainer}>

@@ -10,12 +10,22 @@
 body {
     margin: 0;
     padding: 0;
-    color: white;
     background-image: url('./images/304_login_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
     overflow: hidden;
+}
+
+label {
+    color: white;
+}
+
+input {
+    height: 29px;
+    border-radius: 5px;
+    border-color: white;
+    background: none;
 }
 
 .title {
@@ -25,6 +35,7 @@ body {
 }
 
 p {
+    color: white;
     font-size: 20px;
     animation: fadeInAnimation ease 3s;
 
