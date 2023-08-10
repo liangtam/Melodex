@@ -90,6 +90,9 @@ ul {
 }
 
 .filters {
+  display: flex; /* Set the container to flex */
+  align-items: center; /* Vertically center align the items in case they have different heights */
+  gap: 10px; /* Add a little gap between items */
   margin-left: 0;
 }
 
