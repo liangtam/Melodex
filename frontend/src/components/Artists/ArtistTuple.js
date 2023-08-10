@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 const ArtistTuple = ({artist, artistID}) => {
 
-  const [artistFetched, setArtistFetched] = useState('')
+  // const [artistFetched, setArtistFetched] = useState('')
   
   const [editClicked, setEditClicked] = useState(false)
   const [newArtistName,setNewArtistName] = useState("")
@@ -11,7 +11,7 @@ const ArtistTuple = ({artist, artistID}) => {
   const [newArtistCountry,setNewArtistCountry] = useState("")
   const [newArtistBiography,setNewArtistBiography] = useState("")
   const [newNumberOfMembers,setNewNumberOfMembers] = useState("")
-  const [newLabelId,setNewLabelId] = useState("")
+  const [newLabelId, setNewLabelId] = useState("")
 
   // useEffect((() => {
   //   fetchArtist();
@@ -53,7 +53,6 @@ const ArtistTuple = ({artist, artistID}) => {
   }
 
   const handleUpdate = async(event) => {
-    setEditClicked(true);
     const response = await fetch(`http://localhost:8080/api/artists/update/${artistID}`, {
             method: 'PATCH',
             body: JSON.stringify({
@@ -70,7 +69,7 @@ const ArtistTuple = ({artist, artistID}) => {
         })
 
         if (response.ok) {
-            console.log("Update artist");
+            console.log("Updated artist");
         } else {
             console.log("Error!");
         }
@@ -101,7 +100,7 @@ const ArtistTuple = ({artist, artistID}) => {
               <p>{artist && artist.biography}</p>
               <p>{artist && artist.numOfMembers}</p>
               <button onClick = {handleDelete}>X</button>
-              <button onClick = {handleUpdate}
+              <button onClick = {(e) =>     setEditClicked(true)}
                 >Edit</button>
             </div>
           </div>
