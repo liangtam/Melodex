@@ -69,23 +69,26 @@ const ArtistTuple = ({artist, artistID, artists, setArtists}) => {
   }
 
   const handleUpdate = async(event) => {
+
+    const newArtist = {
+      artistName: newArtistName, 
+      age: newArtistAge, 
+      country: newArtistCountry, 
+      biography: newArtistBiography, 
+      numOfMembers: newNumberOfMembers, 
+      labelID: newLabelId, 
+    };
+
     const response = await fetch(`http://localhost:8080/api/artists/update/${artistID}`, {
             method: 'PATCH',
-            body: JSON.stringify({
-              artistId: newArtistName, 
-              age: newArtistAge, 
-              country: newArtistCountry, 
-              biography: newArtistBiography, 
-              numOfMembers: newNumberOfMembers, 
-              labelID: newLabelId, 
-            }),
+            body: JSON.stringify(newArtist),
             headers: {
                 'Content-Type': 'application/json'
             }
         })
 
         if (response.ok) {
-            console.log("Updated artist");
+            console.log("Updated artist! ", newArtist);
         } else {
             console.log("Error!");
         }
@@ -116,13 +119,12 @@ const ArtistTuple = ({artist, artistID, artists, setArtists}) => {
               <p>{artist && artist.biography}</p>
               <p>{artist && artist.numOfMembers}</p>
               <button onClick = {handleDelete}>X</button>
-              <button onClick = {(e) =>     setEditClicked(true)}
-                >Edit</button>
+              <button onClick = {(e) => setEditClicked(true)}>Edit</button>
             </div>
           </div>
         </div>
 
-        {editClicked && (<div className="">
+        {editClicked && (<div className={styles.editArea}>
             <input
               type="text"
               placeholder="Artist Name"
