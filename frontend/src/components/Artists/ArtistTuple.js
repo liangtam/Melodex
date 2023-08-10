@@ -3,18 +3,18 @@ import { useState, useEffect } from "react";
 
 const ArtistTuple = ({artist, artistID, artists, setArtists}) => {
 
-  // const [artistFetched, setArtistFetched] = useState('')
+  // const [artistObj, setArtistObj] = useState('');
   
   const [editClicked, setEditClicked] = useState(false)
-  const [newArtistName,setNewArtistName] = useState("")
-  const [newArtistAge,setNewArtistAge] = useState("")
-  const [newArtistCountry,setNewArtistCountry] = useState("")
-  const [newArtistBiography,setNewArtistBiography] = useState("")
-  const [newNumberOfMembers,setNewNumberOfMembers] = useState("")
-  const [newLabelId, setNewLabelId] = useState("")
+  const [newArtistName, setNewArtistName] = useState(artist.artistName);
+  const [newArtistAge, setNewArtistAge] = useState(artist.age);
+  const [newArtistCountry, setNewArtistCountry] = useState(artist.country);
+  const [newArtistBiography, setNewArtistBiography] = useState(artist.biography);
+  const [newNumberOfMembers, setNewNumberOfMembers] = useState(artist.numOfMembers);
+  const [newLabelId, setNewLabelId] = useState(artist.labelID);
 
   // useEffect((() => {
-  //   fetchArtist();
+  //   setArtistObj(JSON.stringify(artist));
   // }), [])
 
   // const fetchArtist = async () => {
@@ -33,6 +33,7 @@ const ArtistTuple = ({artist, artistID, artists, setArtists}) => {
   //           console.log("Error!");
   //       }
   // }
+
   const fetchArtists = async () => {
     const response = await fetch('http://localhost:8080/api/artists/all', {
       method: 'GET'
@@ -89,6 +90,7 @@ const ArtistTuple = ({artist, artistID, artists, setArtists}) => {
 
         if (response.ok) {
             console.log("Updated artist! ", newArtist);
+            fetchArtists();
         } else {
             console.log("Error!");
         }
@@ -128,31 +130,36 @@ const ArtistTuple = ({artist, artistID, artists, setArtists}) => {
             <input
               type="text"
               placeholder="Artist Name"
-              onChange={(e) => setNewArtistName(e.target.value)}
+              value={newArtistName} onChange={(e) => setNewArtistName(e.target.value)}
             ></input>
             <input
               type="text"
               placeholder="Artist Age"
+              value={newArtistAge}
               onChange={(e) => setNewArtistAge(e.target.value)}
             ></input>
             <input
               type="text"
               placeholder="Artist Country"
+              value={newArtistCountry}
               onChange={(e) => setNewArtistCountry(e.target.value)}
             ></input>
             <input
               type="text"
               placeholder="Artist Bio"
+              value={newArtistBiography}
               onChange={(e) => setNewArtistBiography(e.target.value)}
             ></input>
             <input
               type="text"
               placeholder="Artist Number of Members"
+              value={newNumberOfMembers}
               onChange={(e) => setNewNumberOfMembers(e.target.value)}
             ></input>
             <input
               type="text"
               placeholder="Artist Label ID"
+              value={newLabelId}
               onChange={(e) => setNewLabelId(e.target.value)}
             ></input>
             <button onClick = {handleUpdate}>Submit</button>
