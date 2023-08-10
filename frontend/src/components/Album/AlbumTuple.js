@@ -5,7 +5,7 @@ const AlbumTuple = ({ album }) => {
   return (
     <div>
       <div className={styles.tupleContainer}>
-        <h3>Album List</h3>
+        {/*<h3>Album List</h3>*/}
         <div className={styles.titlebox}>
           <div className={styles.titlelist}>
             <div className={styles.titlecontent}>
