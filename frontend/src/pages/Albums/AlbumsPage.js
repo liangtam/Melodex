@@ -30,6 +30,9 @@ const AlbumsPage = () => {
 
   const handleSearchClick = async (e) => {
     e.preventDefault();
+    if (name === '') {
+      return;
+    }
     const response = await fetch('http://localhost:8080/api/albums/all/' + name, {
       method: 'GET'
     }).catch((err) => {

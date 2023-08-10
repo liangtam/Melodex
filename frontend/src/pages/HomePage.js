@@ -97,6 +97,10 @@ const HomePage = () => {
   const handleSearchClick = async (e) => {
     e.preventDefault();
 
+    if (!attributes.length || table === '' || field1==='' || field2==='' || val1 === '' || val2 === '') {
+      return;
+    }
+
     let attributesCopy = [...attributes];
     const attributeString = attributesCopy.join(", ");
     console.log("Attributes: ", attributeString);
