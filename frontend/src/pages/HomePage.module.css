@@ -1,82 +1,72 @@
 @keyframes fadeInAnimation {
     0% {
-        opacity: 0;
+      opacity: 0;
     }
     100% {
-        opacity: 1;
-     }
-}
-
-body {
+      opacity: 1;
+    }
+  }
+  
+  body {
     margin: 0;
     padding: 0;
-    background-image: url('./images/304_login_bg.png');
+    color: white;
+    background-image: url("./images/304_login_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
     overflow: hidden;
-}
-
-label {
-    color: white;
-}
-
-input {
-    height: 29px;
-    border-radius: 5px;
-    border-color: white;
-    background: none;
-}
-
-.title {
+  }
+  
+  .title {
     translate: 0px -10px;
     animation: fadeInAnimation ease 1s;
     color: white;
-}
-
-p {
-    color: white;
+  }
+  
+  p {
     font-size: 20px;
     animation: fadeInAnimation ease 3s;
-
-}
-
-.centered {
+  }
+  
+  .centered {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-}
-
-.title h2 {
+  }
+  
+  .title h2 {
     font-size: 50px;
-}
-
-.searchArea {
+  }
+  
+  .searchArea {
     display: flex;
-}
-select {
+    margin-left: 30px;
+  }
+  select {
     height: 30px;
     width: 100px;
-}
-
-ul {
+  }
+  
+  ul {
     list-style: none;
-}
-
-.attributeOptions {
-    display: flex;
-}
-
-.searchBar {
+  }
+  
+  .attributeOptions {
+    display: grid;
+    margin-left: 30px;
+  }
+  
+  .searchBar {
     translate: 0px 10px;
     width: 500px;
     height: 25px;
     border-radius: 15px;
-}
-
-.centered button {
+  }
+  
+  .centered button {
     translate: 0px 10px;
     border: none;
     margin: 10px;
@@ -87,9 +77,18 @@ ul {
     background-color: #3c3e7c;
     color: white;
     font-size: 15px;
-}
-
-.centered  button:hover {
+  }
+  
+  .centered button:hover {
     cursor: pointer;
     background-color: rgb(100, 89, 156);
-}
+  }
+  
+  .filters {
+    margin-right: 100px;
+  }
+  
+  .layout {
+    display: flex;
+    flex-direction: column;
+  }
