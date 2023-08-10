@@ -17,7 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/artists")
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin
 public class Artist_ContractedWithController {
     @Autowired
     public Artist_ContractedWithService artist_contractedWithService;
@@ -77,6 +77,11 @@ public class Artist_ContractedWithController {
 
     @GetMapping("/projection")
     public String projection(@RequestBody List<String> attributes) {
+
+        if (attributes.isEmpty()) {
+            return null;
+        }
+
         String attributesString = "";
         for (int i = 0; i < attributes.size(); i++) {
             if (i == attributes.size() - 1) {

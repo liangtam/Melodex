@@ -24,6 +24,10 @@ public class GeneralController {
 
     @GetMapping("/")
     public String getDynamicSelection(@RequestBody CustomQueryReqBody reqBody) {
+        if (reqBody.getAttributes().isEmpty() || reqBody.getVal1() == "" || reqBody.getVal2() == "") {
+            return null;
+        }
+
         String attributesString = "";
         for (int i = 0; i < reqBody.getAttributes().size(); i++) {
             if (i == reqBody.getAttributes().size() - 1) {
