@@ -20,6 +20,10 @@ body {
   width: 100vw;
 }
 
+input {
+  background: none;
+}
+
 .title {
   translate: 0px -10px;
   animation: fadeInAnimation ease 1s;
