@@ -43,7 +43,7 @@ const ArtistForm = () => {
       artistName,
       age,
       country,
-      biography,
+      biography: bio,
       numOfMembers,
       labelID,
     };
