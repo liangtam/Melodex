@@ -141,7 +141,7 @@ const DisplayAllArtists = () => {
         {projectionClicked && <div className={styles.tuples}>
           <h2>Projected Artists</h2>
             {projectedArtists.map((projectedArtist) => {
-              return <ProjectedArtistTuple artist={projectedArtist} artistID={projectedArtist.artistID} setProjectedArtists={setProjectedArtists}/>
+              return <ProjectedArtistTuple projectedArtist={projectedArtist} artistID={projectedArtist.artistID} setProjectedArtists={setProjectedArtists}/>
             })}
         </div>}
       </div>
