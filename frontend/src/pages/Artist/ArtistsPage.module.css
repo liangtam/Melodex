@@ -88,12 +88,6 @@ p {
   align-content: center;
 }
 
-.nestedAggResult {
-  color: black;
-  border-radius: 5px;
-  padding: 10px;
-  background-color: white;
-}
 
 .divisionResult {
   width: 500px;
