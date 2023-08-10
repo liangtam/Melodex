@@ -52,6 +52,8 @@ const ArtistTuple = ({artist, artistID}) => {
         }
   }
 
+  
+
   const handleUpdate = async(event) => {
     const response = await fetch(`http://localhost:8080/api/artists/update/${artistID}`, {
             method: 'PATCH',
