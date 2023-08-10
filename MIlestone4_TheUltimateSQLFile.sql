@@ -523,22 +523,22 @@ INSERT INTO IsIn
 
 
 INSERT INTO MusicListener
-VALUES (7, 'sunshine1', 'sunshine1@gmail.com', 20, 'sunshinePassword', 'Adele', 'Rolling in the Deep', 'jazz');
+VALUES (7, 'sunshine1', 20, 'Adele', 'Rolling in the Deep', 'jazz');
 
 INSERT INTO MusicListener
-VALUES (8, 'cutieee', 'lilcutie@gmail.com', 28, 'cutiePassword', 'Lana Del Ray', 'Young and Beautiful', 'classic');
+VALUES (8, 'cutieee', 28, 'Lana Del Ray', 'Young and Beautiful', 'classic');
 
 INSERT INTO MusicListener
-VALUES (9, 'bookWorm', 'bookLover@hotmail.com', 18, 'bookPassword', 'Ed Sheeran', 'Perfect', 'pop');
+VALUES (9, 'bookWorm', 18, 'Ed Sheeran', 'Perfect', 'pop');
 
 INSERT INTO MusicListener
-VALUES (10, 'happyListener', 'happyListener@hotmail.com', 25, 'happyPassword', 'Taylor Swift', 'Love Story', 'pop');
+VALUES (10, 'happyListener', 25, 'Taylor Swift', 'Love Story', 'pop');
 
 INSERT INTO MusicListener
-VALUES (11, 'rockLover', 'iLoveRock@yahoo.com', 29, 'rockPassword', 'Freddie Mercury', 'Bohemian Rhapsody', 'rock');
+VALUES (11, 'rockLover', 29, 'Freddie Mercury', 'Bohemian Rhapsody', 'rock');
 
 INSERT INTO MusicListener
-VALUES (12, 'rainyyy', 'rainy@yahoo.com', 34, 'rainyPassword', 'Billie Eilish', 'Happier Than Ever', 'classic');
+VALUES (12, 'rainyyy', 34, 'Billie Eilish', 'Happier Than Ever', 'classic');
 
 
 
