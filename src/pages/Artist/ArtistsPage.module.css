@@ -1,0 +1,58 @@
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: #333;
+} */
+
+.regContainer .leftBody {
+  left: 0;
+
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.leftBody .title {
+  animation: fadeInAnimation ease 1s;
+  color: white;
+}
+
+p {
+  font-size: 19.5px;
+  animation: fadeInAnimation ease 3s;
+}
+.regContainer .rightBody {
+  right: 0;
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  animation: fadeInAnimation ease 1s;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.title h2 {
+  font-size: 50px;
+}

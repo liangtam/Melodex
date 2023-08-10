@@ -1,0 +1,117 @@
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  background-image: url("./images/304_login_bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+input {
+  background: none;
+}
+
+.title {
+  translate: 0px -10px;
+  animation: fadeInAnimation ease 1s;
+  color: white;
+}
+
+p {
+  font-size: 20px;
+  animation: fadeInAnimation ease 3s;
+}
+
+.simpleSearchText {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered input[type="text"] {
+  color: black; /* Sets the text color to black */
+}
+
+.title h2 {
+  font-size: 50px;
+}
+
+.searchArea {
+  flex-direction: column;
+  align-items: start; /* aligns children to the left */
+  gap: 50px; /* provides space between stacked children */
+  margin-left: 30px;
+}
+
+select {
+  height: 30px;
+  width: 100px;
+}
+
+ul {
+  list-style: none;
+}
+
+.attributeOptions {
+  display: flex;
+  align-items: start; /* To align the label and the list at the top */
+  gap: 10px; /* Space between the label and the list */
+  margin-left: 150px;
+}
+
+.searchBar {
+  translate: 0px 10px;
+  width: 500px;
+  height: 25px;
+  border-radius: 15px;
+}
+
+.centered button {
+  translate: 0px 10px;
+  border: none;
+  margin: 10px;
+  padding: 6px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border-radius: 5px;
+  background-color: #3c3e7c;
+  color: white;
+  font-size: 15px;
+}
+
+.centered button:hover {
+  cursor: pointer;
+  background-color: rgb(100, 89, 156);
+}
+
+.filters {
+  display: flex; /* Set the container to flex */
+  align-items: center; /* Vertically center align the items in case they have different heights */
+  gap: 10px; /* Add a little gap between items */
+  margin-left: 0;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+}

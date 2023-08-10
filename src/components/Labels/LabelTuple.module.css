@@ -1,0 +1,100 @@
+.tupleContainer {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.tupleContainer h3 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.tupleContainer h4 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.tupleContainer p {
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 10px;
+  margin-bottom: 5px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.titlebox {
+  position: relative;
+  min-width: 580px;
+}
+
+.titlebox .titlelist {
+  position: relative;
+  display: flex;
+  padding: 0px;
+  border-radius: 10px;
+  margin: 10px 0;
+  overflow: hidden;
+  background: rgb(68, 58, 125);
+}
+
+.titlebox .titlelist .titlecontent {
+  display: flex;
+  margin-left: 15px;
+  margin-right: 15px;
+  gap: 55px;
+  align-items: center;
+  color: #333;
+}
+
+.box {
+  position: relative;
+  min-width: 580px;
+}
+
+.box .list {
+  position: relative;
+  display: flex;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;
+  overflow: hidden;
+  background: #fff;
+}
+
+.box .list .content {
+  display: flex;
+  margin-left: 15px;
+  margin-right: 15px;
+  gap: 40px;
+  align-items: center;
+  color: #333;
+}
+
+.editbtn {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  background: #3c3e7c;
+  font-size: 10px;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 1px;
+  box-shadow: rgba(0, 0, 0, 0.4);
+}
+
+.editbtn:hover {
+  cursor: pointer;
+  background-color: rgb(100, 89, 156);
+}

@@ -1,0 +1,94 @@
+
+@keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .songContainer .leftBody {
+    left: 0;
+  
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  .leftBody .title {
+    animation: fadeInAnimation ease 1s;
+    color: white;
+  }
+  
+  p {
+      font-size: 19.5px;
+      animation: fadeInAnimation ease 3s;
+  
+  }
+  .songContainer .rightBody {
+    right: 0;
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    animation: fadeInAnimation ease 1s;
+  }
+  
+  .rightBody .centered .songButtons button:hover {
+    cursor: pointer;
+    background-color: aqua;
+  }
+  
+  .userbtn {
+    background-color: cornflowerblue;
+  }
+  
+  .artistbtn {
+    background-color: hotpink;
+  }
+  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .tuples {
+    max-width: 100%; /* Set a maximum width for the container */
+    margin: 0 auto;
+    padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: calc(100vh - 150px); /* Adjust the value to leave space for the header/footer */
+  }
+
+
+  .tuples::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .tuples::-webkit-scrollbar-thumb {
+    background-color: #296d9b;
+    border-radius: 5px;
+  }
+  
+  .tuples::-webkit-scrollbar-thumb:hover {
+    background-color: #3582b6;
+  }
+  
+  .title h2 {
+    font-size: 50px;
+  }
+  
+  .signUpText {
+    margin-bottom: 40px;
+    justify-content: space-between;
+    font-size: 50px;
+  }
