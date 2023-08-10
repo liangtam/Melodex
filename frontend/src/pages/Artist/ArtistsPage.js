@@ -106,7 +106,7 @@ const ArtistsPage = () => {
 
           {divisionClicked && <div>Artist ID: {divisionObj}</div>}
           {aggHavingClicked && <div>Result: {JSON.stringify(aggHaving)}</div>}
-          {divisionClicked && <div>Artist ID: {divisionObj}</div>}
+          {aggGroupClicked && <div>Result: {JSON.stringify(aggGroup)}</div>}
           {divisionClicked && <div>Artist ID: {divisionObj}</div>}
         </div>
       </div>
