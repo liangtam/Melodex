@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class Artist_ContractedWithServiceImpl implements Artist_ContractedWithService {
@@ -64,5 +65,10 @@ public class Artist_ContractedWithServiceImpl implements Artist_ContractedWithSe
     @Override
     public void deleteArtistById(Integer artistID) {
         artist_contractedWithRepository.deleteArtistById(artistID);
+    }
+
+    @Override
+    public Optional<Artist_ContractedWith> findArtistById(int id) {
+        return artist_contractedWithRepository.findById(id);
     }
 }

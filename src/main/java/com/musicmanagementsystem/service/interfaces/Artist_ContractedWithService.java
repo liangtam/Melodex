@@ -5,6 +5,7 @@ import com.musicmanagementsystem.service.DTO.AggGroupByDTO;
 import com.musicmanagementsystem.service.DTO.AggHavingDTO;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface Artist_ContractedWithService {
 
@@ -27,4 +28,6 @@ public interface Artist_ContractedWithService {
     public List<AggHavingDTO> aggregationHaving();
 
     public void deleteArtistById(Integer artistID);
+
+    public Optional<Artist_ContractedWith> findArtistById(int id);
 }

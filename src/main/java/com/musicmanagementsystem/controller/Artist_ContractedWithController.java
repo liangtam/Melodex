@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/artists")
@@ -32,16 +33,23 @@ public class Artist_ContractedWithController {
         System.out.println("Added new artist!");
     }
 
+
     @GetMapping("/all")
     public List<Artist_ContractedWith> getAllArtists() {
         return artist_contractedWithService.getAllArtists();
     }
 
     @DeleteMapping("/{id}")
-    public void updateArtist(@PathVariable int id) {
+    public void deleteArtistById(@PathVariable Integer id) {
         artist_contractedWithService.deleteArtistById(id);
         System.out.println("Deleted artist!");
     }
+
+    @GetMapping("/{id}")
+    public Optional<Artist_ContractedWith> findArtistById(@PathVariable Integer id) {
+        return artist_contractedWithService.findArtistById(id);
+    }
+
     // UPDATE OPERATION to submit
     @PatchMapping("/update/{id}")
     public void updateArtist(@PathVariable int id, @RequestBody Artist_ContractedWithBody reqBody) {
@@ -81,23 +89,23 @@ public class Artist_ContractedWithController {
     }
 
     @GetMapping("/projection")
-    public String projection(@RequestBody List<String> attributes) {
+    public String projection(@RequestParam String attributes) {
 
-        if (attributes.isEmpty()) {
+        if (attributes == "") {
             return null;
         }
 
-        String attributesString = "";
-        for (int i = 0; i < attributes.size(); i++) {
-            if (i == attributes.size() - 1) {
-                attributesString += attributes.get(i);
-            } else {
-                attributesString += (attributes.get(i) + ", ");
-            }
-        }
-        System.out.println("Attributes string: " + attributesString);
+//        String attributesString = "";
+//        for (int i = 0; i < attributes.size(); i++) {
+//            if (i == attributes.size() - 1) {
+//                attributesString += attributes.get(i);
+//            } else {
+//                attributesString += (attributes.get(i) + ", ");
+//            }
+//        }
+//        System.out.println("Attributes string: " + attributesString);
 
-        String dynamicQuery = "SELECT " + attributesString + " FROM Artist_ContractedWith";
+        String dynamicQuery = "SELECT " + attributes + " FROM Artist_ContractedWith";
         System.out.println("Dynamic query: " + dynamicQuery); // this is just for me debugging
 
         List<Map<String, Object>> queryResult = jdbcTemplate.queryForList(dynamicQuery);
