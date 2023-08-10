@@ -4,9 +4,13 @@ import { useState, useEffect } from "react";
 const ProjectedArtistTuple = ({projectedArtist, artistID, artists, setProjectedArtists}) => {
 
   // const [artistObj, setArtistObj] = useState('');
-  
 
- 
+  const [keysAndValues, setKeysAndValues] = useState(Object.keys(projectedArtist));
+
+  useEffect(() => {
+    console.log("Keys and vals: ", keysAndValues);
+  }, [keysAndValues])
+   
 
 //   const fetchArtists = async () => {
 //     const response = await fetch('http://localhost:8080/api/artists/all', {
@@ -45,11 +49,11 @@ const ProjectedArtistTuple = ({projectedArtist, artistID, artists, setProjectedA
         <div className={styles.box}>
           <div className={styles.list}>
             <div className={styles.content}>
-              <p>{projectedArtist && projectedArtist.artistName}</p>
+              {/* <p>{projectedArtist && projectedArtist.artistName}</p>
               <p>{projectedArtist && projectedArtist.age}</p>
               <p>{projectedArtist && projectedArtist.country}</p>
               <p>{projectedArtist && projectedArtist.biography}</p>
-              <p>{projectedArtist && projectedArtist.numOfMembers}</p>
+              <p>{projectedArtist && projectedArtist.numOfMembers}</p> */}
             </div>
           </div>
         </div>

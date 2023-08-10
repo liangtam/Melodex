@@ -44,6 +44,7 @@ p {
 }
 
 .simpleSearchText {
+  color: rgb(115, 222, 255);
   font-weight: bold;
   font-size: 24px;
 }
@@ -61,6 +62,8 @@ p {
 }
 
 .title h2 {
+  margin-bottom: 0;
+  translate: 0px 20px;
   font-size: 50px;
 }
 

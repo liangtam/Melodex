@@ -22,6 +22,7 @@ const HomePage = () => {
     console.log("Val 1 change: ", val1 )
     console.log("Val 2 change: ", val2)
   }, [attributes, field1, field2, val1, val2])
+  
   useEffect(() => {
     if (tableInfo.length) {
       setTableRowKeys(Object.keys(tableInfo[0]));
