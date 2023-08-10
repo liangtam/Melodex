@@ -60,4 +60,9 @@ public class Artist_ContractedWithServiceImpl implements Artist_ContractedWithSe
     public List<AggHavingDTO> aggregationHaving() {
         return artist_contractedWithRepository.aggregationHaving();
     }
+
+    @Override
+    public void deleteArtistById(Integer artistID) {
+        artist_contractedWithRepository.deleteArtistById(artistID);
+    }
 }

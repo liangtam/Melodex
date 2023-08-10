@@ -1,6 +1,7 @@
 package com.musicmanagementsystem.repository;
 
 import com.musicmanagementsystem.model.Album;
+import com.musicmanagementsystem.service.DTO.AlbumDTO;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -32,6 +33,10 @@ public interface AlbumRepository extends JpaRepository<Album, Integer> {
     // JOIN OPERATION to submit
     @Query(value = getAllAlbumsWithNameQuery, nativeQuery = true)
     List<Album> getAllAlbumsWithName(@Param("discoName") String discoName);
+
+    //
+    @Query(name="Album.bloop", nativeQuery = true)
+    List<AlbumDTO> getAllAlbumsNoId();
 
 
 }

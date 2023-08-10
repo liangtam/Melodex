@@ -25,4 +25,6 @@ public interface Artist_ContractedWithService {
     public List<AggGroupByDTO> aggregationGroupBy();
 
     public List<AggHavingDTO> aggregationHaving();
+
+    public void deleteArtistById(Integer artistID);
 }

@@ -2,6 +2,7 @@ package com.musicmanagementsystem.controller;
 
 import com.musicmanagementsystem.controller.reqBodies.AlbumDisco;
 import com.musicmanagementsystem.model.Album;
+import com.musicmanagementsystem.service.DTO.AlbumDTO;
 import com.musicmanagementsystem.service.interfaces.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,11 @@ public class AlbumController {
     @GetMapping("/all")
     public List<Album> getAllAlbums() {
         return albumService.getAllAlbums();
+    }
+
+    @GetMapping("/alldto")
+    public List<AlbumDTO> getAllAlbumsNoID() {
+        return albumService.getAllAlbumsNoId();
     }
 
 

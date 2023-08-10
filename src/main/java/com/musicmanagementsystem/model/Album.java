@@ -9,12 +9,13 @@ import java.util.Set;
 
 
 @NamedNativeQuery(name="Album.bloop",
-        query="SELECT D.discoName, A.numOfSongs, A.totalDuration, D.releaseDate " +
+        query="SELECT D.discoName, D.genre, A.numOfSongs, A.totalDuration, D.releaseDate " +
                 "FROM Album A, Discography_Main D WHERE A.albumID = D.dID",
         resultSetMapping="Mapping.AlbumDTO")
 @SqlResultSetMapping(name="Mapping.AlbumDTO",
         classes = @ConstructorResult(targetClass = AlbumDTO.class,
                 columns={@ColumnResult(name="discoName"),
+                        @ColumnResult(name="genre"),
                         @ColumnResult(name="numOfSongs"),
                         @ColumnResult(name="totalDuration"),
                         @ColumnResult(name="releaseDate")}))

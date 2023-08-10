@@ -22,6 +22,7 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
             "SET artistName= :artistName, age=:age, country=:country, biography=:biography, numOfMembers=:numOfMembers, labelID=:labelID " +
             "WHERE Artist_ContractedWith.artistID= :artistID";
     String dynamicSelection = "SELECT :attributes FROM :table ";
+    String deleteArtistByIdQuery = " DELETE FROM Artist_ContractedWith WHERE artistID = :artistID";
     String nestAggregationQuery = "SELECT artistID\n" +
             "FROM Artist_ContractedWith A\n" +
             "WHERE (\n" +
@@ -83,6 +84,12 @@ public interface Artist_ContractedWithRepository extends JpaRepository<Artist_Co
     @Transactional
     @Query(value = "INSERT INTO Releases (artistID, dID) VALUES (:artistID, :dID)", nativeQuery = true)
     public void releaseDiscography(@Param("artistID") Integer albumID, @Param("dID") Integer discoID);
+
+    @Modifying
+    @Transactional
+    @Query(value=deleteArtistByIdQuery, nativeQuery = true)
+    public void deleteArtistById(@Param("artistID") Integer artistID);
+
 
 
     // NESTED AGGRE

@@ -37,6 +37,11 @@ public class Artist_ContractedWithController {
         return artist_contractedWithService.getAllArtists();
     }
 
+    @DeleteMapping("/{id}")
+    public void updateArtist(@PathVariable int id) {
+        artist_contractedWithService.deleteArtistById(id);
+        System.out.println("Deleted artist!");
+    }
     // UPDATE OPERATION to submit
     @PatchMapping("/update/{id}")
     public void updateArtist(@PathVariable int id, @RequestBody Artist_ContractedWithBody reqBody) {
