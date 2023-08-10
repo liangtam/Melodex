@@ -82,7 +82,7 @@ const ArtistsPage = () => {
 
     if (response.ok) {
       const json = await response.json();
-      setAggGroup(json);
+      setNestedAgg(json);
       console.log("Fetched nested! ", json)
     } else {
       console.log("error");
@@ -107,7 +107,7 @@ const ArtistsPage = () => {
           {divisionClicked && <div>Artist ID: {divisionObj}</div>}
           {aggHavingClicked && <div>Result: {JSON.stringify(aggHaving)}</div>}
           {aggGroupClicked && <div>Result: {JSON.stringify(aggGroup)}</div>}
-          {divisionClicked && <div>Artist ID: {divisionObj}</div>}
+          {nestedAggClicked && <div>Result: {JSON.stringify(nestedAgg)}</div>}
         </div>
       </div>
       <div className={styles.rightBody}>
