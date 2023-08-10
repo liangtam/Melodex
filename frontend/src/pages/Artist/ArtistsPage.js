@@ -35,7 +35,7 @@ const ArtistsPage = () => {
 
     if (response.ok) {
       const json = await response.json();
-      setAggGroup(JSON.stringify(json));
+      setAggGroup(json);
       console.log("Fetched aggrogroup! ", json)
     } else {
       console.log("error");
@@ -55,7 +55,7 @@ const ArtistsPage = () => {
 
     if (response.ok) {
       const json = await response.json();
-      setAggHaving(JSON.stringify(json));
+      setAggHaving(json);
       console.log("Fetched aggHaving! ", json)
     } else {
       console.log("error");
@@ -124,11 +124,15 @@ const ArtistsPage = () => {
             </div>
           </div>
 
-          {divisionClicked && divisionObj && <div> <h4>Artist ID of artists who covered all genres:</h4> {divisionObj.map((result) => {
-            return <div className={styles.divisionResult}><h4>Artist ID: </h4>{result}</div>
+          {divisionClicked && divisionObj && <div className={styles.divisionResult}> <h4>Artist ID of artists who covered all genres:</h4> {divisionObj.map((result) => {
+            return <div><b>Artist ID: </b>{result}</div>
           })}</div>}
-          {aggHavingClicked && <div className={styles.aggHavingResult}>Result: {aggHaving}</div>}
-          {aggGroupClicked && <div className={styles.aggGroupResult}>Result: {aggGroup}</div>}
+          {aggHavingClicked && aggHaving && <div className={styles.aggHavingResult}><h4>Artist IDs whose average number of songs released per album is the lowest among all artists:</h4> {aggHaving.map((result) => {
+            return <div><b>Name: </b> {result.artistName} <b>Earliest Release Date:</b> {result.earliestReleaseDate}</div>
+          })}</div>}
+          {aggGroupClicked && aggGroup && <div className={styles.aggGroupResult}><h4>Number of Discographies Released by Each Artist:</h4> {aggGroup.map((result) => {
+            return <div><b>ID: </b> {result.artistID} <b>Number of Releases:</b> {result.numOfDiscography}</div>
+          })}</div>}
           {nestedAggClicked && nestedAgg && <div className={styles.nestedAggResult}><h4>Artist IDs whose average number of songs released per album is the lowest among all artists:</h4> {nestedAgg.map((result) => {
             return <div>Artist ID: {result}</div>
           })}</div>}

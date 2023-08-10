@@ -88,27 +88,61 @@ p {
   align-content: center;
 }
 
-.nestedAggResult {
-  color: black;
-  border-radius: 5px;
-  padding: 10px;
-  background-color: white;
-}
 
 .divisionResult {
-  color: black;
+  width: 500px;
   border-radius: 5px;
   padding: 10px;
-  background-color: white;
+  padding-top: 2px;
+  padding-bottom: 20px;
+  border-style: dotted;
+  border-color: white;
 }
 
 .divisionResult h4 {
-  color: rgb(155, 135, 228)
+  color: rgb(134, 241, 255)
 }
 
 .nestedAggResult {
-  color: black;
+  width: 500px;
   border-radius: 5px;
   padding: 10px;
-  background-color: white;
+  padding-top: 2px;
+  padding-bottom: 20px;
+  border-style: dotted;
+  border-color: white;
 }
+
+.nestedAggResult h4 {
+  color: rgb(134, 241, 255)
+}
+
+.aggHavingResult {
+  width: 500px;
+  border-radius: 5px;
+  padding: 10px;
+  padding-top: 2px;
+  padding-bottom: 20px;
+  border-style: dotted;
+  border-color: white;
+}
+
+.aggHavingResult h4 {
+  color: rgb(134, 241, 255)
+}
+
+
+.aggGroupResult {
+  width: 500px;
+  border-radius: 5px;
+  padding: 10px;
+  padding-top: 2px;
+  padding-bottom: 20px;
+  border-style: dotted;
+  border-color: white;
+}
+
+.aggGroupResult h4 {
+  color: rgb(134, 241, 255)
+}
+
