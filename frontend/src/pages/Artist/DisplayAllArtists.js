@@ -55,10 +55,8 @@ const DisplayAllArtists = () => {
     fetchArtists();
   }, [])
 
-  return (
-  <div className={styles.tuples}>
-      {artists && artists.map((artist) => {
-        <div className={styles.attributeOptions}>
+    return (
+    <div className={styles.attributeOptions}>
         <label> Attributes: </label>
         <ul>
           {artistAttributes.map((item) => {
@@ -76,6 +74,12 @@ const DisplayAllArtists = () => {
             })}
         </ul>
       </div>
+  )
+
+
+  return (
+  <div className={styles.tuples}>
+      {artists && artists.map((artist) => {
         return <ArtistTuple artist={artist} artistID={artist.artistID}/>
       })}
     </div>
