@@ -95,7 +95,7 @@ const ArtistsPage = () => {
 
     if (response.ok) {
       const json = await response.json();
-      setNestedAgg(JSON.stringify(json));
+      setNestedAgg(json);
       console.log("Fetched nested! ", json)
     } else {
       console.log("error");
@@ -125,12 +125,13 @@ const ArtistsPage = () => {
           </div>
 
           {divisionClicked && divisionObj && <div> <h4>Artist ID of artists who covered all genres:</h4> {divisionObj.map((result) => {
-            return <div className={styles.divisionResult}>Artist ID: {result}</div>
+            return <div className={styles.divisionResult}><h4>Artist ID: </h4>{result}</div>
           })}</div>}
-          {/* { divisionClicked && <div className={styles.divisionResult}>Artist ID: {divisionObj}</div>} */}
           {aggHavingClicked && <div className={styles.aggHavingResult}>Result: {aggHaving}</div>}
           {aggGroupClicked && <div className={styles.aggGroupResult}>Result: {aggGroup}</div>}
-          {nestedAggClicked && <div className={styles.nestedAggResult}>Result: {nestedAgg}</div>}
+          {nestedAggClicked && nestedAgg && <div className={styles.nestedAggResult}><h4>Artist IDs whose average number of songs released per album is the lowest among all artists:</h4> {nestedAgg.map((result) => {
+            return <div>Artist ID: {result}</div>
+          })}</div>}
         </div>
       </div>
       <div className={styles.rightBody}>
