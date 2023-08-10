@@ -28,7 +28,7 @@
   animation: fadeInAnimation ease 1s;
   color: white;
 }
-button{
+.alignbtn{
   width: 100%;
   padding: 5px;
   outline: none;
