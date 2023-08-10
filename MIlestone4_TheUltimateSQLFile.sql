@@ -33,9 +33,9 @@ CREATE TABLE Artist_ContractedWith(
 CREATE TABLE MusicListener( -- this is the Listener Entity. We cannot name it Listener
 	listenerID INTEGER PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
-	email VARCHAR(320) UNIQUE NOT NULL, -- apparently the longest email someone can create is 320 characters long
+	-- email VARCHAR(320) UNIQUE NOT NULL, -- apparently the longest email someone can create is 320 characters long
 	age INTEGER,
-	userPassword VARCHAR(50) NOT NULL,
+	-- userPassword VARCHAR(50) NOT NULL,
 	favArtist VARCHAR(50),
 	favSong VARCHAR(50),
 	favGenre VARCHAR(50));
